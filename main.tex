@@ -1,0 +1,57 @@
+\documentclass[lang=cn,10pt,newtx,thmcnt=section]{vividbook} % 无minted版本!使用这个请务必注释掉48行附近的\input{cha/minteds.tex}
+
+
+\title{关于自控的那些事}
+\subtitle{Automatic Control Theory}
+
+
+\extrainfo{在没有结束前，总要做很多没有意义的事，这样才可以在未来某一天，用这些无意义的事去堵住那些讨厌的缺口}
+
+\setcounter{tocdepth}{10}
+
+\logo{1.jpg}
+\cover{2.jpg}
+
+% 本文档命令
+\usepackage{array}
+\newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
+% 方便书写的一些命令
+\newcommand{\Lcal}{\mathcal{L}}
+
+
+% 修改标题页的橙色带
+\definecolor{customcolor}{RGB}{150, 250, 246}
+\colorlet{coverlinecolor}{customcolor}
+\usepackage{cprotect}
+\usepackage{zhlipsum}
+\usepackage{longtable}
+\addbibresource[location=local]{reference.bib} % 参考文献，不要删除
+\usepackage{animate}
+\definecolor{framegolden}{RGB}{0, 174, 247} % 控制外框颜色
+\begin{document}
+
+\chapterimage{q2.pdf} 
+\maketitle
+
+\frontmatter
+\thispagestyle{fancy}
+\tableofcontents
+
+\mainmatter
+
+\partsimage{cov18.pdf}
+\part{经典控制原理}
+
+\chapterimage{9.jpg}
+\input{note/mathmodel/mathmodel.tex}
+
+\chapterimage{10.jpg}
+\input{note/time-domain analysis/time-domain analysis.tex}
+
+\chapterimage{sd6.pdf}
+\input{note/system stability/system stability.tex}
+
+\chapterimage{11.jpg}
+\input{note/frequency-domain analysis/frequency-domain analysis.tex}
+
+\end{document}
