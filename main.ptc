@@ -59,4 +59,30 @@
 \contentsline {subsection}{\numberline {4.1.1}频率特性的几种表示形式}{30}{subsection.4.1.1}%
 \contentsline {subsubsection}{\numberline {4.1.1.1}Nyquist图}{30}{subsubsection.4.1.1.1}%
 \contentsline {subsubsection}{\numberline {4.1.1.2}Bode图}{32}{subsubsection.4.1.1.2}%
+\contentsline {chapter}{\numberline {第 5{} 章}线性离散系统}{35}{chapter.5}%
+\contentsline {section}{\numberline {5.1}A/D转换}{35}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}A/D转换}{35}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}离散信号的频谱}{36}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}采样周期的选取}{36}{subsection.5.1.3}%
+\contentsline {section}{\numberline {5.2}D/A转换}{36}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Z变换与Z反变换}{36}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Z变换}{36}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}求Z变换的常用方法}{37}{subsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.2.1}级数求和法}{37}{subsubsection.5.3.2.1}%
+\contentsline {subsubsection}{\numberline {5.3.2.2}部分分式法}{37}{subsubsection.5.3.2.2}%
+\contentsline {part}{ \@mptof {2}{现代控制原理} }{38}{part.2}%
+\ttl@stoptoc {default@1}
+\ttl@starttoc {default@2}
+\contentsline {chapter}{\numberline {第 6{} 章}状态空间模型}{39}{chapter.6}%
+\contentsline {section}{\numberline {6.1}线性系统的状态空间描述}{39}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}线性系统的状态空间描述}{39}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}状态空间表达式的建立}{40}{subsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.2.1}从系统方框图建立状态空间表达式}{41}{subsubsection.6.1.2.1}%
+\contentsline {subsubsection}{\numberline {6.1.2.2}从系统的机理出发建立状态空间表达式}{41}{subsubsection.6.1.2.2}%
+\contentsline {subsubsection}{\numberline {6.1.2.3}由系统的输入输出传递关系求系统的状态空间描述}{42}{subsubsection.6.1.2.3}%
+\contentsline {subsection}{\numberline {6.1.3}线性系统的代数等价}{44}{subsection.6.1.3}%
+\contentsline {subsubsection}{\numberline {6.1.3.1}化状态空间为传递函数矩阵}{44}{subsubsection.6.1.3.1}%
+\contentsline {subsubsection}{\numberline {6.1.3.2}线性定常系统的几个概念}{45}{subsubsection.6.1.3.2}%
+\contentsline {subsubsection}{\numberline {6.1.3.3}代数等价系统}{45}{subsubsection.6.1.3.3}%
+\contentsline {subsubsection}{\numberline {6.1.3.4}代数等价系统的性质}{45}{subsubsection.6.1.3.4}%
 \contentsfinish 
