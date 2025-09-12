@@ -121,3 +121,204 @@ D/A转换器将数字信号转换为模拟信号。D/A转换的过程可以看�
 这是$X(z)$的laurent级数表达式，故只要知道$x(k)$的闭式表达，即可求出其Z变换
 
 \subsubsection{部分分式法}
+利用部分分式法求Z变换时，先求出连续函数$x(t)$的Laplace变换$X(s)$。$X(s)$通常是$s$的有理分式，将其展成部分分式之和的形式，使每一部分分式对应简单的时间函数。然后分别求出每一项的Z变换。最后作同分简化运算，求得$x(t)$采样序列所对应的Z变换$X(z)$。
+
+\subsubsection{留数计算法}
+若已知连续信号$x(t)$的Laplace变换$X(s)$和它的全部极点$s_i$，可用以下公式求出其Z变换：
+\begin{equation*}
+    X(z) = \sum_{i=1}^n \text{Res} [X(s)\frac{z}{z-e^{sT}},s_i]
+\end{equation*}
+
+\subsubsection{常用函数的Z变换}
+
+以下为常用函数的Z变换，如表所示：
+\begin{center}
+    \includegraphics[width = .7\textwidth]{note/linear discrete system/figure/2.png}
+\end{center}
+
+\subsection{Z变换的性质与定理}
+在介绍Z变换的性质与定理之前，先假设有n个连续函数$x_i(t)\,(i\leq n)$，他们的Z变换分别为：$X_i(z)\,(i\leq n)$
+
+\subsubsection{线性性质}
+
+Z变换的线性性体现在如下式子：
+\begin{equation*}
+    Z[\alpha x_1(t) +\beta x_2(t)] = \alpha X_1(z) + \beta X_2(z)
+\end{equation*}
+
+其中$\alpha , \beta $为常数
+
+\subsubsection{实数位移定理}
+
+实数位移定理包括滞后定理与超前定理，以下分别介绍：
+\begin{enumerate}
+    \item （滞后定理）：$Z[x_1 (t-nT)] = z^{-n} X_1 (z)$
+    \item （超前定理）：$Z[x(t+nT)] = z^n [X(z) - \sum\limits_{k=0}^{n-1} x(k) z^{-k}]$
+\end{enumerate}
+
+\subsubsection{初值定理}
+如果信号$x_1(t)$满足因果性，则其满足以下式子：
+\begin{equation*}
+    x_1(0) = \lim\limits_{z\rightarrow \infty} X_1(z)
+\end{equation*}
+
+\subsubsection{终值定理}
+如果$X_1(z)$满足$(z-1)X_1(z)$的全部极点都位于$z$平面单位圆内，则：$x_1(t)$在$\infty$处存在极限，且有
+\begin{equation*}
+    x_1(\infty) = \lim\limits_{z\rightarrow 1}(z-1)X_1(z)
+\end{equation*}
+
+Z变换的主要性质如下表所示：
+\begin{center}
+    \includegraphics[width = .7\textwidth]{note/linear discrete system/figure/3.png}\\
+    \includegraphics[width = .7\textwidth]{note/linear discrete system/figure/4.png}
+\end{center}
+
+\subsubsection{卷积定理}
+
+卷积定理满足以下式子：
+\begin{equation*}
+    Z[x_1(t) * x_2(t)] = X_1(t) X_2(t)
+\end{equation*}
+
+\subsection{Z反变换}
+
+\begin{definition}
+    称根据$X(z)$反求$x(k)$的过程称为Z反变换，记为$Z^{-1}[X(z)]$，即$Z^{-1}[X(z)] = x(k)$
+\end{definition}
+
+以下介绍Z反变换的几种计算方法：
+
+\begin{enumerate}
+    \item 长除法：当$X_(z)$为$z$的有理分式时，可以用长除法求出其留数表达式，然后求出其Z反变换（不常用，略）
+    \item 部分分式法：可以将$X(z)$写为若干个分式之和，其中每个分式对应Z变换中的一项，便可求出其Z反变换。具体式子如下：（举其中一种例子，这种方法的使用也不多）
+    \begin{equation*}
+        X(z) = \sum_{i=1}^n \frac{A_i z}{z-z_i}
+    \end{equation*}
+
+    其中$z_1,\cdots,z_n$为$X(z)$的极点
+    \item 留数计算法：假设$X(z)$的极点分别为$z_1,\cdots,z_n$，则其反变换$x(k)$可写为以下形式：
+    \begin{equation*}
+        x(k) = \sum_{i=1}^n \text{Res}[X(z)z^{k-1},z_i]
+    \end{equation*}
+
+    注意：$k=0$的情况有可能需要单独讨论，此处$z=0$可能为新的极点
+\end{enumerate}
+
+\section{脉冲传递函数}
+
+\subsection{脉冲传递函数的概念}
+\begin{definition}
+    脉冲传递函数，也成称为Z传递函数，是线性离散系统或环节的一种数学模型，可以反应线性离散系统的特性。
+
+    脉冲传递函数的物理意义为：已知一个连续系统的传递函数为：$G(s)$，则通过对$G(s)$的单位脉冲相应$g(t)$的采样序列$g^* (t)$求Z变换，可得该环节的脉冲传递函数。
+
+    脉冲传递函数的性质如下：
+    \begin{enumerate}
+        \item $G(z)$是关于$z$的复函数
+        \item $G(z)$与输入输出序列无关，仅与系统的结构参数有关
+        \item $G(z)$与系统差分方程一一对应
+        \item $G(z)$相当于系统单位脉冲响应序列的Z变换
+        \item $G(z)$对应$z$平面的零极点图
+    \end{enumerate}
+
+    脉冲传递函数还具有一定的局限性：原则上其不反应非零初始条件下系统响应的全部信息、一边只适合SISO离散系统、只适用于描述线性定常离散系统等。
+\end{definition}
+
+\subsection{串联环节的脉冲传递函数}
+\subsubsection{串联环节间无同步开关}
+
+如图所示串联环节间无同步采样开关时，其脉冲传递函数为$G(z) = Y(z)/E(z)$，可由描述连续工作状态的传递函数$G_1(s)$和$G_2(s)$的乘积$G_1(s)G_2(s)$求取，记为:
+\begin{center}
+    \includegraphics[width = .4\textwidth]{note/linear discrete system/figure/5.png}
+\end{center}
+\begin{equation*}
+    G(z) = Z[G_1(s)G_2(s)] = G_1G_2(z)
+\end{equation*}
+
+上述结论可以推广到无采样开关隔离的$n$个环节相串联的情况中，即：
+\begin{equation*}
+    G(z) = Z[G_1(s)\cdots G_n(z)] = G_1\cdots G_n(z) 
+\end{equation*}
+
+\subsubsection{串联环节间有同步开关}
+如图所示两串联环节间用同步采样开关隔离时，有：
+\begin{center}
+    \includegraphics[width = .4\textwidth]{note/linear discrete system/figure/6.png}
+\end{center}
+\begin{equation*}
+    \begin{split}
+        M(z) &= G_1(z)E(z) \quad G_1(z) = Z[G_1(s)] \\
+        Y(z) &= G_2(z)M(z) \quad G_2(z) = Z[G_2(s)] \\
+    \end{split}
+\end{equation*}
+
+于是，脉冲传递函数为：
+\begin{equation*}
+    G(z) = \frac{Y(z)}{E(z)} = G_1(z) G_2(z)
+\end{equation*}
+
+同样的，可以将上述情况推广到有同步采样开关隔开的$n$个环节相串联的情况，即：
+\begin{equation*}
+    G(z) = Z[G_1(s)]\cdots Z[G_n(s)] = G_1(z)\cdots G_n(z)
+\end{equation*}
+
+\subsubsection{零阶保持器与串联环节串联}
+
+如图所示为零阶保持器与环节串联的情况，可以得到其传递函数为：
+\begin{center}
+    \includegraphics[width = .4\textwidth]{note/linear discrete system/figure/7.png}
+\end{center}
+\begin{equation*}
+    G(z) = (1-z^{-1}) Z\left[ \frac{G_0(s)}{s} \right]
+\end{equation*}
+
+\subsection{常见离散系统方框图与其Z变换}
+
+如图所示为常用线性离散系统的的方框图与被控信号的Z变换：
+\begin{center}
+    \includegraphics[width = .7\textwidth]{note/linear discrete system/figure/8.png}\\
+    \includegraphics[width = .675\textwidth]{note/linear discrete system/figure/9.png}
+\end{center}
+
+\section{差分方程}
+
+\subsection{线性常系数差分方程}
+
+$n$阶后向非齐次差分方程的基本形式如下：
+\begin{equation*}
+    y(k)+ \sum_{i=1}^n a_i y(k-i) = \sum_{j=0}^m b_j r(k-j)
+\end{equation*}
+
+$n$阶前向非齐次差分方程的基本形式如下：
+\begin{equation*}
+    y(k+n) + \sum_{i=1}^n a_i y(k+n-i) = \sum_{j=1}^m r(k+m-j)
+\end{equation*}
+
+\subsection{差分方程的求解}
+
+差分方程常用迭代法和Z变换法来求解，下面进行一一介绍
+
+\subsubsection{迭代法}
+迭代法是一种递推的方法，适合计算机进行递推运算求解。$n$阶后向差分方程的一般形式为：
+\begin{equation*}
+    y(n) = -\sum_{i=1}^n a_i y(k-i) + \sum_{j=0}^m b_j r(k-j)
+\end{equation*}
+
+只要知道了初始条件，即输出序列的初始值$y(0),\cdots , y(n-1)$ 和任意时刻的输入序列$r(k)\,k=0,\cdots$，那么系统任何时刻输出序列的值$y(n)$都可以逐步递推出来
+
+\subsubsection{Z变换法}
+用Z变换法求解差分方程的实质是利用Z变换的位移定理，将差分方程化为以$z$为变量的代数方程，然后进行Z反变换，求出各采样时刻的响应。用Z变换法解差分方程的步骤为：
+\begin{enumerate}
+    \item 对差分方程进行Z变换
+    \item 解出方程中输出量的Z变换$Y(z)$
+    \item 求出$Y(z)$的Z反变换，得到差分方程的解$y(k)$
+\end{enumerate}
+
+\subsection{由差分方程求系统脉冲传递函数}
+与连续函数非分方程求传递函数类似，步骤如下：
+\begin{enumerate}
+    \item 保证系统是处于零状态响应
+    \item 将差分方程两侧作Z变换
+    \item 求出$\frac{Y(z)}{R(z)}$
+\end{enumerate}

@@ -444,3 +444,93 @@
         \item 相互代数等价的线性定常系统具有相同的输入解耦零点、输出解耦零点和传输零点
     \end{enumerate}
 \end{property}
+
+\section{离散系统状态空间分析}
+
+\subsection{离散系统状态空间描述}
+
+设线性离散系统的采样方式为周期采样，采样时刻为$kT,k\in N$，则状态空间描述为：
+\begin{equation*}
+    \begin{cases}
+        \mathbf{x}(k+1) = G(k)\mathbf{x}(k) + H(k) \mathbf{u}(k)\\
+        \mathbf{y}(k) = C(k) \mathbf{x}(k) + D(k) \mathbf{u}(k)
+    \end{cases}
+\end{equation*}
+
+其中$G,H,C,D$均为实矩阵，称$G(k)$为系统矩阵，$H(k)$为控制输入矩阵，$C(k)$为观测矩阵，$D(k)$为前馈矩阵。如果系统的参数矩阵均为定常的，即与采样时间标号$k$无关，则生疏式子可以化为以下式子：
+\begin{equation*}
+    \begin{cases}
+        \mathbf{x}(k+1) = G\mathbf{x}(k) + H \mathbf{u}(k)\\
+        \mathbf{y}(k) = C \mathbf{x}(k) + D \mathbf{u}(k)
+    \end{cases}
+\end{equation*}
+
+对于定常线性离散系统，我们称$G$的特征值为系统的特征值或极点。另外，类似于连续的情形，还有下述定义：
+\begin{definition}
+    对于上述线性定常离散系统，称满足
+    \begin{equation*}
+        rank[sI_n - G \quad H] < n
+    \end{equation*}
+
+    的$s$为系统的输入解耦零点，称满足
+    \begin{equation*}
+        rank \left[
+            \begin{array}{c}
+                sI_n - G \\    C
+            \end{array}
+        \right] <n
+    \end{equation*}
+
+    的$s$为系统的输出解耦零点，称满足
+    \begin{equation*}
+        rank \left[
+            \begin{array}{cc}
+                sI_n - G & -H \\
+                C & D 
+            \end{array}
+        \right] < n+ min \{r,m\}
+    \end{equation*}
+
+    的s为系统的传输零点
+\end{definition}
+
+\subsubsection{离散系统状态空间的求法}
+
+\noindent \textbf{1.}化差分方程为离散状态方程
+
+这里假设差分方程中不含输入函数的高阶差分，即差分方程为：
+\begin{equation*}
+    y(k+n) + \sum_{i=1}^n a_i y(k+n-i) = b u(k)
+\end{equation*}
+
+选择状态变量为：
+\begin{center}
+    \includegraphics[width = .3\textwidth]{note/state space/figure/10.png}
+\end{center}
+
+则此时可以写出状态方程和输出方程为：
+\begin{center}
+    \includegraphics[width = .6\textwidth]{note/state space/figure/11.png}
+\end{center}
+
+\noindent \textbf{2.}化脉冲传递函数为离散状态方程
+
+假设系统的脉冲传递函数$G(z)$分子分母多项式的阶数相同，且具有互不相同的实极点$z_1,\cdots,z_n$，则可以采用部分分式法将$G(z)$化为：
+\begin{equation*}
+    G(z) = \frac{\overline{y}(z)}{\overline{u}(z)} = d+ \sum_{i=1}^n \frac{k_i}{z-z_i}
+\end{equation*}
+
+上式中$\overline{y}(z),\overline{u}(z)$分别为输入输出的Z变换，$k_i = \text{Res}[G(z),z_i]$
+
+取$\overline{x}_i(z) = \frac{1}{z-z_i} \overline{u}(z)$为离散状态变量的Z变换，则有：
+\begin{equation*}
+    z\overline{x}_i(z) = z_i \overline{x}_i(z) + \overline{u}(z)
+\end{equation*}
+\begin{equation*}
+    \overline{y}(z) = d\overline{u}(z) + \sum_{i=1}^n k_i \overline{x}_i (z)
+\end{equation*}
+
+此时系统的状态方程和输出方程为：
+\begin{center}
+    \includegraphics[width = .6\textwidth]{note/state space/figure/12.png}
+\end{center}

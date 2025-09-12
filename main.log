@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.29)  8 SEP 2025 21:50
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.29)  12 SEP 2025 19:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2145,12 +2145,12 @@ LaTeX Font Warning: Font shape `TU/SimHei(0)/b/n' undefined
 
 
 
-]
-Overfull \hbox (28.46957pt too wide) in paragraph at lines 72--72
+] [2]
+Overfull \hbox (28.46957pt too wide) in paragraph at lines 94--94
  []|[][] [][][][][][]   [][][][][][] 
  []
 
-[2])
+)
 \tf@toc=\write9
 \openout9 = `main.toc'.
 
@@ -2425,10 +2425,30 @@ File: note/linear discrete system/figure/1.png Graphic file (type bmp)
 <note/linear discrete system/figure/1.png>
 [35
 
-] [36]) [37] (e:/latex/texlive/2024/texmf-dist/tex/generic/pgfornament/vectorian/vectorian72.pgf) (e:/latex/texlive/2024/texmf-dist/tex/generic/pgfornament/vectorian/vectorian73.pgf) (e:/latex/texlive/2024/texmf-dist/tex/generic/pgfornament/vectorian/vectorian85.pgf) (./main.ptc)
+] [36]
+File: note/linear discrete system/figure/2.png Graphic file (type bmp)
+<note/linear discrete system/figure/2.png>
+ [37] [38]
+File: note/linear discrete system/figure/3.png Graphic file (type bmp)
+<note/linear discrete system/figure/3.png>
+File: note/linear discrete system/figure/4.png Graphic file (type bmp)
+<note/linear discrete system/figure/4.png>
+ [39]
+File: note/linear discrete system/figure/5.png Graphic file (type bmp)
+<note/linear discrete system/figure/5.png>
+File: note/linear discrete system/figure/6.png Graphic file (type bmp)
+<note/linear discrete system/figure/6.png>
+ [40]
+File: note/linear discrete system/figure/7.png Graphic file (type bmp)
+<note/linear discrete system/figure/7.png>
+File: note/linear discrete system/figure/8.png Graphic file (type bmp)
+<note/linear discrete system/figure/8.png>
+File: note/linear discrete system/figure/9.png Graphic file (type bmp)
+<note/linear discrete system/figure/9.png>
+ [41]) [42] (e:/latex/texlive/2024/texmf-dist/tex/generic/pgfornament/vectorian/vectorian72.pgf) (e:/latex/texlive/2024/texmf-dist/tex/generic/pgfornament/vectorian/vectorian73.pgf) (e:/latex/texlive/2024/texmf-dist/tex/generic/pgfornament/vectorian/vectorian85.pgf) (./main.ptc)
 File: ./figure/封面.png Graphic file (type bmp)
 <./figure/封面.png>
- [38
+ [43
 
 ] (./note/state space/state space.tex
 Chapter 6.
@@ -2439,17 +2459,17 @@ Underfull \hbox (badness 5519) in paragraph at lines 8--9
 []\TU/KaiTi(0)/b/n/10 完 全 地 表 征 系 统 时 间 域 行 为 的 最 小 个 数 的 内 部 变 量 组 称 为 系 统 的 状 态。|  组 成 这 个 变 量 组 的 变 量
  []
 
-[39
+[44
 
 ]
 File: note/state space/figure/1.png Graphic file (type bmp)
 <note/state space/figure/1.png>
 File: note/state space/figure/2.png Graphic file (type bmp)
 <note/state space/figure/2.png>
- [40]
+ [45]
 File: note/state space/figure/3.png Graphic file (type bmp)
 <note/state space/figure/3.png>
- [41] [42]
+ [46] [47]
 File: note/state space/figure/4.png Graphic file (type bmp)
 <note/state space/figure/4.png>
 File: note/state space/figure/5.png Graphic file (type bmp)
@@ -2458,16 +2478,24 @@ File: note/state space/figure/6.png Graphic file (type bmp)
 <note/state space/figure/6.png>
 File: note/state space/figure/7.png Graphic file (type bmp)
 <note/state space/figure/7.png>
- [43]
+ [48]
 File: note/state space/figure/8.png Graphic file (type bmp)
 <note/state space/figure/8.png>
 File: note/state space/figure/9.png Graphic file (type bmp)
 <note/state space/figure/9.png>
- [44])
+ [49] [50]
+File: note/state space/figure/10.png Graphic file (type bmp)
+<note/state space/figure/10.png>
+File: note/state space/figure/11.png Graphic file (type bmp)
+<note/state space/figure/11.png>
+ [51]
+File: note/state space/figure/12.png Graphic file (type bmp)
+<note/state space/figure/12.png>
+)
 \tf@ptc=\write10
 \openout10 = `main.ptc'.
 
- [45] (./main.aux)
+ [52] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/04/10>
@@ -2480,18 +2508,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A003C4EF6E5A52769F0EDDF7788CF2D1;13776.
+(rerunfilecheck)             Checksum: 9958E385A533C0B5D7DDCBD90CC97940;17866.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 55018 strings out of 474773
- 1165492 string characters out of 5758619
- 2258221 words of memory out of 5000000
- 76057 multiletter control sequences out of 15000+600000
+ 55128 strings out of 474773
+ 1170120 string characters out of 5758619
+ 2262488 words of memory out of 5000000
+ 76167 multiletter control sequences out of 15000+600000
  591921 words of font info for 216 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,26n,136p,832b,1355s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (49 pages).
+Output written on main.pdf (56 pages).
