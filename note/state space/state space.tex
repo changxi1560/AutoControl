@@ -7,7 +7,7 @@
 \begin{definition}[状态与状态空间]
     完全地表征系统时间域行为的最小个数的内部变量组称为系统的状态。组成这个变量组的变量$x_1(t),x_2(t),\cdots,x_n(t)$称为系统的状态变量，其中，$t \geq t_0$，$t_0$为系统的初始时刻。由状态变量构成的列向量
     \begin{equation*}
-        \mathbf{x}(t) = \left[
+        \bm{x}(t) = \left[
             \begin{array}{c}
                 x_1(t) \\ x_2(t) \\ \vdots \\ x_n(t)\\
             \end{array}
@@ -40,26 +40,26 @@
 
     其中，$t\geq t_0$。在引入向量表示的基础上，可以将状态方程表示为向量方程的形式
     \begin{equation*}
-        \dot{\mathbf{x}} = \mathbf{f}(\mathbf{x},\mathbf{u},t) \quad t \geq t_0
+        \dot{\bm{x}} = \bm{f}(\bm{x},\bm{u},t) \quad t \geq t_0
     \end{equation*}
 
     其中
     \begin{equation*}
-        \mathbf{x}(t) = \left[
+        \bm{x}(t) = \left[
             \begin{array}{c}
                 x_1(t) \\ \vdots \\ x_n(t) 
             \end{array}
         \right]
         \quad
-        \mathbf{u} = \left[
+        \bm{u} = \left[
             \begin{array}{c}
                 u_1 \\ \vdots \\ u_r
             \end{array}
         \right]
         \quad 
-        \mathbf{f}(\mathbf{x},\mathbf{u},t) = \left[
+        \bm{f}(\bm{x},\bm{u},t) = \left[
             \begin{array}{c}
-                f_1(\mathbf{x},\mathbf{u},t) \\ \vdots \\ f_n(\mathbf{x},\mathbf{u},t)
+                f_1(\bm{x},\bm{u},t) \\ \vdots \\ f_n(\bm{x},\bm{u},t)
             \end{array}
         \right]
     \end{equation*}
@@ -75,26 +75,26 @@
 
     或者表示成向量方程的形式
         \begin{equation*}
-        \mathbf{y} = \mathbf{g}(\mathbf{x},\mathbf{u},t) 
+        \bm{y} = \bm{g}(\bm{x},\bm{u},t) 
     \end{equation*}
 
     其中
     \begin{equation*}
-        \mathbf{y}(t) = \left[
+        \bm{y}(t) = \left[
             \begin{array}{c}
                 y_1(t) \\ \vdots \\ y_m(t) 
             \end{array}
         \right]
         \quad
-        \mathbf{u} = \left[
+        \bm{u} = \left[
             \begin{array}{c}
                 u_1 \\ \vdots \\ u_r
             \end{array}
         \right]
         \quad 
-        \mathbf{g}(\mathbf{x},\mathbf{u},t) = \left[
+        \bm{g}(\bm{x},\bm{u},t) = \left[
             \begin{array}{c}
-                g_1(\mathbf{x},\mathbf{u},t) \\ \vdots \\ g_m(\mathbf{x},\mathbf{u},t)
+                g_1(\bm{x},\bm{u},t) \\ \vdots \\ g_m(\bm{x},\bm{u},t)
             \end{array}
         \right]
     \end{equation*}
@@ -103,24 +103,24 @@
 系统的状态空间描述由状态方程和输出方程所组成，联合写出，则为：
 \begin{equation*}
     \begin{aligned}
-        \dot{\mathbf{x}} &= \mathbf{f}(\mathbf{x},\mathbf{u},t) \quad t \geq t_0 \\ 
-        \dot{\mathbf{y}} &= \mathbf{g}(\mathbf{x},\mathbf{u},t)   \\
+        \dot{\bm{x}} &= \bm{f}(\bm{x},\bm{u},t) \quad t \geq t_0 \\ 
+        \dot{\bm{y}} &= \bm{g}(\bm{x},\bm{u},t)   \\
     \end{aligned}
 \end{equation*}
 
 如果考察线性系统的连续动态过程，可以将上述两个方程写成如下形式：
 \begin{equation*}
     \begin{aligned}
-        \dot{\mathbf{x}} &= \mathbf{A}(t) \mathbf{x} + \mathbf{B}(t) \mathbf{u} \quad t \geq t_0 \\
-        \mathbf{y} &= \mathbf{C}(t) \mathbf{x} + \mathbf{D}(t) \mathbf{u}
+        \dot{\bm{x}} &= \bm{A}(t) \bm{x} + \bm{B}(t) \bm{u} \quad t \geq t_0 \\
+        \bm{y} &= \bm{C}(t) \bm{x} + \bm{D}(t) \bm{u}
     \end{aligned}
 \end{equation*}
 
 如果考察线性定常系统，则上述两个方程还能进行简化：
 \begin{equation*}
     \begin{aligned}
-        \dot{\mathbf{x}} &= \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \quad t \geq t_0 \\
-        \mathbf{y} &= \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u}
+        \dot{\bm{x}} &= \bm{A} \bm{x} + \bm{B} \bm{u} \quad t \geq t_0 \\
+        \bm{y} &= \bm{C} \bm{x} + \bm{D} \bm{u}
     \end{aligned}
 \end{equation*}
 
@@ -156,14 +156,14 @@
     $y = x_1$ 为系统输出方程，写成向量和矩阵的形式，系统的状态空间表达式为：
     \begin{equation*}
         \begin{aligned}
-            \dot{\mathbf{x}} &= \left[
+            \dot{\bm{x}} &= \left[
                 \begin{array}{ccc}
                     0 & \frac{K_3}{T_3} & 0 \\
                     0 & -\frac{1}{T_2} & \frac{K_2}{T_2} \\
                     -\frac{K_1K_4}{T_1} & 0 & -\frac{1}{T_1} \\
                 \end{array}
             \right]
-            \mathbf{x} + \left[
+            \bm{x} + \left[
                 \begin{array}{c}
                     0 \\ 0 \\ \frac{K_1}{T_1}
                 \end{array}
@@ -172,7 +172,7 @@
                 \begin{array}{ccc}
                     1 & 0 & 0\\
                 \end{array}
-            \right] \mathbf{x}
+            \right] \bm{x}
         \end{aligned}
     \end{equation*}
 \end{example}
@@ -300,7 +300,7 @@
 
         输出方程为：
         \begin{equation*}
-            y(t) = [c_1 \cdots c_n] \mathbf{x}
+            y(t) = [c_1 \cdots c_n] \bm{x}
         \end{equation*}
 
         如果系统特征根中存在重根，以下用一个特殊的例子来说明：
@@ -357,21 +357,21 @@
 对于线性定常系统
 \begin{equation*}
     \begin{cases}
-        \dot{\mathbf{x}} = A \mathbf{x} + B \mathbf{u} \\
-        \mathbf{y} = C \mathbf{x} + D \mathbf{u} 
+        \dot{\bm{x}} = A \bm{x} + B \bm{u} \\
+        \bm{y} = C \bm{x} + D \bm{u} 
     \end{cases}\quad t\geq t_0
 \end{equation*}
 
 对此式做Laplace变换，可导出
 \begin{equation*}
     \begin{cases}
-        s\mathbf{X}(s) = A \mathbf{X}(s) + B \mathbf{U}(s) \\
-        \mathbf{Y} (s) = C \mathbf{X}(s) + D \mathbf{U}(s)  
+        s\bm{X}(s) = A \bm{X}(s) + B \bm{U}(s) \\
+        \bm{Y} (s) = C \bm{X}(s) + D \bm{U}(s)  
     \end{cases}
     \Rightarrow 
     \begin{cases}
-        \mathbf{X} (s) = (sI-A)^{-1} B\mathbf{U}(s) \\
-        \mathbf{Y} (s) = [C (sI-A) ^{-1}B + D]U(s)
+        \bm{X} (s) = (sI-A)^{-1} B\bm{U}(s) \\
+        \bm{Y} (s) = [C (sI-A) ^{-1}B + D]U(s)
     \end{cases}
 \end{equation*}
 
@@ -416,12 +416,12 @@
     \begin{equation*}
         \begin{split}
             L:&\begin{cases}
-                \dot{\mathbf{x}} = A \mathbf{x} + B \mathbf{u} \\
-                    \mathbf{y} = C \mathbf{x} + D \mathbf{u} 
+                \dot{\bm{x}} = A \bm{x} + B \bm{u} \\
+                    \bm{y} = C \bm{x} + D \bm{u} 
         \end{cases}\\
         L':&    \begin{cases}
-        \dot{\overline{\mathbf{x}}} = \overline{A} \overline{\mathbf{x}} + \overline{B} \mathbf{u} \\
-        \mathbf{\overline{y}} = \overline{C} \overline{\mathbf{x}} + \overline{D} \mathbf{u} 
+        \dot{\overline{\bm{x}}} = \overline{A} \overline{\bm{x}} + \overline{B} \bm{u} \\
+        \bm{\overline{y}} = \overline{C} \overline{\bm{x}} + \overline{D} \bm{u} 
     \end{cases}
         \end{split}
     \end{equation*}
@@ -452,16 +452,16 @@
 设线性离散系统的采样方式为周期采样，采样时刻为$kT,k\in N$，则状态空间描述为：
 \begin{equation*}
     \begin{cases}
-        \mathbf{x}(k+1) = G(k)\mathbf{x}(k) + H(k) \mathbf{u}(k)\\
-        \mathbf{y}(k) = C(k) \mathbf{x}(k) + D(k) \mathbf{u}(k)
+        \dot{\bm{x}}(k+1) = G(k)\bm{x}(k) + H(k) \bm{u}(k)\\
+        \bm{y}(k) = C(k) \bm{x}(k) + D(k) \bm{u}(k)
     \end{cases}
 \end{equation*}
 
 其中$G,H,C,D$均为实矩阵，称$G(k)$为系统矩阵，$H(k)$为控制输入矩阵，$C(k)$为观测矩阵，$D(k)$为前馈矩阵。如果系统的参数矩阵均为定常的，即与采样时间标号$k$无关，则生疏式子可以化为以下式子：
 \begin{equation*}
     \begin{cases}
-        \mathbf{x}(k+1) = G\mathbf{x}(k) + H \mathbf{u}(k)\\
-        \mathbf{y}(k) = C \mathbf{x}(k) + D \mathbf{u}(k)
+        \dot{\bm{x}}(k+1) = G\bm{x}(k) + H \bm{u}(k)\\
+        \bm{y}(k) = C \bm{x}(k) + D \bm{u}(k)
     \end{cases}
 \end{equation*}
 
@@ -534,3 +534,128 @@
 \begin{center}
     \includegraphics[width = .6\textwidth]{note/state space/figure/12.png}
 \end{center}
+
+\section{线性时变系统的运动分析}
+
+\subsection{运动分析的含义}
+
+\subsubsection{线性系统的运动分析与解存在唯一性}
+
+对于线性时变系统，描述系统运动过程的状态方程为：
+\begin{equation*}
+    \dot{\bm{x}} = A(t) \bm{x} + B(t) \bm{u}  \quad   \bm{x}(t_0) = \bm{x}_0 \quad t \geq t_0
+\end{equation*}
+
+而对应的线性定常系统的状态方程为：
+\begin{equation*}
+    \dot{\bm{x}} = A \bm{x} + B \bm{u}  \quad   \bm{x}(0) = \bm{x}_0 \quad t \geq 0
+\end{equation*}
+
+显然，只有当状态方程满足初始条件的解存在唯一时，对系统的运动分析才是有意义的。这就要求状态方程中的系数矩阵和输入函数满足一定的假设，才可以保证方程解的存在唯一性。对于时变系统而言，如果系统矩阵$A(t)$和$B(t)$的所有的元素在时间定义区间$[t_0,t_f]$上均为实值连续函数，而输入$\bm{u}(t)$的元在时间区间$[t_0,t_f]$上是连续实函数，这时状态方程的解存在唯一
+
+\subsubsection{线性系统响应的特点}
+
+显然，线性系统的一个基本特征是其满足叠加原理。
+
+自由运动是系统没有外部作用时：
+\begin{equation*}
+    \dot{\bm{x}} = A(t) \bm{x} \quad \bm{x}(t_0) = \bm{x}_0 \quad t \geq t_0
+\end{equation*}
+的解，用$\bm{\phi}(t,t_0,\bm{x}_0,0)$来表示，其中的$0$表示输入为零，称为零输入响应。强迫运动则是系统在零初始条件下的强迫方程
+\begin{equation*}
+    \dot{\bm{x}} = A(t) \bm{x} + B(t) \bm{u}  \quad   \bm{x}(t_0) =  \quad t \geq t_0
+\end{equation*}
+的解，用$\bm{\phi}(t,t_0,0,\bm{u})$来表示，称为零状态响应。系统由初始状态和输入作用所引起的整体响应$\bm{\phi}(t,t_0,\bm{x}_0,\bm{u})$就是两者的叠加，即：
+\begin{equation*}
+    \bm{\phi}(t,t_0,\bm{x}_0,\bm{u}) = \bm{\phi}(t,t_0,0,\bm{u}) + \bm{\phi}(t,t_0,\bm{x}_0,0)
+\end{equation*}
+这样，线性系统的运动分析可以分为两部分进行，然后再进行叠加
+
+\subsection{状态转移矩阵的概念、性质以及求解方法}
+
+\section{线性定常系统的分析}
+\subsection{线性定常系统的响应}
+考察上述系统的状态转移矩阵。由于系统矩阵为定常矩阵$A$，显然满足条件式，于是系统的状态转移矩阵具有如下形式：
+\begin{equation*}
+    \bm{\Phi}(t,t_0) = I +\int_{t_0}^t A(\tau) d\tau + \frac{1}{2!}[\int_{t_0}^t A(\tau) d\tau]^2 + \cdots = e^{\int_{t_0}^t A(\tau) d\tau} = e^{A(t-t_0)}
+\end{equation*}
+当$t_0 = 0$时，$e^{At}$的表达式可以写为：
+\begin{equation*}
+    e^{At} = \sum_{k=0}^\infty \frac{1}{k!} A^k t^k
+\end{equation*}
+上式称为矩阵$A$的矩阵指数函数，即线性定常系统的状态转移矩阵为矩阵指数函数形式。
+
+下面给出线性定常系统响应的结论：
+\begin{theorem}
+    给定线性定常系统，则有：
+    \begin{enumerate}
+        \item 其零输入响应为：
+        \begin{equation*}
+            \bm{\phi}(t,t_0,\bm{x}_0,0) = e^{A(t-t_0)} \bm{x}_0
+        \end{equation*}
+        \item 其零状态响应为：
+        \begin{equation*}
+            \bm{\phi}(t,t_0,0,\bm{u}) = \int_{t_0}^t e^{A(t-\tau)} B \bm{u}(\tau) d\tau
+        \end{equation*}
+        \item 其整体的状态响应为：
+        \begin{equation*}
+            \bm{\phi}(t,t_0,\bm{x}_0,\bm{u}) = e^{A(t-t_0)} \bm{x}_0 + \int_{t_0}^t e^{A(t-\tau)} B \bm{u}(\tau) d\tau
+        \end{equation*}
+    \end{enumerate}
+\end{theorem}
+
+\subsection{矩阵指数函数}
+\subsubsection{矩阵指数函数的性质}
+矩阵指数函数满足以下性质：
+\begin{enumerate}
+    \item $e^{A0} = I$
+    \item $\frac{d}{dt} e^{At} = A e^{At}$
+    \item $e^{A(t+s)} = e^{At} e^{As}$
+    \item $(e^{At})^{-1} = e^{-At}$
+    \item 当矩阵$A,B$可交换时：$e^{(A+B)t} = e^{At} e^{Bt} = e^{Bt} e^{At}$
+    \item 若矩阵$P$为可逆矩阵，且$A = PJP^{-1}$，则$e^{At} = P e^{Jt} P^{-1}$
+\end{enumerate}
+\subsubsection{矩阵指数函数的求取}
+
+\noindent \textbf{1}根据定义用级数来求取
+
+\noindent \textbf{2}基于约当分解求取
+
+这种方法的基本思想是先对矩阵$A$进行约当分解，然后利用性质6求取$e^{At}$
+
+首先设$A$具有互异特征值$\lambda_i,i=1,2\cdots,n$，$\bm{p}_i$为$A$的与$\lambda_i$相对应的特征向量，记
+\begin{equation*}
+    P = [\bm{p}_1 \quad \bm{p}_2 \quad \cdots \quad \bm{p}_n]
+\end{equation*}
+则：
+\begin{equation*}
+    e^{At} = P \text{diag}(e^{\lambda_1 t} \quad e^{\lambda_2 t} \quad \cdots e^{\lambda_3 t}) P^{-1}
+\end{equation*}
+一般情况下，矩阵$A$的约当分解为：
+\begin{equation*}
+    A = P \text{diag}[J_1\quad J_2 \quad \cdots J_l] P^{-1}
+\end{equation*}
+其中$J_i$为约当块，此时有：
+\begin{equation*}
+    e^{At} = P \text{diag}(e^{J_1 t} \quad e^{J_2 t} \quad \cdots e^{J_3 t}) P^{-1}
+\end{equation*}
+再结合以下命题即可求解$e^{At}$
+\begin{proposition}
+    设$J_i$为一$p_i$阶约当块，$\lambda_i$为其特征值，其形式为：
+    \begin{center}
+        \includegraphics[width = .3\textwidth]{note/state space/figure/13.png}
+    \end{center}
+    则：
+    \begin{center}
+        \includegraphics[width = .4\textwidth]{note/state space/figure/14.png}
+    \end{center}
+\end{proposition}
+
+\noindent \textbf{3}利用Laplace变换求$e^{At}$
+\begin{equation*}
+    e^{At} = \mathcal{L}^{-1}[(sI - A)^{-1}]
+\end{equation*}
+
+证明从略
+
+\noindent \textbf{4} 利用Cayley-Hamilton定理计算$e^{At}$

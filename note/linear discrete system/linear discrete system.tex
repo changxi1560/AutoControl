@@ -322,3 +322,105 @@ $n$阶前向非齐次差分方程的基本形式如下：
     \item 将差分方程两侧作Z变换
     \item 求出$\frac{Y(z)}{R(z)}$
 \end{enumerate}
+
+\section{线性离散系统的时域分析}
+
+\subsection{极点在$z$平面上的分布与瞬态响应}
+
+设一个线性离散系统的闭环脉冲传递函数为：
+\begin{equation*}
+    \Phi (z) = \frac{M(z)}{D(z)} = \frac{k\prod\limits_{j=1}^m (z-z_j)}{\prod\limits_{i=1}^n (z-p_i)}
+\end{equation*}
+
+其中，$M(z)$为$\Phi(z)$的分子，$D(z)$为$\Phi(z)$的分母，$z_j$为系统的闭环零点，$p_i$为系统的闭环极点
+
+当$r(t) = 1(t)$，$R(z) = \frac{z}{z-1}$时，系统的输出的Z变换为：
+\begin{equation*}
+    Y(z) = \frac{k\prod\limits_{j=1}^m (z-z_j)}{\prod\limits_{i=1}^n (z-p_i)} \frac{z}{z-1}
+\end{equation*}
+
+当特征方程无重根时，$Y(z)$可展开为：
+\begin{equation*}
+     Y(z) = \frac{Az}{z-1} + \sum_{i=1}^n \frac{B_i z}{z - p_i}
+\end{equation*}
+
+其中$A = \left. \frac{M(z)}{D(z)} \right|_{z=1} $，$B_i = \left. \frac{M(z)(z-p_i)}{D(z)(z-1)} \right|_ {z=p_i}$。对上式进行Z反变换可以得到：
+\begin{equation*}
+    y(kT) = A + \sum_{i=1}^n B_i p_i ^ k
+\end{equation*}
+
+系统的瞬态响应分量为：
+\begin{equation*}
+    \sum_{i=1}^n B_i p_i^k
+\end{equation*}
+
+显然极点在z平面上的位置决定了瞬态响应中各分量的类型
+
+\subsubsection{实数极点}
+当闭环脉冲函数的极点位于实轴上，则在瞬态响应中将含有一个响应的分量：
+\begin{equation*}
+    y_i (kT) = B_i p_i^k
+\end{equation*}
+
+\begin{enumerate}
+    \item 若$0< p_i <1$，极点在单位圆内正实轴上，其对应的瞬态响应序列单调递减
+    \item 若$p_i = 1$，响应的瞬态响应是不变号的等幅序列
+    \item 若$p_i >1$，极点在单位元外正实轴上，对应的瞬态响应序列单调发散
+    \item 若$-1 < p_i <0$，极点在单位圆内负实轴上，对应的瞬态响应是正负交替变号的衰减振荡序列，振荡角频率为$\frac{\pi}{T}$
+    \item 若$p_i = -1$，对应的瞬态响应是正负交替变号的等幅序列，振荡角频率为$\frac{\pi}{T}$
+    \item 若$p_i < -1$，极点在单位圆外负实轴上，相应的瞬态响应序列是正负交替变号的发散序列，振荡角频率为$\frac{\pi}{T}$
+\end{enumerate}
+
+实数极点所对应的瞬态响应序列示意图如下图所示：
+
+\begin{center}
+    \includegraphics[width = .6\textwidth]{note/linear discrete system/figure/10.png}
+\end{center}
+
+\subsubsection{共轭复数极点}
+
+如果闭环脉冲传递函数有共轭副书记点$p_{i,i+1} = a \pm jb$，可以证明，这对共轭复数极点所对应的瞬态相应分量为：
+\begin{equation*}
+    y_i(kT) = A_i \lambda_i ^k \cos(k \theta_i + \varphi_i)
+\end{equation*}
+
+其中$\lambda_i = \sqrt{a^2 + b^2} = \left\lvert p_i \right\rvert $ ， $\theta_i = \arctan \dfrac{b}{a}$，$A_i,\varphi_i$由部分分式展开式的系数所决定的常数
+
+\begin{enumerate}
+    \item 若$\lambda_i =\left\lvert p_i \right\rvert <1 $ ，极点在单位圆之内，这对共轭复数极点所对应的瞬态响应是收敛振荡的脉冲序列，振荡角频率为$\frac{\theta_i}{T}$
+    \item 若$\lambda_i =\left\lvert p_i \right\rvert = 1$，这对共轭复数极点在单位圆上，其瞬态响应是等幅振荡的脉冲序列，振荡角频率为$\frac{\theta_i}{T}$
+    \item 若$\lambda_i =\left\lvert p_i \right\rvert >1$，极点在单位圆外，这对共轭复数极点所对应的瞬态响应是振荡发散的脉冲序列，振荡角频率为$\frac{\theta_i}{T}$
+\end{enumerate}
+
+具体示意图如下图所示：
+\begin{center}
+    \includegraphics[width = .6\textwidth]{note/linear discrete system/figure/11.png}
+\end{center}
+
+上述振荡过程，其振荡角频率都由相角$\theta_i$决定。$\theta_i$是极点$p_i$与正实轴的夹角，可以得到：
+
+振荡角频率为：
+\begin{equation*}
+    \omega_i = \frac{\theta_i}{T}
+\end{equation*}
+
+一个振荡周期中所含采样周期的个数$N$可由以下式子求出：
+\begin{equation*}
+    N = \frac{\omega_s}{\omega_i} = \frac{2\pi}{\theta_i}
+\end{equation*}
+
+\subsection{线性离散系统的时间响应}
+如同连续系统，离散系统的过渡过程也常用典型信号作用下系统的响应来衡量。如利用单位阶跃响应、单位斜坡响应等来分析系统的过渡过程。但离散系统中所研究的是过渡过程中各采样时刻上的离散信号
+
+当已知闭环，闭环脉冲传递函数及典型输入信号的Z变换时，可救出输出信号的Z变换$Y(z)$，然后用Z反变换求出时域响应$y^*(t)$。虽然有些系统无法写出闭环脉冲传递函数，但是$Y(z)$的表达式总是能写出的，因此求取$y^*(t)$并没有什么困难
+
+\begin{example}
+    \begin{center}
+        \includegraphics[width = .9\textwidth]{note/linear discrete system/figure/12.png}
+    \end{center}
+    \begin{center}
+        \includegraphics[width = .6\textwidth]{note/linear discrete system/figure/13.png}
+    \end{center}
+\end{example}
+
+
