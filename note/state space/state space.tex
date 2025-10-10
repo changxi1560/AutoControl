@@ -445,6 +445,205 @@
     \end{enumerate}
 \end{property}
 
+\section{线性时变系统的运动分析}
+
+\subsection{运动分析的含义}
+
+\subsubsection{线性系统的运动分析与解存在唯一性}
+
+对于线性时变系统，描述系统运动过程的状态方程为：
+\begin{equation*}
+    \dot{\bm{x}} = A(t) \bm{x} + B(t) \bm{u}  \quad   \bm{x}(t_0) = \bm{x}_0 \quad t \geq t_0
+\end{equation*}
+
+而对应的线性定常系统的状态方程为：
+\begin{equation*}
+    \dot{\bm{x}} = A \bm{x} + B \bm{u}  \quad   \bm{x}(0) = \bm{x}_0 \quad t \geq 0
+\end{equation*}
+
+显然，只有当状态方程满足初始条件的解存在唯一时，对系统的运动分析才是有意义的。这就要求状态方程中的系数矩阵和输入函数满足一定的假设，才可以保证方程解的存在唯一性。对于时变系统而言，如果系统矩阵$A(t)$和$B(t)$的所有的元素在时间定义区间$[t_0,t_f]$上均为实值连续函数，而输入$\bm{u}(t)$的元在时间区间$[t_0,t_f]$上是连续实函数，这时状态方程的解存在唯一
+
+\subsubsection{线性系统响应的特点}
+
+显然，线性系统的一个基本特征是其满足叠加原理。
+
+自由运动是系统没有外部作用时：
+\begin{equation*}
+    \dot{\bm{x}} = A(t) \bm{x} \quad \bm{x}(t_0) = \bm{x}_0 \quad t \geq t_0
+\end{equation*}
+的解，用$\bm{\phi}(t,t_0,\bm{x}_0,0)$来表示，其中的$0$表示输入为零，称为零输入响应。强迫运动则是系统在零初始条件下的强迫方程
+\begin{equation*}
+    \dot{\bm{x}} = A(t) \bm{x} + B(t) \bm{u}  \quad   \bm{x}(t_0) =  \quad t \geq t_0
+\end{equation*}
+的解，用$\bm{\phi}(t,t_0,0,\bm{u})$来表示，称为零状态响应。系统由初始状态和输入作用所引起的整体响应$\bm{\phi}(t,t_0,\bm{x}_0,\bm{u})$就是两者的叠加，即：
+\begin{equation*}
+    \bm{\phi}(t,t_0,\bm{x}_0,\bm{u}) = \bm{\phi}(t,t_0,0,\bm{u}) + \bm{\phi}(t,t_0,\bm{x}_0,0)
+\end{equation*}
+这样，线性系统的运动分析可以分为两部分进行，然后再进行叠加
+
+
+\section{线性定常系统的分析}
+\subsection{线性定常系统的响应}
+考察上述系统的状态转移矩阵。由于系统矩阵为定常矩阵$A$，显然满足条件式，于是系统的状态转移矩阵具有如下形式：
+\begin{equation*}
+    \bm{\Phi}(t,t_0) = I +\int_{t_0}^t A(\tau) d\tau + \frac{1}{2!}[\int_{t_0}^t A(\tau) d\tau]^2 + \cdots = e^{\int_{t_0}^t A(\tau) d\tau} = e^{A(t-t_0)}
+\end{equation*}
+当$t_0 = 0$时，$e^{At}$的表达式可以写为：
+\begin{equation*}
+    e^{At} = \sum_{k=0}^\infty \frac{1}{k!} A^k t^k
+\end{equation*}
+上式称为矩阵$A$的矩阵指数函数，即线性定常系统的状态转移矩阵为矩阵指数函数形式。
+
+下面给出线性定常系统响应的结论：
+\begin{theorem}
+    给定线性定常系统，则有：
+    \begin{enumerate}
+        \item 其零输入响应为：
+        \begin{equation*}
+            \bm{\phi}(t,t_0,\bm{x}_0,0) = e^{A(t-t_0)} \bm{x}_0
+        \end{equation*}
+        \item 其零状态响应为：
+        \begin{equation*}
+            \bm{\phi}(t,t_0,0,\bm{u}) = \int_{t_0}^t e^{A(t-\tau)} B \bm{u}(\tau) d\tau
+        \end{equation*}
+        \item 其整体的状态响应为：
+        \begin{equation*}
+            \bm{\phi}(t,t_0,\bm{x}_0,\bm{u}) = e^{A(t-t_0)} \bm{x}_0 + \int_{t_0}^t e^{A(t-\tau)} B \bm{u}(\tau) d\tau
+        \end{equation*}
+    \end{enumerate}
+\end{theorem}
+
+\subsection{矩阵指数函数}
+\subsubsection{矩阵指数函数的性质}
+矩阵指数函数满足以下性质：
+\begin{enumerate}
+    \item $e^{A0} = I$
+    \item $\frac{d}{dt} e^{At} = A e^{At}$
+    \item $e^{A(t+s)} = e^{At} e^{As}$
+    \item $(e^{At})^{-1} = e^{-At}$
+    \item 当矩阵$A,B$可交换时：$e^{(A+B)t} = e^{At} e^{Bt} = e^{Bt} e^{At}$
+    \item 若矩阵$P$为可逆矩阵，且$A = PJP^{-1}$，则$e^{At} = P e^{Jt} P^{-1}$
+\end{enumerate}
+\subsubsection{矩阵指数函数的求取}
+
+\noindent \textbf{1}根据定义用级数来求取
+
+\noindent \textbf{2}基于约当分解求取
+
+这种方法的基本思想是先对矩阵$A$进行约当分解，然后利用性质6求取$e^{At}$
+
+首先设$A$具有互异特征值$\lambda_i,i=1,2\cdots,n$，$\bm{p}_i$为$A$的与$\lambda_i$相对应的特征向量，记
+\begin{equation*}
+    P = [\bm{p}_1 \quad \bm{p}_2 \quad \cdots \quad \bm{p}_n]
+\end{equation*}
+则：
+\begin{equation*}
+    e^{At} = P \text{diag}(e^{\lambda_1 t} \quad e^{\lambda_2 t} \quad \cdots e^{\lambda_3 t}) P^{-1}
+\end{equation*}
+一般情况下，矩阵$A$的约当分解为：
+\begin{equation*}
+    A = P \text{diag}[J_1\quad J_2 \quad \cdots J_l] P^{-1}
+\end{equation*}
+其中$J_i$为约当块，此时有：
+\begin{equation*}
+    e^{At} = P \text{diag}(e^{J_1 t} \quad e^{J_2 t} \quad \cdots e^{J_3 t}) P^{-1}
+\end{equation*}
+再结合以下命题即可求解$e^{At}$
+\begin{proposition}
+    设$J_i$为一$p_i$阶约当块，$\lambda_i$为其特征值，其形式为：
+    \begin{center}
+        \includegraphics[width = .3\textwidth]{note/state space/figure/13.png}
+    \end{center}
+    则：
+    \begin{center}
+        \includegraphics[width = .4\textwidth]{note/state space/figure/14.png}
+    \end{center}
+\end{proposition}
+
+\noindent \textbf{3}利用Laplace变换求$e^{At}$
+\begin{equation*}
+    e^{At} = \mathcal{L}^{-1}[(sI - A)^{-1}]
+\end{equation*}
+
+证明从略
+
+\noindent \textbf{4} 利用Cayley-Hamilton定理计算$e^{At}$
+
+首先，先介绍一下Cayley-Hamilton定理
+\begin{theorem}
+    设$n$阶方阵$A$的特征方程为：
+    \begin{equation*}
+        f(\lambda) = \lambda^n + a_{n-1} s^{n-1} + \cdots + a_0 = 0
+    \end{equation*}
+
+    则方阵$A$满足$f(A) = 0$，即：
+    \begin{equation*}
+        A^n + a_{n-1} A^{n-1} + \cdots + a_0 = 0
+    \end{equation*}
+\end{theorem}
+
+通过Cayley-Hamilton定理我们可以得到以下的结论：
+\begin{center}
+    \includegraphics[width = \textwidth]{note/state space/figure/15.png}
+\end{center}
+
+\subsection{基于特征结构的状态响应表达}
+
+假设系统矩阵$A$为$n$阶方阵，且其特征根两两相异：$\lambda_i \,(i=1,2,\cdots,n)$，假设每一个$\lambda_i$所对应的右特征向量为$v_i$，左特征向量为$w_i^T$，即：
+\begin{equation*}
+    A v_i = \lambda_i v_i \quad w_i^T A = w_i^T \lambda_i
+\end{equation*}
+则我们可以写出关于$A$的右特征向量矩阵与左特征向量矩阵：
+\begin{equation*}
+    P = [v_1,v_2,\cdots,v_n] \quad T = [w_1,w_2,\cdots,w_n]^T
+\end{equation*}
+则此时有以下两个式子成立：
+\begin{equation*}
+    \begin{split}
+        e^{At} &= \sum_{i=1}^n v_i \overline{v_i}^T e^{\lambda_i t} \\
+        &= \sum_{i=1}^n \overline{w_i} w_i^T e^{\lambda_i t}
+    \end{split}
+\end{equation*}
+则此时我们可以写出这个表达式下的零输入响应与零状态响应：
+\begin{equation*}
+    \begin{split}
+        x_{0u} = e^{At} x_0 &= \sum_{i=1}^n (v_i \overline{v_i}^T) x_0 e^{\lambda_i t} \\
+        &= \sum_{i=1}^n (\overline{w_i} w_i^T) x_0 e^{\lambda_i t}
+    \end{split}
+\end{equation*}
+\begin{equation*}
+    \begin{split}
+        x_{0x} &= \sum_{i=1}^n (v_i \overline{v_i}^T) \left[
+            \sum_{j=1}^p b_j \int_0 ^t e^{\lambda_i (t-\tau)} u_j(\tau) d\tau
+        \right]\\
+        &= \sum_{i=1}^n (\overline{w_i} w_i^T) \left[
+            \sum_{j=1}^p b_j \int_0 ^t e^{\lambda_i (t-\tau)} u_j(\tau) d\tau
+        \right]
+    \end{split}
+\end{equation*}
+其中$b_j$为B的第$j$列写状态方程组和输出方程组
+
+\subsection{LTI系统的状态转移矩阵}
+
+对于齐次状态方程，若有$x(t) = \Phi (t,t_0) x_0$，则称$\Phi(t,t_0)$为系统的状态转移矩阵。系统做自由运动时，它的运动形态唯一由状态转移矩阵决定，它包含了系统自由运动的全部信息
+
+\begin{property}[状态转移矩阵的性质]
+    \begin{enumerate}
+        \item 状态转移矩阵的初始阵：$\Phi(0) = \Phi(t_0,t_0) = I$
+        \item 状态转移矩阵的逆：$\Phi^{-1} (t,t_0) = \Phi(t_0,t)$
+        \item 状态转移矩阵的传递性：$\Phi(t_2,t_1)\Phi(t_1,t_0) = \Phi(t_2,t_0)$
+        \item 状态转移矩阵的导数：$\frac{d}{dt} \Phi(t,t_0) = A \Phi(t,t_0) = \Phi(t_0,t) A$
+    \end{enumerate}
+\end{property}
+
+由上述信息可以写出系统状态响应与输出响应为：
+\begin{equation*}
+    \bm{x}(t) = \Phi(t,t_0)\bm{x}_0 + \int_{t_0}^t \Phi(t,\tau) B \bm{u}(\tau) d\tau
+\end{equation*}
+\begin{equation*}
+    \bm{y}(t) = C \Phi(t,t_0) \bm{x}_0 +C \int_{t_0}^t \Phi(t,\tau) B \bm{u}(\tau) d\tau + D \bm{u}(t)
+\end{equation*}
+
 \section{离散系统状态空间分析}
 
 \subsection{离散系统状态空间描述}
@@ -535,127 +734,151 @@
     \includegraphics[width = .6\textwidth]{note/state space/figure/12.png}
 \end{center}
 
-\section{线性时变系统的运动分析}
+\noindent \textbf{3.}线性连续系统状态方程的离散化
 
-\subsection{运动分析的含义}
-
-\subsubsection{线性系统的运动分析与解存在唯一性}
-
-对于线性时变系统，描述系统运动过程的状态方程为：
+给定线性连续时变系统
 \begin{equation*}
-    \dot{\bm{x}} = A(t) \bm{x} + B(t) \bm{u}  \quad   \bm{x}(t_0) = \bm{x}_0 \quad t \geq t_0
+    \begin{cases}
+        \dot{\bm{x}} = A(t) \bm{x} + B(t) \bm{u}  \quad t\in[t_0,t_a] \\
+        \bm{y} = C(t) \bm{x} + D(t) \bm{u} \quad \bm{x}(t_0) = \bm{x}_0
+    \end{cases}
 \end{equation*}
 
-而对应的线性定常系统的状态方程为：
+则其离散化后的状态方程为：
 \begin{equation*}
-    \dot{\bm{x}} = A \bm{x} + B \bm{u}  \quad   \bm{x}(0) = \bm{x}_0 \quad t \geq 0
+    \begin{cases}
+        \bm{x}(k+1) = G(k) \bm{x}(k) + H(k) \bm{x}(k) \quad k = 0,1,\cdots,l \\
+        \bm{y}(k) = C(k) \bm{x}(k) + D(k) \bm{u}(k) \quad \bm{x}(0) = \bm{x}_0
+    \end{cases}
 \end{equation*}
 
-显然，只有当状态方程满足初始条件的解存在唯一时，对系统的运动分析才是有意义的。这就要求状态方程中的系数矩阵和输入函数满足一定的假设，才可以保证方程解的存在唯一性。对于时变系统而言，如果系统矩阵$A(t)$和$B(t)$的所有的元素在时间定义区间$[t_0,t_f]$上均为实值连续函数，而输入$\bm{u}(t)$的元在时间区间$[t_0,t_f]$上是连续实函数，这时状态方程的解存在唯一
-
-\subsubsection{线性系统响应的特点}
-
-显然，线性系统的一个基本特征是其满足叠加原理。
-
-自由运动是系统没有外部作用时：
+并且两者的系数矩阵间存在如下关系式：
 \begin{equation*}
-    \dot{\bm{x}} = A(t) \bm{x} \quad \bm{x}(t_0) = \bm{x}_0 \quad t \geq t_0
-\end{equation*}
-的解，用$\bm{\phi}(t,t_0,\bm{x}_0,0)$来表示，其中的$0$表示输入为零，称为零输入响应。强迫运动则是系统在零初始条件下的强迫方程
-\begin{equation*}
-    \dot{\bm{x}} = A(t) \bm{x} + B(t) \bm{u}  \quad   \bm{x}(t_0) =  \quad t \geq t_0
-\end{equation*}
-的解，用$\bm{\phi}(t,t_0,0,\bm{u})$来表示，称为零状态响应。系统由初始状态和输入作用所引起的整体响应$\bm{\phi}(t,t_0,\bm{x}_0,\bm{u})$就是两者的叠加，即：
-\begin{equation*}
-    \bm{\phi}(t,t_0,\bm{x}_0,\bm{u}) = \bm{\phi}(t,t_0,0,\bm{u}) + \bm{\phi}(t,t_0,\bm{x}_0,0)
-\end{equation*}
-这样，线性系统的运动分析可以分为两部分进行，然后再进行叠加
-
-\subsection{状态转移矩阵的概念、性质以及求解方法}
-
-\section{线性定常系统的分析}
-\subsection{线性定常系统的响应}
-考察上述系统的状态转移矩阵。由于系统矩阵为定常矩阵$A$，显然满足条件式，于是系统的状态转移矩阵具有如下形式：
-\begin{equation*}
-    \bm{\Phi}(t,t_0) = I +\int_{t_0}^t A(\tau) d\tau + \frac{1}{2!}[\int_{t_0}^t A(\tau) d\tau]^2 + \cdots = e^{\int_{t_0}^t A(\tau) d\tau} = e^{A(t-t_0)}
-\end{equation*}
-当$t_0 = 0$时，$e^{At}$的表达式可以写为：
-\begin{equation*}
-    e^{At} = \sum_{k=0}^\infty \frac{1}{k!} A^k t^k
-\end{equation*}
-上式称为矩阵$A$的矩阵指数函数，即线性定常系统的状态转移矩阵为矩阵指数函数形式。
-
-下面给出线性定常系统响应的结论：
-\begin{theorem}
-    给定线性定常系统，则有：
-    \begin{enumerate}
-        \item 其零输入响应为：
-        \begin{equation*}
-            \bm{\phi}(t,t_0,\bm{x}_0,0) = e^{A(t-t_0)} \bm{x}_0
-        \end{equation*}
-        \item 其零状态响应为：
-        \begin{equation*}
-            \bm{\phi}(t,t_0,0,\bm{u}) = \int_{t_0}^t e^{A(t-\tau)} B \bm{u}(\tau) d\tau
-        \end{equation*}
-        \item 其整体的状态响应为：
-        \begin{equation*}
-            \bm{\phi}(t,t_0,\bm{x}_0,\bm{u}) = e^{A(t-t_0)} \bm{x}_0 + \int_{t_0}^t e^{A(t-\tau)} B \bm{u}(\tau) d\tau
-        \end{equation*}
-    \end{enumerate}
-\end{theorem}
-
-\subsection{矩阵指数函数}
-\subsubsection{矩阵指数函数的性质}
-矩阵指数函数满足以下性质：
-\begin{enumerate}
-    \item $e^{A0} = I$
-    \item $\frac{d}{dt} e^{At} = A e^{At}$
-    \item $e^{A(t+s)} = e^{At} e^{As}$
-    \item $(e^{At})^{-1} = e^{-At}$
-    \item 当矩阵$A,B$可交换时：$e^{(A+B)t} = e^{At} e^{Bt} = e^{Bt} e^{At}$
-    \item 若矩阵$P$为可逆矩阵，且$A = PJP^{-1}$，则$e^{At} = P e^{Jt} P^{-1}$
-\end{enumerate}
-\subsubsection{矩阵指数函数的求取}
-
-\noindent \textbf{1}根据定义用级数来求取
-
-\noindent \textbf{2}基于约当分解求取
-
-这种方法的基本思想是先对矩阵$A$进行约当分解，然后利用性质6求取$e^{At}$
-
-首先设$A$具有互异特征值$\lambda_i,i=1,2\cdots,n$，$\bm{p}_i$为$A$的与$\lambda_i$相对应的特征向量，记
-\begin{equation*}
-    P = [\bm{p}_1 \quad \bm{p}_2 \quad \cdots \quad \bm{p}_n]
-\end{equation*}
-则：
-\begin{equation*}
-    e^{At} = P \text{diag}(e^{\lambda_1 t} \quad e^{\lambda_2 t} \quad \cdots e^{\lambda_3 t}) P^{-1}
-\end{equation*}
-一般情况下，矩阵$A$的约当分解为：
-\begin{equation*}
-    A = P \text{diag}[J_1\quad J_2 \quad \cdots J_l] P^{-1}
-\end{equation*}
-其中$J_i$为约当块，此时有：
-\begin{equation*}
-    e^{At} = P \text{diag}(e^{J_1 t} \quad e^{J_2 t} \quad \cdots e^{J_3 t}) P^{-1}
-\end{equation*}
-再结合以下命题即可求解$e^{At}$
-\begin{proposition}
-    设$J_i$为一$p_i$阶约当块，$\lambda_i$为其特征值，其形式为：
-    \begin{center}
-        \includegraphics[width = .3\textwidth]{note/state space/figure/13.png}
-    \end{center}
-    则：
-    \begin{center}
-        \includegraphics[width = .4\textwidth]{note/state space/figure/14.png}
-    \end{center}
-\end{proposition}
-
-\noindent \textbf{3}利用Laplace变换求$e^{At}$
-\begin{equation*}
-    e^{At} = \mathcal{L}^{-1}[(sI - A)^{-1}]
+    \begin{split}
+        G(k) &= \Phi[(k+1)T,kT] = \Phi(k+1,k) \\
+        H(k) &= \int_{kT}^{(k+1)T} \Phi[(k+1)T,\tau]B(\tau) d\tau \\
+        C(k) &= [C(t)]_{t=kT} \\
+        D(k) &= [D(t)]_{t=kT} \\
+    \end{split}
 \end{equation*}
 
-证明从略
+特别的，给定LTI系统
+\begin{equation*}
+    \begin{cases}
+        \dot{\bm{x}} = A \bm{x} + B \bm{u} \quad \bm{x}(0) = \bm{x}_0 \\
+        \bm{y} = C \bm{x} + D \bm{u}
+    \end{cases}
+\end{equation*}
 
-\noindent \textbf{4} 利用Cayley-Hamilton定理计算$e^{At}$
+的时间离散化模型可以写为：
+\begin{equation*}
+    \begin{cases}
+        \bm{x}(k+1) = G \bm{x}(k) + H \bm{u}(k) \quad  \bm{x}(0) = \bm{x}_0 \\
+        \bm{y}(k) = C \bm{x}(k) + D \bm{u}(k) \quad k = 0,1,2,\cdots
+    \end{cases}
+\end{equation*}
+
+其中：
+\begin{equation*}
+    G = e^{AT} \qquad H = (\int_0^T e^{At} dt) B
+\end{equation*}
+
+这个系统的状态转移矩阵为：
+\begin{equation*}
+    \Phi(k) = G^k
+\end{equation*}
+
+\subsection{线性离散系统的运动分析}
+
+\subsubsection{状态表达式的求解}
+
+\noindent \textbf{1.}迭代法求状态表达式
+
+对于上述提到的LTI系统而言，其状态运动的表达式为：
+\begin{equation*}
+    \bm{x}(k) = G^k \bm{x}_0 + \sum_{i=0}^{k-1} G^{k-i-1} H \bm{u}(i)
+\end{equation*}
+
+或
+\begin{equation*}
+    \bm{x}(k) = G^k \bm{x}_0 + \sum_{i=0}^{k-1} G^i H \bm{u}(k-i-1)
+\end{equation*}
+
+\noindent \textbf{2.}Z变换求状态表达式
+
+对于上述LTI系统的状态差分方程而言，对其进行Z变换有：
+\begin{equation*}
+    z \bm{X}(z) - z\bm{x}_0 = G \bm{X}(z) + H \bm{U}(z)
+\end{equation*}
+
+故有：
+\begin{equation*}
+    \bm{x}(k) = Z^{-1}[\bm{X}(z)] = Z^{-1}[(zI - G)^{-1} (z \bm{x_0} + H \bm{U}(z))]
+\end{equation*}
+
+\subsubsection{状态转移矩阵的求法}
+
+\noindent \textbf{1.}Z变换法
+
+由上述两种求状态表达式的结果可以得到：
+\begin{equation*}
+    \Phi(k) = G^k = Z^{-1} [(zI - G )^{-1} z]
+\end{equation*}
+
+\noindent \textbf{2.}化矩阵$G$为标准型
+
+首先讨论最特殊的情况：$G$的特征根没有重根
+
+则此时我们可以取出其对应的右特征向量$P$，将$G$相似对角化为：
+\begin{equation*}
+    \varLambda = \text{diag}(\lambda_1,\lambda_2,\cdots,\lambda_n)
+\end{equation*}
+
+则此时我们可以求出状态转移矩阵为：
+\begin{equation*}
+    \Phi(k) = G^k = P \varLambda^k P^{-1} = P \text{diag}(\lambda_1^k,\lambda_2^k,\cdots,\lambda_n^k) P^{-1}
+\end{equation*}
+
+现在考虑$G$中特征根存在重根的情况，由于此时无法正常写出右特征向量矩阵，故此时将引入广义特征向量：
+\begin{definition}[广义特征向量]
+    矩阵$A$的广义特征向量满足：
+    \begin{equation*}
+        (A - \lambda I)^k v = 0 \quad k\geq 1
+    \end{equation*}
+    但：
+    \begin{equation*}
+        (A - \lambda I)^{k-1} v \neq 0 
+    \end{equation*}
+    广义特征向量可以组成一个向量链，设$\{P_1,P_2,\cdots,P_s\}$时对应于特征值$\lambda$的广义特征向量链，则这个向量链满足以下式子：
+    \begin{equation*}
+        \begin{cases}
+            (A - \lambda I) P_1 = 0 \quad \text{（$P_1$是普通特征向量）}  \\
+            (A - \lambda I) P_2 = P_1 \\
+            (A - \lambda I) P_3 = P_2 \\
+            \vdots \\
+            (A - \lambda I) P_s = P_{s-1}
+        \end{cases}
+    \end{equation*}
+\end{definition}
+
+此时利用广义特征向量的定义，我们可以写出矩阵$G$的右特征向量矩阵$Q$，并将$G$化为其约旦标准型：
+
+\begin{equation*}
+    J = \text{diag}(J_1,J_2,\cdots,J_m)
+\end{equation*}
+
+此时我们可以写出状态转移矩阵为：
+\begin{equation*}
+    \Phi(k) = G^k = Q J^k Q^{-1} = Q \text{diag}(J_1^k,J_2^k,\cdots,J_m^k) Q^{-1}
+\end{equation*}
+
+其中$J_i$为特征值$\lambda_i$所对应的约旦块
+
+\noindent \textbf{3.}化为关于G的有限项
+
+由Cayley-Hamilton定理我们知道$G$一定为其特征方程的一个解，此时我们可以离散虚体部分状态转移矩阵写为$G$的有限项求和，即：
+\begin{equation*}
+    \Phi(k) = \sum_{i=0}^{n-1} \alpha_i(k) G^i
+\end{equation*}
+
+其中$\alpha_i(k)$为待定系数，可以仿照连续系统来求

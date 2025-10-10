@@ -574,3 +574,95 @@ K&\quad v=0 \\
         \includegraphics[width = .5\textwidth]{note/system stability/figure/10.png}
     \end{center}
 \end{example}
+
+\section{线性离散系统的稳定性}
+
+\subsection{$s$平面到$z$平面的映射关系}
+
+在定义Z变换时，我们定义了复变量$s$与复变量$z$之间的转换关系为：
+\begin{equation*}
+    z = e^{Ts}
+\end{equation*}
+将$s = \sigma + j \omega $带入可以得到：
+\begin{equation*}
+    z = e^{(\sigma + j \omega)T} = e^{\sigma T} e^{j\omega T} = \left\lvert z \right\rvert e^{j\omega T}
+\end{equation*}
+于是我们可以得到$s$平面到$z$平面的基本映射关系为：
+\begin{equation*}
+    \left\lvert z \right\rvert = e^{\sigma T} \quad \angle z = \omega T
+\end{equation*}
+观察上式可以得到：$s$平面的虚轴在$z$平面的映像为单位圆，$s$左半平面在$z$平面的映像为单位圆内，$s$右半平面在$z$平面的映像为单位圆外，具体如下图所示：
+\begin{center}
+    \includegraphics[width = .5\textwidth]{note/system stability/figure/11.png}
+\end{center}
+
+\subsection{线性离散系统稳定的充要条件}
+
+首先，我们先假设闭环线性离散系统的特征方程的根，或闭环脉冲传递函数的极点为$z_1,z_2,\cdots,z_n$，则线性离散系统稳定性具有如下定理：
+\begin{theorem}
+    线性离散系统稳定的充要条件为：线性离散系统的全部特征根$z_i\, (i=1,2,\cdots,n)$都分布在$z$平面的单位圆内，或者说全部特征根的模都必须小于1，即：$\left\lvert z_i \right\rvert <1 \,(i=1,2,\cdots,n) $。如果在上述特征根中，有位于$z$平面单位圆之外者时，闭环系统将是不稳定的
+\end{theorem}
+
+\subsection{Routh稳定判据}
+
+在线性离散系统中，判断稳定性需要判别特征方程的根是否在$z$平面的单位圆内，但是在连续系统中，Routh判据是判断极点是否在左半平面。故在线性离散系统中，不能直接使用Routh判据。为了使用Routh判据，需要将稳定区域映射到新平面的左半平面，故此时引入$w$变换，将$z$平面上单位圆内部区域，映射到$w$平面的左半平面，即：
+\begin{equation*}
+    w = \frac{z+1}{z-1}
+\end{equation*}
+
+两个平面间的映射关系由下图表示：
+\begin{center}
+    \includegraphics[width = .6\textwidth]{note/system stability/figure/12.png}
+\end{center}
+
+显然，$w$变换是线性变换的一种，且其可逆。$z$的有理多项式经过$w$变换之后，可以得到$w$的有理多项式。以$z$为变量的特征方程经过$w$变换之后得到以$w$为变量的特征方程，就可以应用Routh判据来判断线性离散系统的稳定性
+
+\begin{example}[摘自课本例题6.7.3]
+    \begin{center}
+        \includegraphics[width = .8\textwidth]{note/system stability/figure/13.png}\\
+        \includegraphics[width = .8\textwidth]{note/system stability/figure/14.png}\\
+        \includegraphics[width = .8\textwidth]{note/system stability/figure/15.png}
+    \end{center}
+\end{example}
+
+\subsection{线性离散系统的稳态误差}
+
+\subsubsection{稳态误差与稳态误差终值}
+
+和连续系统类似，离散系统的误差信号的脉冲序列$e^* (t)$反映了在采样时刻系统希望输出与实际输出之差，当$t \geq t_s$，即过渡过程结束后，系统误差信号的脉冲序列就是离散系统的稳态误差。一般记为
+\begin{equation*}
+    e^*_{ss}(t) \quad t\geq t_s
+\end{equation*}
+同样的，当$t \to \infty$时，可以求得线性离散系统在采样点上的稳态误差终值：
+\begin{equation*}
+    e^*_{ss}(\infty) = \lim_{t\to \infty} e^* (t) = \lim _{t \to \infty} e^*_{ss}(t)
+\end{equation*}
+如果误差信号的Z变换为$E(z)$，在满足Z变换终值定理使用条件的情况下，可以利用Z变换的中值定理求离散系统稳态误差的终值
+\begin{equation*}
+    e^*_{ss}(\infty) = \lim_{t\to \infty} e^* (t) = \lim_{z\to 1}(z-1)E(z)
+\end{equation*}
+
+\subsubsection{稳态误差系数}
+和连续系统类似，线性离散系统也存在几个静态误差系数，具体为：
+\begin{enumerate}
+    \item 静态位置误差系数：$K_p = \lim\limits_{z\to 1} GH(z)$
+    \item 静态速度误差系数：$K_v = \lim\limits_{z\to 1} (z-1)GH(z)$
+    \item 静态加速度误差系数：$K_a = \lim\limits_{z\to 1} (z-1)^2 GH(z)$
+\end{enumerate}
+
+\begin{center}
+    \includegraphics[width = .6\textwidth]{note/system stability/figure/16.png}
+\end{center}
+
+\subsubsection{动态误差系数}
+
+与连续系统类似，我们也可以定义离散系统的动态误差系数
+
+若系统闭环误差传递函数为$\Phi_e(z)$，根据Z变换的定义，将$z = e^{sT}$代入$\Phi_e(z)$，可以得到以$s$为变量的闭环误差脉冲传递函数：
+\begin{equation*}
+    \Phi_e^* (s) = \Phi_e^* (z) \left|_{z = e^{sT}}  \right.
+\end{equation*}
+
+\begin{center}
+    \includegraphics[width = .9\textwidth]{note/system stability/figure/17.png}
+\end{center}
