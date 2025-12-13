@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.29)  10 OCT 2025 17:36
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.29)  4 NOV 2025 19:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1941,47 +1941,47 @@ LaTeX Warning: Label `' multiply defined.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 31.
-LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line 31.
+LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 32.
+LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line 32.
  (e:/latex/texlive/2024/texmf-dist/tex/latex/newtx/omlntxmi.fd
 File: omlntxmi.fd 2015/08/25 Fontinst v1.933 font definitions for OML/ntxmi.
 )
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 31.
-LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 31.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 32.
+LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 32.
  (e:/latex/texlive/2024/texmf-dist/tex/latex/newtx/untxexa.fd
 File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
 )
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 31.
-LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line 31.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 32.
+LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line 32.
  (e:/latex/texlive/2024/texmf-dist/tex/latex/newtx/lmsntxsy.fd
 File: lmsntxsy.fd 2016/07/02 Fontinst v1.933 font definitions for LMS/ntxsy.
 )
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 31.
-LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input line 31.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 32.
+LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input line 32.
  (e:/latex/texlive/2024/texmf-dist/tex/latex/newtx/lmxntxexx.fd
 File: lmxntxexx.fd 2016/07/03 Fontinst v1.933 font definitions for LMX/ntxexx.
 )
-LaTeX Font Info:    ... okay on input line 31.
-Package hyperref Info: Link coloring ON on input line 31.
+LaTeX Font Info:    ... okay on input line 32.
+Package hyperref Info: Link coloring ON on input line 32.
  (./main.out) (./main.out)
 \@outlinefile=\write8
 \openout8 = `main.out'.
@@ -2021,8 +2021,8 @@ Package hyperref Info: Link coloring ON on input line 31.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Command `\dddot' is already robust on input line 31.
-LaTeX Info: Command `\ddddot' is already robust on input line 31.
+LaTeX Info: Command `\dddot' is already robust on input line 32.
+LaTeX Info: Command `\ddddot' is already robust on input line 32.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: longtable package is loaded.
@@ -2057,10 +2057,10 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' not found.
 
 No file main.bbl.
-Package biblatex Info: Reference section=0 on input line 31.
-Package biblatex Info: Reference segment=0 on input line 31.
+Package biblatex Info: Reference section=0 on input line 32.
+Package biblatex Info: Reference segment=0 on input line 32.
 \c@lstlisting=\count609
-Package hyperref Info: Option `pageanchor' set `false' on input line 34.
+Package hyperref Info: Option `pageanchor' set `false' on input line 35.
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: xetex
 * paper: a4paper
@@ -2095,35 +2095,35 @@ Package hyperref Info: Option `pageanchor' set `false' on input line 34.
 
 File: ./figure/2.jpg Graphic file (type bmp)
 <./figure/2.jpg>
-LaTeX Font Info:    Trying to load font information for OT1+ntxtlf on input line 34.
+LaTeX Font Info:    Trying to load font information for OT1+ntxtlf on input line 35.
 (e:/latex/texlive/2024/texmf-dist/tex/latex/newtx/ot1ntxtlf.fd
 File: ot1ntxtlf.fd 2021/05/24 v1.0 font definition file for OT1/ntx/tlf
 )
-LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 34.
+LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 35.
  (e:/latex/texlive/2024/texmf-dist/tex/latex/newtx/untxmia.fd
 File: untxmia.fd 2018/04/14 Fontinst v1.933 font definitions for U/ntxmia.
 )
-LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 34.
+LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 35.
  (e:/latex/texlive/2024/texmf-dist/tex/latex/newtx/untxsym.fd
 File: untxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/ntxsym.
 )
-LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 34.
+LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 35.
  (e:/latex/texlive/2024/texmf-dist/tex/latex/newtx/untxsyc.fd
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 )
-LaTeX Font Info:    Trying to load font information for U+esint on input line 34.
+LaTeX Font Info:    Trying to load font information for U+esint on input line 35.
  (e:/latex/texlive/2024/texmf-dist/tex/latex/esint/uesint.fd
 File: uesint.fd 
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 34.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 35.
  (e:/latex/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 34.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 35.
  (e:/latex/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 34.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 35.
  (e:/latex/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -2137,7 +2137,7 @@ File: ./figure/1.jpg Graphic file (type bmp)
 File: ./figure/q2.pdf Graphic file (type pdf)
 <use ./figure/q2.pdf>
 LaTeX Font Info:    Font shape `TU/lmss/b/n' in size <20.74> not available
-(Font)              Font shape `TU/lmss/bx/n' tried instead on input line 38.
+(Font)              Font shape `TU/lmss/bx/n' tried instead on input line 39.
  (./main.toc
 Overfull \hbox (28.46957pt too wide) in paragraph at lines 1--1
  []|[][] [][][][][][]   [][][][][][] 
@@ -2523,44 +2523,54 @@ File: note/system stability/figure/9.png Graphic file (type bmp)
 <note/system stability/figure/9.png>
 File: note/system stability/figure/10.png Graphic file (type bmp)
 <note/system stability/figure/10.png>
+ [62]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 650.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 580.
+(hyperref)                removing `math shift' on input line 650.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 580.
+(hyperref)                removing `math shift' on input line 650.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 580.
+(hyperref)                removing `math shift' on input line 650.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 580.
-
+[63]
 File: note/system stability/figure/11.png Graphic file (type bmp)
 <note/system stability/figure/11.png>
-[62]
 File: note/system stability/figure/12.png Graphic file (type bmp)
 <note/system stability/figure/12.png>
+ [64]
 File: note/system stability/figure/13.png Graphic file (type bmp)
 <note/system stability/figure/13.png>
 File: note/system stability/figure/14.png Graphic file (type bmp)
 <note/system stability/figure/14.png>
 File: note/system stability/figure/15.png Graphic file (type bmp)
 <note/system stability/figure/15.png>
- [63] [64]
+ [65]
 File: note/system stability/figure/16.png Graphic file (type bmp)
 <note/system stability/figure/16.png>
+ [66]
 File: note/system stability/figure/17.png Graphic file (type bmp)
 <note/system stability/figure/17.png>
+ [67] [68] [69] [70]
+File: note/system stability/figure/18.png Graphic file (type bmp)
+<note/system stability/figure/18.png>
 )
 \tf@ptc=\write10
 \openout10 = `main.ptc'.
 
- [65] (./main.aux)
+ [71]
+
+LaTeX Warning: Hook 'shipout/lastpage' executed on wrong page (73 not 76).
+               Rerun to correct this.
+
+(./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/04/10>
@@ -2573,18 +2583,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: EA380DAB8463A1385E3CD27FDA0B829A;22654.
+(rerunfilecheck)             Checksum: 461C20EB7F537C8DB637AD96A36538B3;25617.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 55409 strings out of 474773
- 1179910 string characters out of 5758619
- 2267464 words of memory out of 5000000
- 76435 multiletter control sequences out of 15000+600000
+ 55518 strings out of 474773
+ 1183909 string characters out of 5758619
+ 2272521 words of memory out of 5000000
+ 76544 multiletter control sequences out of 15000+600000
  620362 words of font info for 291 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,30n,136p,832b,1355s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (70 pages).
+Output written on main.pdf (76 pages).

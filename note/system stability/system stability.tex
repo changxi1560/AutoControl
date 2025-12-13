@@ -575,6 +575,76 @@ K&\quad v=0 \\
     \end{center}
 \end{example}
 
+\section{对数稳定判据}
+对数稳定判据和Nyquist判据相似，不过是用Bode图来判断：
+\begin{definition}
+    对于一个LTI系统，设$Z$为在右半平面中的闭环极点个数，$P$为在右半平面中的开环极点个数，$N$为$\omega$沿Bode图相频特性曲线穿越-180°（180°）线的次数（在幅频特性为正的部分）
+    \begin{equation*}
+        Z = P - 2N
+    \end{equation*}
+
+    显然，当$Z=0$时系统是稳定的，$Z>0$时系统是不稳定的
+
+    当开环系统中含有积分环节时，对应的Bode图相频特性曲线需要在$\omega = 0^+$处由下向上补画一条虚线，该虚线通过的相角为$\nu$90°，计算正负穿越时，应将补画的虚线作为Bode图相频特性曲线的一部分
+
+    与Nyquist稳定判据类似，我们在此处也定义穿越：
+    \begin{enumerate}
+        \item 正穿越：$\omega$增大时，从下至上穿越一次（相角增大）
+        \item 负穿越：$\omega$增大时，从上至下穿越一次（相角减小）
+        \item 半次穿越：$\omega$增大时，对数相频特性曲线与-180°线相切或刚好到-180°线上（在下侧为负，在上侧为正）
+    \end{enumerate}
+
+    \textbf{注意}！此处的穿越一定在对数幅频特性为正的部分，为负的部分不需要考虑！
+\end{definition}
+
+\section{稳定裕度}
+由于系统的开环增益不一定为恒值，系统可能由稳定变为不稳定。对于一个控制系统，还要求其参数发生一定变化时，系统仍然是稳定的
+
+在控制系统稳定的基础上，进一步用以表征其稳定程度的高低的概念，即为控制系统的相对稳定性，相对稳定性通过稳定裕度定量描述，包括相位裕度与幅值裕度两个概念
+
+\subsection{相角裕度}
+
+我们可以引出相角裕度的概念：
+\begin{definition}
+    我们称Nyquist曲线与单位圆的交点与原点的连线和负实轴的交角，以逆时针为正，用公式表示即为：
+    \begin{equation*}
+        \gamma = \angle G(j\omega_c) H(j\omega_c) - (-180\text{°}) = 180\text{°} + \angle G(j\omega_c)H(j\omega_c)
+    \end{equation*}
+
+    其中$\omega_c$为剪切频率，即Nyquist曲线穿越单位圆的频率、Bode图幅频特性曲线与正实轴的交点的频率
+\end{definition}
+
+我们由上述定义得到相角裕度的物理意义：
+\begin{enumerate}
+    \item 相角裕度表示开环Nyquist曲线与单位圆的交点沿单位圆与（-1，j0）点的远近程度
+    \item 若系统的剪切频率$\omega_c$处的相位再减小$\gamma$，则$\phi(\omega_c) = -180$°，Nyquist曲线过（-1，0）点，系统将处于临界稳定的状态 
+\end{enumerate}
+
+\subsection{幅值裕度}
+
+与相角裕度相似，我们可以给出幅值裕度的定义：
+\begin{definition}
+    我们称开环Nyquist曲线与负实轴交点的模长的倒数称为幅值裕度，用公式表示即为：
+    \begin{equation*}
+        K_g = \frac{1}{\left\lvert G(j\omega_g)H(j\omega_g) \right\rvert}
+    \end{equation*}
+
+    其中$\omega_g$为系统Bode图相频特性曲线第一次与-180°的相交的频率
+\end{definition}
+
+我们同样可以由上述定义得到幅值裕度的物理意义：
+\begin{enumerate}
+    \item 幅值裕度表示开环Nyquist曲线与负实轴的交点离（-1，j0）的远近程度
+    \item 若系统的开环特性增大到原来的$K_g$倍，则$\left\lvert G(j\omega_g)H(j\omega_g) \right\rvert = 1$，系统Nyquist曲线过（-1，0）点，系统将处于临界稳定状态
+\end{enumerate}
+
+\textbf{对稳定裕度的一些说明}
+\begin{enumerate}
+    \item 相角裕度和幅值裕度表示闭环系统与临界稳定状态远离的程度，常被用做控制系统设计的指标
+    \item 相角裕度和幅值裕度的数值大小、正负跟闭环系统是否稳定没有必然联系
+    \item 对于一些复杂系统，可以求出多个相角裕度和幅值裕度，这时，以最小的值作为相角裕度和幅值裕度
+\end{enumerate}
+
 \section{线性离散系统的稳定性}
 
 \subsection{$s$平面到$z$平面的映射关系}
@@ -666,3 +736,234 @@ K&\quad v=0 \\
 \begin{center}
     \includegraphics[width = .9\textwidth]{note/system stability/figure/17.png}
 \end{center}
+\section{状态空间中系统的稳定性}
+
+\subsection{Lyapunov稳定性}
+
+\subsubsection{系统的平衡点}
+
+一个系统的轨线可能只是一个单一的点。如果系统的初值取在这个点上，系统将保持在这个点上，则该点为平衡点
+
+\begin{definition}[平衡点]
+    如果$\bm{x}(t)$一旦等于某个状态$\bm{x}_e$，他就在未来时间内一直保持等于$\bm{x}_e$，那么状态$\bm{x}_e$称为系统的一个平衡状态（或平衡点）
+
+    求解如下非线性方程组可求得平衡点：
+    \begin{equation*}
+        f(\bm{x}_e,t) \equiv 0 \quad t \geq t_0
+    \end{equation*}
+
+    对于线性定常系统
+    \begin{equation*}
+        \dot{\bm{x}} = A \bm{x}
+    \end{equation*}
+
+    如果$A$使非奇异的，那么该系统有一个单一的平衡点（零平衡点）。如果$A$是奇异的，它就有无穷多个平衡点，这些平衡点包含在矩阵$A$的零空间内，即由$A\bm{x} = 0$定义的子空间内。这意味着这些平衡点不是孤立的。
+\end{definition}
+
+因此，不失一般性地，以下的定义与结论主要针对系统的零平衡点给出。
+
+\subsubsection{稳定与一致稳定性的定义}
+
+\begin{definition}[Lyapunov稳定性]
+    设原点为系统的平衡点，则称系统的零平衡点是Lyapunov稳定的，满足：
+    
+    如果对于任意的$\epsilon > 0$，都存在$\delta(\epsilon,t_0)>0$，使得只要初始值$\bm{x}_0$选取在邻域$U(0,\delta(\epsilon,t_0))$内，以$\bm{x}_0$为初值的解对于整个时间域$t_0 \leq t \leq \infty$内都满足：
+    \begin{equation*}
+        \left\lVert \bm{x}(t,t_0,\bm{x}_0) \right\rVert \leq \epsilon \quad t \geq t_0
+    \end{equation*}
+
+    类似的，我们也可以定义不稳定。
+\end{definition}
+
+\begin{definition}[Lyapunov意义下的一致稳定]
+    在上述的Lyapunov稳定的定义中，当$\delta(t_0,\epsilon)$与$t_0$无关时，称系统的零平衡点是Lyapunov一致稳定的
+\end{definition}
+
+\subsubsection{吸引、渐近稳定与一致渐近稳定}
+要清晰地描述系统渐近稳定的定义，首先要明了系统运动中吸引性的运动形式
+\begin{definition}[吸引性的定义]
+    称系统$\dot{\bm{x}} = \bm{f}(\bm{x},t)$的零平衡点是吸引的，如果$\exists \delta(t_0) > 0 $，当$\bm{x}_0 \in U(0,\delta(t_0))$时，有
+    \begin{equation*}
+        \lim_{t\to \infty} \bm{x}(t,t_0,\bm{x}_0) = 0
+    \end{equation*}
+
+    即当初始状态选定在零点的某一个邻域内时，系统的运动最终将趋近于零点
+
+    称系统的零平衡点是一致吸引的，当且仅当$\bm{x}(t,t_0,\bm{x}_0)$趋向于零平衡点的速度与$t_0,\bm{x}_0$均无关
+\end{definition}
+
+\begin{definition}
+    若上述定义中，$\delta(t_0)$可任意大，则上述定义中的吸引、一致吸引分别称为全局吸引，全局一致吸引
+\end{definition}
+
+\begin{definition}
+    分别称系统的解对于零平衡点为渐近稳定、全局渐近稳定，如果：
+    \begin{enumerate}
+        \item 零平衡点为稳定的
+        \item 零平衡点分别为吸引、全局吸引
+    \end{enumerate}
+
+    分别称系统的解对于零平衡点为一致渐近稳定、全局一致渐近稳定，如果：
+    \begin{enumerate}
+        \item 零平衡点为一致稳定的
+        \item 一致吸引；全局一直吸引且方程的解是一致优解的
+    \end{enumerate}
+\end{definition}
+
+\subsection{自治系统Lyapunov稳定性的基本定理}
+
+\subsubsection{标量函数的定号性}
+
+\begin{definition}
+    我们定义标量函数$V(\bm{x})$为：
+    \begin{enumerate}
+        \item $V(\bm{x})$在领域$U(0,\delta)$内单值，对于$x_i\,(1\leq i \leq n)$均连续可微
+        \item $V(0,0,\cdots,0) = 0$
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    标量函数$V(\bm{x})$在邻域$U(0,\delta)$内称为：
+    \begin{enumerate}
+        \item 正定的（负定的），若除原点$\bm{x} = 0$外，任取$\bm{x}\in U(0,\delta)$，$V(\bm{x})$均取正值（负值）。记为$V(\bm{x}) >0$（$V(\bm{x}) < 0$）
+        \item 半正定的（半负定的）若任取$\bm{x} \in U(0,\delta)$，$V(\bm{x})$的值均不小（大）于零。记为$V(\bm{x})\geq 0(V(\bm{x})\leq 0)$
+        \item 变号的，若$\bm{x}$在任一邻域$U(0,\delta)$变化时，$V(\bm{x})$既可取正值，又可取零值与负值。
+    \end{enumerate}
+\end{definition}
+
+对于一个方阵是否是正定的，我们有以下的判定方式：
+\begin{theorem}
+    对$n \times n$ 阶对称阵$A$，有：
+    \begin{enumerate}
+        \item $A$正定的充要条件为其顺序主子式均大于零
+        \item $A$半正定的充要条件为其所有主子式都不小于零
+        \item $A$负定的充要条件为$- A$正定
+        \item $A$半负定的充要条件为$-A$半负定
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+    对$n\times n$阶对称阵$A$，有
+    \begin{enumerate}
+        \item $A$正定的充要条件为其特征根均为正
+        \item $A$负定的充要条件为其特征根均为负
+        \item $A$半正定的充要条件为其特征根均不小于零
+        \item $A$半负定的充要条件为其特征根均不大于零
+        \item $A$变号的充要条件为其特征根中有正也有负
+    \end{enumerate}
+\end{theorem}
+
+\begin{definition}[无限大性质]
+    函数$V(\bm{x})$称为径向无限大（简称无限大的），若对于任意正数$N$，都存在$R>0$，使得在$\bm{x}\notin U(0,R)$时有$V(\bm{x}) > N$成立
+\end{definition}
+
+\subsubsection{Lyapunov稳定性的重要定理}
+
+对于自治非线性系统
+\begin{equation*}
+    \dot{\bm{x}} = \bm{f}(\bm{x}) \quad f(0) = 0 \quad t \geq t_0
+\end{equation*}
+有如下的Lyapunov稳定性的重要定理
+
+\begin{theorem}
+    $\bm{x} = \bm{0}$是上述系统的平衡点，若存在$V:U(\bm{0}) \rightarrow \mathcal{R}$为连续可微的正定函数，且有：
+    \begin{equation*}
+        \dot{V}(\bm{x}) \leq 0
+    \end{equation*}
+    则$\bm{x} = \bm{0}$是稳定的
+
+    其中$\dot{V}(\bm{x}) = \frac{\partial V}{\partial \bm{x}}  \bm{f}(\bm{x})$
+\end{theorem}
+
+\begin{theorem}
+    $\bm{x} = \bm{0}$是上述系统的平衡点，若存在$V:U(\bm{0}) \rightarrow \mathcal{R}$为连续可微的正定函数，且有：
+    \begin{equation*}
+        \dot{V}(\bm{x}) < 0
+    \end{equation*}
+    则$\bm{x} = \bm{0}$是渐近稳定的。如果$V(\bm{x})$具有无限大性质，则$\bm{x} = \bm{0}$是全局渐进稳定的。
+\end{theorem}
+
+但是我们不可能次次都能一次构造出一个导数负定的标量函数$V(\bm{x})$，有可能出现导数半负定的标量函数，那么这时候怎么判断稳定性呢？我们有如下定理：
+
+\begin{theorem}[Krasovskii定理]
+    $\bm{x} = \bm{0}$是上述系统的平衡点，若存在$V:U(\bm{0},\delta) \rightarrow \mathcal{R}$为连续可微的正定函数，且有：
+    \begin{equation*}
+        \dot{V}(\bm{x}) \leq  0
+    \end{equation*}
+
+    令$S = \{\bm{x}\in U(\bm{0}) | \dot{V}(\bm{x}) = 0 \}$，假设除零轨线$\bm{x} = \bm{0}$外，没有系统的非零轨线完全包含在$S$中，则原点是渐进稳定的。如果$V(\bm{x})$还具有无限大性质，则原点处是全局渐近稳定的
+\end{theorem}
+
+这个定理中关于是否稳定的表述太数学化了，我们可以用另一种语言来表述：
+\begin{theorem}[Krasovskii定理的等效表述]
+    $\bm{x} = \bm{0}$是上述系统的平衡点，若存在$V:U(\bm{0},\delta) \rightarrow \mathcal{R}$为连续可微的正定函数，且有：
+    \begin{equation*}
+        \dot{V}(\bm{x}) \leq  0
+    \end{equation*}
+
+    且$\dot{V}(\bm{x})$在系统除原点外的零轨线上不恒等于零，则原点是渐近稳定的。如果$V(\bm{x})$还具有无限大性质，则原点是全局渐近稳定的
+\end{theorem}
+
+同时我们也可以给出系统不稳定性的定理：
+\begin{theorem}[不稳定性定理]
+    设在原点的邻域$U(\bm{0},\delta)$内，任给一个邻域$B_r = U(\bm{0},r)$，使得$B_r \in U(\bm{0},\delta)$，若存在一函数$V(\bm{x})$，由$V(\bm{x}) \geq 0 $可以在$U(\bm{0},\delta)$中决定一区域$\Omega_1$，使得在其内部$V(\bm{x})>0$，在边界上$V(\bm{x}) = 0$，且在该区域内沿系统的状态轨线$\dot{V}(\bm{x}) >0$，则该系统在原点不稳定
+\end{theorem}
+
+\subsection{线性定常系统的稳定性}
+
+\subsubsection{直接判据}
+
+对于线性定常系统
+\begin{equation*}
+    \dot{\bm{x}} = A \bm{x}
+\end{equation*}
+其稳定性完全由系统矩阵$A$的特征结构决定
+
+\begin{theorem}
+    对于上述系统，有下述结论：
+    \begin{enumerate}
+        \item 系统稳定的充要条件是矩阵$A$的所有特征值均具有非正实部，且其具有零实部的特征值为其最小多项式的单根，即在矩阵$A$的Jordan标准型中，与$A$的零实部特征值相关联的Jordan块均为一阶的
+        \item 上述系统渐近稳定的充要条件为矩阵$A$的所有特征值均具有负实部
+    \end{enumerate}
+\end{theorem}
+
+如何判断所有特征值具有负实部呢？我们有以下的定理：
+\begin{theorem}[Hurwitz定理]
+    给定实系数多项式
+    \begin{equation*}
+        f(s) = s^n + a_1 s^{n-1} + \cdots +a_n
+    \end{equation*}
+    其所有根均在复平面左半平面的充要条件是下述行列式
+    \begin{center}
+        \includegraphics[width = .6\textwidth]{note/system stability/figure/18.png}
+    \end{center}
+    均大于0。这里当$i>n$时，$a_i = 0$
+\end{theorem}
+
+\subsubsection{线性定常系统Lyapunov稳定性定理}
+\begin{theorem}
+    线性定常系统为渐近稳定的充要条件为矩阵方程
+    \begin{equation*}
+        A^T P + PA = -Q
+    \end{equation*}
+    对任意给定的正定矩阵$Q$都有位移的正定矩阵解$P$
+
+    且其解为：$P = \int_0 ^{\infty} e^{A^T t} Q e^{At}$
+\end{theorem}
+
+\subsection{线性定常离散系统渐近稳定性的判别}
+
+已知线性定常离散系统：$\bm{x}(k+1) = G \bm{x}(k)$与上述线性定常连续系统类似，我们也可以给出以下定理
+\begin{theorem}
+    线性定常离散系统渐近稳定的充分必要条件为：给定任意正定对称矩阵Q，存在一个正定对称矩阵P，使得：
+    \begin{equation*}
+        G^T P G - P = -Q 
+    \end{equation*}
+\end{theorem}
+
+\begin{theorem}
+    \begin{enumerate}
+        \item 系统的每一个平衡点是Lyapunov意义下稳定的充分必要条件是：G的全部特征根的幅值均小于等于1，且幅值等于1的那些特征值是G的最小多项式的单根。
+        \item 其惟一平衡态是渐进稳定的充要条件为：G的全部特征值的幅值均小于1
+    \end{enumerate}
+\end{theorem}
