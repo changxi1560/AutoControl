@@ -1,156 +1,117 @@
-\contentsline {part}{ \@mptof {1}{经典控制原理} }{1}{part.1}%
+\contentsline {part}{ \@mptof {1}{现代控制原理} }{1}{part.1}%
 \ttl@starttoc {default@1}
-\contentsline {chapter}{\numberline {第 1{} 章}控制系统的数学模型}{2}{chapter.1}%
-\contentsline {section}{\numberline {1.1}建立数学模型的方法}{2}{section.1.1}%
-\contentsline {section}{\numberline {1.2}物理系统的数学模型举例}{2}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Laplace变换}{3}{section.1.3}%
-\contentsline {section}{\numberline {1.4}传递函数}{4}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}典型环节的传递函数}{4}{subsection.1.4.1}%
-\contentsline {subsection}{\numberline {1.4.2}系统方框图模型}{4}{subsection.1.4.2}%
-\contentsline {subsection}{\numberline {1.4.3}信号流图}{7}{subsection.1.4.3}%
-\contentsline {subsection}{\numberline {1.4.4}梅森公式(Mason's formula)}{8}{subsection.1.4.4}%
-\contentsline {chapter}{\numberline {第 2{} 章}控制系统的时域分析与综合}{10}{chapter.2}%
-\contentsline {section}{\numberline {2.1}典型输入信号}{10}{section.2.1}%
-\contentsline {section}{\numberline {2.2}一阶系统的时域分析}{12}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}一阶系统的单位阶跃响应}{12}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}一阶系统的单位冲激响应}{12}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}一阶系统的单位斜坡响应}{12}{subsection.2.2.3}%
-\contentsline {section}{\numberline {2.3}二阶系统的时域分析}{12}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}二阶系统的单位阶跃响应}{13}{subsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.1.1}欠阻尼情况$(0<\zeta <1)$}{13}{subsubsection.2.3.1.1}%
-\contentsline {subsubsection}{\numberline {2.3.1.2}零阻尼情况$(\zeta =0)$}{14}{subsubsection.2.3.1.2}%
-\contentsline {subsubsection}{\numberline {2.3.1.3}临界阻尼情况$(\zeta = 1)$}{14}{subsubsection.2.3.1.3}%
-\contentsline {subsubsection}{\numberline {2.3.1.4}过阻尼情况$(\zeta >1)$}{14}{subsubsection.2.3.1.4}%
-\contentsline {subsubsection}{\numberline {2.3.1.5}负阻尼$(-1<\zeta <0)$}{14}{subsubsection.2.3.1.5}%
-\contentsline {subsection}{\numberline {2.3.2}二阶系统的单位冲激响应}{14}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}二阶系统的单位斜坡响应}{15}{subsection.2.3.3}%
-\contentsline {section}{\numberline {2.4}高阶系统的时域分析}{15}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}高阶系统的阶跃响应}{15}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}闭环主导极点}{15}{subsection.2.4.2}%
-\contentsline {section}{\numberline {2.5}改善控制系统动态性能的方法}{16}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}速度反馈}{16}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}PD控制}{17}{subsection.2.5.2}%
-\contentsline {chapter}{\numberline {第 3{} 章}频域分析}{18}{chapter.3}%
-\contentsline {section}{\numberline {3.1}频率特性}{18}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}频率特性的几种表示形式}{18}{subsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.1.1}Nyquist图}{18}{subsubsection.3.1.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.1.2}Bode图}{20}{subsubsection.3.1.1.2}%
-\contentsline {chapter}{\numberline {第 4{} 章}线性离散系统}{23}{chapter.4}%
-\contentsline {section}{\numberline {4.1}A/D转换}{23}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}A/D转换}{23}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}离散信号的频谱}{24}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}采样周期的选取}{24}{subsection.4.1.3}%
-\contentsline {section}{\numberline {4.2}D/A转换}{24}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Z变换与Z反变换}{24}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Z变换}{24}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}求Z变换的常用方法}{25}{subsection.4.3.2}%
-\contentsline {subsubsection}{\numberline {4.3.2.1}级数求和法}{25}{subsubsection.4.3.2.1}%
-\contentsline {subsubsection}{\numberline {4.3.2.2}部分分式法}{25}{subsubsection.4.3.2.2}%
-\contentsline {subsubsection}{\numberline {4.3.2.3}留数计算法}{25}{subsubsection.4.3.2.3}%
-\contentsline {subsubsection}{\numberline {4.3.2.4}常用函数的Z变换}{25}{subsubsection.4.3.2.4}%
-\contentsline {subsection}{\numberline {4.3.3}Z变换的性质与定理}{26}{subsection.4.3.3}%
-\contentsline {subsubsection}{\numberline {4.3.3.1}线性性质}{26}{subsubsection.4.3.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.3.2}实数位移定理}{26}{subsubsection.4.3.3.2}%
-\contentsline {subsubsection}{\numberline {4.3.3.3}初值定理}{26}{subsubsection.4.3.3.3}%
-\contentsline {subsubsection}{\numberline {4.3.3.4}终值定理}{26}{subsubsection.4.3.3.4}%
-\contentsline {subsubsection}{\numberline {4.3.3.5}卷积定理}{27}{subsubsection.4.3.3.5}%
-\contentsline {subsection}{\numberline {4.3.4}Z反变换}{27}{subsection.4.3.4}%
-\contentsline {section}{\numberline {4.4}脉冲传递函数}{28}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}脉冲传递函数的概念}{28}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}串联环节的脉冲传递函数}{28}{subsection.4.4.2}%
-\contentsline {subsubsection}{\numberline {4.4.2.1}串联环节间无同步开关}{28}{subsubsection.4.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.4.2.2}串联环节间有同步开关}{28}{subsubsection.4.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.4.2.3}零阶保持器与串联环节串联}{29}{subsubsection.4.4.2.3}%
-\contentsline {subsection}{\numberline {4.4.3}常见离散系统方框图与其Z变换}{29}{subsection.4.4.3}%
-\contentsline {section}{\numberline {4.5}差分方程}{30}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}线性常系数差分方程}{30}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}差分方程的求解}{30}{subsection.4.5.2}%
-\contentsline {subsubsection}{\numberline {4.5.2.1}迭代法}{30}{subsubsection.4.5.2.1}%
-\contentsline {subsubsection}{\numberline {4.5.2.2}Z变换法}{30}{subsubsection.4.5.2.2}%
-\contentsline {subsection}{\numberline {4.5.3}由差分方程求系统脉冲传递函数}{30}{subsection.4.5.3}%
-\contentsline {section}{\numberline {4.6}线性离散系统的时域分析}{30}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}极点在$z$平面上的分布与瞬态响应}{30}{subsection.4.6.1}%
-\contentsline {subsubsection}{\numberline {4.6.1.1}实数极点}{31}{subsubsection.4.6.1.1}%
-\contentsline {subsubsection}{\numberline {4.6.1.2}共轭复数极点}{32}{subsubsection.4.6.1.2}%
-\contentsline {subsection}{\numberline {4.6.2}线性离散系统的时间响应}{32}{subsection.4.6.2}%
-\contentsline {part}{ \@mptof {2}{现代控制原理} }{34}{part.2}%
+\contentsline {chapter}{\numberline {第 1{} 章}状态空间模型}{2}{chapter.1}%
+\contentsline {section}{\numberline {1.1}线性系统的状态空间描述}{2}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}线性系统的状态空间描述}{2}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}状态空间表达式的建立}{3}{subsection.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.2.1}从系统方框图建立状态空间表达式}{4}{subsubsection.1.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.1.2.2}从系统的机理出发建立状态空间表达式}{4}{subsubsection.1.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.1.2.3}由系统的输入输出传递关系求系统的状态空间描述}{5}{subsubsection.1.1.2.3}%
+\contentsline {subsection}{\numberline {1.1.3}线性系统的代数等价}{7}{subsection.1.1.3}%
+\contentsline {subsubsection}{\numberline {1.1.3.1}化状态空间为传递函数矩阵}{7}{subsubsection.1.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.1.3.2}线性定常系统的几个概念}{8}{subsubsection.1.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.1.3.3}代数等价系统}{8}{subsubsection.1.1.3.3}%
+\contentsline {subsubsection}{\numberline {1.1.3.4}代数等价系统的性质}{8}{subsubsection.1.1.3.4}%
+\contentsline {section}{\numberline {1.2}线性时变系统的运动分析}{9}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}运动分析的含义}{9}{subsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.1.1}线性系统的运动分析与解存在唯一性}{9}{subsubsection.1.2.1.1}%
+\contentsline {subsubsection}{\numberline {1.2.1.2}线性系统响应的特点}{9}{subsubsection.1.2.1.2}%
+\contentsline {section}{\numberline {1.3}线性定常系统的分析}{9}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}线性定常系统的响应}{9}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}矩阵指数函数}{10}{subsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.2.1}矩阵指数函数的性质}{10}{subsubsection.1.3.2.1}%
+\contentsline {subsubsection}{\numberline {1.3.2.2}矩阵指数函数的求取}{10}{subsubsection.1.3.2.2}%
+\contentsline {subsection}{\numberline {1.3.3}基于特征结构的状态响应表达}{12}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}LTI系统的状态转移矩阵}{13}{subsection.1.3.4}%
+\contentsline {section}{\numberline {1.4}离散系统状态空间分析}{13}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}离散系统状态空间描述}{13}{subsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.1.1}离散系统状态空间的求法}{14}{subsubsection.1.4.1.1}%
+\contentsline {subsection}{\numberline {1.4.2}线性离散系统的运动分析}{15}{subsection.1.4.2}%
+\contentsline {subsubsection}{\numberline {1.4.2.1}状态表达式的求解}{15}{subsubsection.1.4.2.1}%
+\contentsline {subsubsection}{\numberline {1.4.2.2}状态转移矩阵的求法}{16}{subsubsection.1.4.2.2}%
+\contentsline {section}{\numberline {1.5}能控性与能观性}{17}{section.1.5}%
+\contentsline {part}{ \@mptof {2}{控制系统的设计与综合} }{18}{part.2}%
 \ttl@stoptoc {default@1}
 \ttl@starttoc {default@2}
-\contentsline {chapter}{\numberline {第 5{} 章}状态空间模型}{35}{chapter.5}%
-\contentsline {section}{\numberline {5.1}线性系统的状态空间描述}{35}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}线性系统的状态空间描述}{35}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}状态空间表达式的建立}{36}{subsection.5.1.2}%
-\contentsline {subsubsection}{\numberline {5.1.2.1}从系统方框图建立状态空间表达式}{37}{subsubsection.5.1.2.1}%
-\contentsline {subsubsection}{\numberline {5.1.2.2}从系统的机理出发建立状态空间表达式}{37}{subsubsection.5.1.2.2}%
-\contentsline {subsubsection}{\numberline {5.1.2.3}由系统的输入输出传递关系求系统的状态空间描述}{38}{subsubsection.5.1.2.3}%
-\contentsline {subsection}{\numberline {5.1.3}线性系统的代数等价}{40}{subsection.5.1.3}%
-\contentsline {subsubsection}{\numberline {5.1.3.1}化状态空间为传递函数矩阵}{40}{subsubsection.5.1.3.1}%
-\contentsline {subsubsection}{\numberline {5.1.3.2}线性定常系统的几个概念}{41}{subsubsection.5.1.3.2}%
-\contentsline {subsubsection}{\numberline {5.1.3.3}代数等价系统}{41}{subsubsection.5.1.3.3}%
-\contentsline {subsubsection}{\numberline {5.1.3.4}代数等价系统的性质}{41}{subsubsection.5.1.3.4}%
-\contentsline {section}{\numberline {5.2}线性时变系统的运动分析}{42}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}运动分析的含义}{42}{subsection.5.2.1}%
-\contentsline {subsubsection}{\numberline {5.2.1.1}线性系统的运动分析与解存在唯一性}{42}{subsubsection.5.2.1.1}%
-\contentsline {subsubsection}{\numberline {5.2.1.2}线性系统响应的特点}{42}{subsubsection.5.2.1.2}%
-\contentsline {section}{\numberline {5.3}线性定常系统的分析}{42}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}线性定常系统的响应}{42}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}矩阵指数函数}{43}{subsection.5.3.2}%
-\contentsline {subsubsection}{\numberline {5.3.2.1}矩阵指数函数的性质}{43}{subsubsection.5.3.2.1}%
-\contentsline {subsubsection}{\numberline {5.3.2.2}矩阵指数函数的求取}{43}{subsubsection.5.3.2.2}%
-\contentsline {subsection}{\numberline {5.3.3}基于特征结构的状态响应表达}{45}{subsection.5.3.3}%
-\contentsline {subsection}{\numberline {5.3.4}LTI系统的状态转移矩阵}{46}{subsection.5.3.4}%
-\contentsline {section}{\numberline {5.4}离散系统状态空间分析}{46}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}离散系统状态空间描述}{46}{subsection.5.4.1}%
-\contentsline {subsubsection}{\numberline {5.4.1.1}离散系统状态空间的求法}{47}{subsubsection.5.4.1.1}%
-\contentsline {subsection}{\numberline {5.4.2}线性离散系统的运动分析}{48}{subsection.5.4.2}%
-\contentsline {subsubsection}{\numberline {5.4.2.1}状态表达式的求解}{48}{subsubsection.5.4.2.1}%
-\contentsline {subsubsection}{\numberline {5.4.2.2}状态转移矩阵的求法}{49}{subsubsection.5.4.2.2}%
-\contentsline {chapter}{\numberline {第 6{} 章}系统的稳定性}{51}{chapter.6}%
-\contentsline {section}{\numberline {6.1}稳定性的基本概念}{51}{section.6.1}%
-\contentsline {section}{\numberline {6.2}线性定常系统稳定的充要条件}{51}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Routh稳定判据}{51}{section.6.3}%
-\contentsline {section}{\numberline {6.4}求取保证系统稳定性的条件}{53}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}确定某个参数的取值范围}{53}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}确定某些参数间的相互关系}{54}{subsection.6.4.2}%
-\contentsline {subsection}{\numberline {6.4.3}保证系统稳定并且闭环极点远离虚轴}{55}{subsection.6.4.3}%
-\contentsline {section}{\numberline {6.5}线性控制系统的稳态误差}{55}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}控制系统的误差与稳态误差}{55}{subsection.6.5.1}%
-\contentsline {subsection}{\numberline {6.5.2}终值定理和稳态误差的计算}{56}{subsection.6.5.2}%
-\contentsline {subsubsection}{\numberline {6.5.2.1}单位阶跃输入}{56}{subsubsection.6.5.2.1}%
-\contentsline {subsubsection}{\numberline {6.5.2.2}单位斜坡输入}{56}{subsubsection.6.5.2.2}%
-\contentsline {subsubsection}{\numberline {6.5.2.3}单位加速度输入}{57}{subsubsection.6.5.2.3}%
-\contentsline {subsection}{\numberline {6.5.3}干扰信号作用下的稳态误差}{57}{subsection.6.5.3}%
-\contentsline {subsection}{\numberline {6.5.4}动态误差系数}{57}{subsection.6.5.4}%
-\contentsline {section}{\numberline {6.6}根轨迹法}{58}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}基本概念}{58}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.6.2}绘制根轨迹的基本规则}{58}{subsection.6.6.2}%
-\contentsline {subsection}{\numberline {6.6.3}根轨迹法分析控制系统性能}{59}{subsection.6.6.3}%
-\contentsline {subsection}{\numberline {6.6.4}特殊根轨迹}{60}{subsection.6.6.4}%
-\contentsline {subsubsection}{\numberline {6.6.4.1}正反馈系统的根轨迹}{60}{subsubsection.6.6.4.1}%
-\contentsline {subsubsection}{\numberline {6.6.4.2}参数根轨迹}{60}{subsubsection.6.6.4.2}%
-\contentsline {section}{\numberline {6.7}Nyquist稳定性判据}{61}{section.6.7}%
-\contentsline {section}{\numberline {6.8}对数稳定判据}{62}{section.6.8}%
-\contentsline {section}{\numberline {6.9}稳定裕度}{63}{section.6.9}%
-\contentsline {subsection}{\numberline {6.9.1}相角裕度}{63}{subsection.6.9.1}%
-\contentsline {subsection}{\numberline {6.9.2}幅值裕度}{63}{subsection.6.9.2}%
-\contentsline {section}{\numberline {6.10}线性离散系统的稳定性}{64}{section.6.10}%
-\contentsline {subsection}{\numberline {6.10.1}$s$平面到$z$平面的映射关系}{64}{subsection.6.10.1}%
-\contentsline {subsection}{\numberline {6.10.2}线性离散系统稳定的充要条件}{64}{subsection.6.10.2}%
-\contentsline {subsection}{\numberline {6.10.3}Routh稳定判据}{64}{subsection.6.10.3}%
-\contentsline {subsection}{\numberline {6.10.4}线性离散系统的稳态误差}{66}{subsection.6.10.4}%
-\contentsline {subsubsection}{\numberline {6.10.4.1}稳态误差与稳态误差终值}{66}{subsubsection.6.10.4.1}%
-\contentsline {subsubsection}{\numberline {6.10.4.2}稳态误差系数}{66}{subsubsection.6.10.4.2}%
-\contentsline {subsubsection}{\numberline {6.10.4.3}动态误差系数}{67}{subsubsection.6.10.4.3}%
-\contentsline {section}{\numberline {6.11}状态空间中系统的稳定性}{67}{section.6.11}%
-\contentsline {subsection}{\numberline {6.11.1}Lyapunov稳定性}{67}{subsection.6.11.1}%
-\contentsline {subsubsection}{\numberline {6.11.1.1}系统的平衡点}{67}{subsubsection.6.11.1.1}%
-\contentsline {subsubsection}{\numberline {6.11.1.2}稳定与一致稳定性的定义}{68}{subsubsection.6.11.1.2}%
-\contentsline {subsubsection}{\numberline {6.11.1.3}吸引、渐近稳定与一致渐近稳定}{68}{subsubsection.6.11.1.3}%
-\contentsline {subsection}{\numberline {6.11.2}自治系统Lyapunov稳定性的基本定理}{69}{subsection.6.11.2}%
-\contentsline {subsubsection}{\numberline {6.11.2.1}标量函数的定号性}{69}{subsubsection.6.11.2.1}%
-\contentsline {subsubsection}{\numberline {6.11.2.2}Lyapunov稳定性的重要定理}{69}{subsubsection.6.11.2.2}%
-\contentsline {subsection}{\numberline {6.11.3}线性定常系统的稳定性}{70}{subsection.6.11.3}%
-\contentsline {subsubsection}{\numberline {6.11.3.1}直接判据}{70}{subsubsection.6.11.3.1}%
-\contentsline {subsubsection}{\numberline {6.11.3.2}线性定常系统Lyapunov稳定性定理}{71}{subsubsection.6.11.3.2}%
-\contentsline {subsection}{\numberline {6.11.4}线性定常离散系统渐近稳定性的判别}{71}{subsection.6.11.4}%
+\contentsline {chapter}{\numberline {第 2{} 章}控制系统的性能指标}{19}{chapter.2}%
+\contentsline {section}{\numberline {2.1}稳定裕度}{19}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}二阶系统的稳定裕度}{19}{subsection.2.1.1}%
+\contentsline {section}{\numberline {2.2}闭环频域的性能指标}{19}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}二阶系统的闭环频域性能}{20}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}闭环特性的图示法：等M圆}{21}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}不同域下性能指标的关系}{22}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}闭环频域指标和开环频域指标之间的关系}{22}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}闭环频域指标和时域指标之间的关系}{22}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}开环频域指标和时域指标之间的关系}{23}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}三频段理论}{24}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}三频段的划分}{24}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}两类特殊的中频段}{24}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}一个设计合理的系统的三频段的要求}{24}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}低频段和高频段的斜率对中频段剪切频率的影响}{25}{subsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.4.1}低频段对中频段剪切频率的影响}{25}{subsubsection.2.4.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.4.2}高频段对中频段剪切频率的影响}{25}{subsubsection.2.4.4.2}%
+\contentsline {subsection}{\numberline {2.4.5}开环增益变化对相位裕度的影响}{26}{subsection.2.4.5}%
+\contentsline {chapter}{\numberline {第 3{} 章}基于频率特性的校正}{27}{chapter.3}%
+\contentsline {section}{\numberline {3.1}串联超前校正}{27}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}超前环节的性质}{27}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}单级超前校正的设计流程}{27}{subsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.1}相角裕度优先超前校正设计}{27}{subsubsection.3.1.2.1}%
+\contentsline {subsubsection}{\numberline {3.1.2.2}剪切频率优先超前校正设计流程}{28}{subsubsection.3.1.2.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.3}相角裕度优先超前校正修正设计}{28}{subsubsection.3.1.2.3}%
+\contentsline {subsection}{\numberline {3.1.3}多级超前校正设计流程}{29}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}串联迟后校正}{29}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}迟后校正环节的性质}{29}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}单级串联迟后校正环节设计流程}{30}{subsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2.1}相位裕度优先迟后校正设计}{30}{subsubsection.3.2.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2.2}剪切频率优先迟后校正设计}{30}{subsubsection.3.2.2.2}%
+\contentsline {section}{\numberline {3.3}串联迟后-超前校正}{30}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}迟后环节优先的迟后-超前校正环节设计}{31}{subsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.1.1}剪切频率优先设计流程}{31}{subsubsection.3.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.3.1.2}相角裕度优先设计流程}{31}{subsubsection.3.3.1.2}%
+\contentsline {subsection}{\numberline {3.3.2}超前环节优先的迟后-超前校正环节设计}{31}{subsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.2.1}迟后环节提高稳态精度的超前环节优先的迟后-超前校正环节设计}{31}{subsubsection.3.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.3.2.2}迟后环节降低剪切频率的超前环节优先的迟后-超前校正环节设计}{32}{subsubsection.3.3.2.2}%
+\contentsline {section}{\numberline {3.4}期望频率特性法}{32}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}控制系统的性能要求}{32}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}对中频段的设计方法}{33}{subsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.2.1}对称最佳方法确定中频段}{33}{subsubsection.3.4.2.1}%
+\contentsline {subsubsection}{\numberline {3.4.2.2}剪切频率错位确定中频段}{33}{subsubsection.3.4.2.2}%
+\contentsline {subsubsection}{\numberline {3.4.2.3}最小峰值法确定中频段}{33}{subsubsection.3.4.2.3}%
+\contentsline {subsection}{\numberline {3.4.3}期望频率特性法的设计步骤}{34}{subsection.3.4.3}%
+\contentsline {section}{\numberline {3.5}反馈校正}{34}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}反馈校正的功能}{34}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}反馈校正的设计}{34}{subsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.2.1}设计理念}{34}{subsubsection.3.5.2.1}%
+\contentsline {subsubsection}{\numberline {3.5.2.2}设计流程}{35}{subsubsection.3.5.2.2}%
+\contentsline {chapter}{\numberline {第 4{} 章}基于根轨迹的校正}{36}{chapter.4}%
+\contentsline {section}{\numberline {4.1}基本思想}{36}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}性能指标的转换}{36}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}零极点对根轨迹的影响}{36}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}超前环节}{37}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}超前校正环节设计}{37}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}迟后校正环节设计}{38}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}迟后-超前校正环节的设计}{39}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}反馈校正的设计}{39}{subsection.4.2.3}%
+\contentsline {chapter}{\numberline {第 5{} 章}PID控制器}{40}{chapter.5}%
+\contentsline {section}{\numberline {5.1}PID控制器概述与其基本作用}{40}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}比例控制器}{40}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}PD控制器}{40}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}PI控制器}{41}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}PID控制器}{41}{subsection.5.1.4}%
+\contentsline {section}{\numberline {5.2}PID参数整定}{41}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}动态响应法}{41}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}临界增益法}{42}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}离散PID}{43}{section.5.3}%
+\contentsline {chapter}{\numberline {第 6{} 章}离散系统的校正}{44}{chapter.6}%
+\contentsline {section}{\numberline {6.1}模拟化设计}{44}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}校正思路}{44}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}连续控制器的离散化方法}{44}{subsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.2.1}阶跃响应不变法}{44}{subsubsection.6.1.2.1}%
+\contentsline {subsubsection}{\numberline {6.1.2.2}替换法}{44}{subsubsection.6.1.2.2}%
+\contentsline {section}{\numberline {6.2}离散化设计}{45}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}设计思路}{45}{subsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.1.1}广义脉冲传递函数不含纯延迟环节和单位圆上和圆外的零极点}{45}{subsubsection.6.2.1.1}%
+\contentsline {subsubsection}{\numberline {6.2.1.2}广义脉冲传递函数有纯延迟环节}{46}{subsubsection.6.2.1.2}%
+\contentsline {subsubsection}{\numberline {6.2.1.3}广义脉冲传递函数含有单位圆上和圆外的零极点}{46}{subsubsection.6.2.1.3}%
+\contentsline {subsubsection}{\numberline {6.2.1.4}最少拍系统产生纹波的原因}{46}{subsubsection.6.2.1.4}%
 \contentsfinish 

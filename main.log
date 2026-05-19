@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.29)  4 NOV 2025 19:33
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.29)  19 MAY 2026 14:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1890,54 +1890,6 @@ Package csquotes Info: ... none found.
 
 LaTeX Warning: Label `' multiply defined.
 
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
 )
 \openout1 = `main.aux'.
 
@@ -2151,27 +2103,27 @@ LaTeX Font Warning: Font shape `TU/SimHei(0)/b/n' undefined
 
 
 
-] [2]
-Overfull \hbox (28.46957pt too wide) in paragraph at lines 75--75
+]
+Overfull \hbox (28.46957pt too wide) in paragraph at lines 32--32
  []|[][] [][][][][][]   [][][][][][] 
  []
 
-[3])
+[2])
 \tf@toc=\write9
 \openout9 = `main.toc'.
 
- [4] (e:/latex/texlive/2024/texmf-dist/tex/generic/pgfornament/vectorian/vectorian72.pgf) (e:/latex/texlive/2024/texmf-dist/tex/generic/pgfornament/vectorian/vectorian73.pgf) (e:/latex/texlive/2024/texmf-dist/tex/generic/pgfornament/vectorian/vectorian85.pgf)
+ [3] (e:/latex/texlive/2024/texmf-dist/tex/generic/pgfornament/vectorian/vectorian72.pgf) (e:/latex/texlive/2024/texmf-dist/tex/generic/pgfornament/vectorian/vectorian73.pgf) (e:/latex/texlive/2024/texmf-dist/tex/generic/pgfornament/vectorian/vectorian85.pgf)
 \c@ttl@toc@default=\count610
  (./main.ptc)
-File: ./figure/cov18.pdf Graphic file (type pdf)
-<use ./figure/cov18.pdf>
+File: ./figure/封面.png Graphic file (type bmp)
+<./figure/封面.png>
  [1
 
 
-] (./note/mathmodel/mathmodel.tex
+] (./note/state space/state space.tex
 Chapter 1.
-File: ./figure/9.jpg Graphic file (type bmp)
-<./figure/9.jpg>
+File: ./figure/8.jpg Graphic file (type bmp)
+<./figure/8.jpg>
 
 LaTeX Font Warning: Font shape `TU/KaiTi(0)/b/n' undefined
 (Font)              using `TU/KaiTi(0)/m/n' instead on input line 1.
@@ -2180,283 +2132,22 @@ LaTeX Font Warning: Font shape `TU/KaiTi(0)/b/n' undefined
 LaTeX Font Warning: Font shape `TU/FontAwesome(0)/b/n' undefined
 (Font)              using `TU/FontAwesome(0)/m/n' instead on input line 1.
 
-File: note/mathmodel/figure/1.png Graphic file (type bmp)
-<note/mathmodel/figure/1.png>
-File: note/mathmodel/figure/2.png Graphic file (type bmp)
-<note/mathmodel/figure/2.png>
-[2
-
-] [3]
-File: note/mathmodel/figure/3.png Graphic file (type bmp)
-<note/mathmodel/figure/3.png>
-File: note/mathmodel/figure/4.png Graphic file (type bmp)
-<note/mathmodel/figure/4.png>
- [4]
-File: note/mathmodel/figure/5.png Graphic file (type bmp)
-<note/mathmodel/figure/5.png>
-File: note/mathmodel/figure/6.png Graphic file (type bmp)
-<note/mathmodel/figure/6.png>
-File: note/mathmodel/figure/7.png Graphic file (type bmp)
-<note/mathmodel/figure/7.png>
-File: note/mathmodel/figure/8.png Graphic file (type bmp)
-<note/mathmodel/figure/8.png>
-File: note/mathmodel/figure/9.png Graphic file (type bmp)
-<note/mathmodel/figure/9.png>
-File: note/mathmodel/figure/10.png Graphic file (type bmp)
-<note/mathmodel/figure/10.png>
-File: note/mathmodel/figure/11.png Graphic file (type bmp)
-<note/mathmodel/figure/11.png>
-File: note/mathmodel/figure/12.png Graphic file (type bmp)
-<note/mathmodel/figure/12.png>
-File: note/mathmodel/figure/13.png Graphic file (type bmp)
-<note/mathmodel/figure/13.png>
- [5]
-File: note/mathmodel/figure/14.png Graphic file (type bmp)
-<note/mathmodel/figure/14.png>
-File: note/mathmodel/figure/15.png Graphic file (type bmp)
-<note/mathmodel/figure/15.png>
-File: note/mathmodel/figure/16.png Graphic file (type bmp)
-<note/mathmodel/figure/16.png>
-File: note/mathmodel/figure/17.png Graphic file (type bmp)
-<note/mathmodel/figure/17.png>
-File: note/mathmodel/figure/18.png Graphic file (type bmp)
-<note/mathmodel/figure/18.png>
-File: note/mathmodel/figure/19.png Graphic file (type bmp)
-<note/mathmodel/figure/19.png>
-File: note/mathmodel/figure/20.png Graphic file (type bmp)
-<note/mathmodel/figure/20.png>
- [6]
-File: note/mathmodel/figure/21.png Graphic file (type bmp)
-<note/mathmodel/figure/21.png>
- [7]
-File: note/mathmodel/figure/22.png Graphic file (type bmp)
-<note/mathmodel/figure/22.png>
-
-Overfull \hbox (6.80373pt too wide) detected at line 297
-[]
- []
-
-
-Overfull \hbox (25.0pt too wide) detected at line 297
-[]
- []
-
-[8]) (./note/time-domain analysis/time-domain analysis.tex [9]
-Chapter 2.
-File: ./figure/10.jpg Graphic file (type bmp)
-<./figure/10.jpg>
-File: note/time-domain analysis/figure/1.png Graphic file (type bmp)
-<note/time-domain analysis/figure/1.png>
-File: note/time-domain analysis/figure/2.png Graphic file (type bmp)
-<note/time-domain analysis/figure/2.png>
-File: note/time-domain analysis/figure/3.png Graphic file (type bmp)
-<note/time-domain analysis/figure/3.png>
-[10
-
-] [11] [12]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 141.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\zeta' on input line 141.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 141.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 186.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\zeta' on input line 186.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 186.
-
-[13]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 192.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\zeta' on input line 192.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 192.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 201.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\zeta' on input line 201.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 201.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 210.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\zeta' on input line 210.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 210.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 214--216
-
- []
-
-File: note/time-domain analysis/figure/4.png Graphic file (type bmp)
-<note/time-domain analysis/figure/4.png>
-
-Underfull \hbox (badness 10000) in paragraph at lines 223--224
-
- []
-
-[14]
-File: note/time-domain analysis/figure/5.png Graphic file (type bmp)
-<note/time-domain analysis/figure/5.png>
-File: note/time-domain analysis/figure/6.png Graphic file (type bmp)
-<note/time-domain analysis/figure/6.png>
- [15]
-File: note/time-domain analysis/figure/7.png Graphic file (type bmp)
-<note/time-domain analysis/figure/7.png>
-File: note/time-domain analysis/figure/8.png Graphic file (type bmp)
-<note/time-domain analysis/figure/8.png>
- [16]
-File: note/time-domain analysis/figure/9.png Graphic file (type bmp)
-<note/time-domain analysis/figure/9.png>
-
-Underfull \hbox (badness 10000) in paragraph at lines 339--340
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 346--347
-
- []
-
-) (./note/frequency-domain analysis/frequency-domain analysis.tex [17]
-Chapter 3.
-File: ./figure/11.jpg Graphic file (type bmp)
-<./figure/11.jpg>
-File: note/frequency-domain analysis/figure/1.png Graphic file (type bmp)
-<note/frequency-domain analysis/figure/1.png>
-[18
-
-]
-File: note/frequency-domain analysis/figure/2.png Graphic file (type bmp)
-<note/frequency-domain analysis/figure/2.png>
-File: note/frequency-domain analysis/figure/3.png Graphic file (type bmp)
-<note/frequency-domain analysis/figure/3.png>
-File: note/frequency-domain analysis/figure/4.png Graphic file (type bmp)
-<note/frequency-domain analysis/figure/4.png>
-File: note/frequency-domain analysis/figure/5.png Graphic file (type bmp)
-<note/frequency-domain analysis/figure/5.png>
- [19]
-File: note/frequency-domain analysis/figure/6.png Graphic file (type bmp)
-<note/frequency-domain analysis/figure/6.png>
-File: note/frequency-domain analysis/figure/7.png Graphic file (type bmp)
-<note/frequency-domain analysis/figure/7.png>
-File: note/frequency-domain analysis/figure/8.png Graphic file (type bmp)
-<note/frequency-domain analysis/figure/8.png>
-File: note/frequency-domain analysis/figure/9.png Graphic file (type bmp)
-<note/frequency-domain analysis/figure/9.png>
-File: note/frequency-domain analysis/figure/10.png Graphic file (type bmp)
-<note/frequency-domain analysis/figure/10.png>
- [20]
-File: note/frequency-domain analysis/figure/11.png Graphic file (type bmp)
-<note/frequency-domain analysis/figure/11.png>
-File: note/frequency-domain analysis/figure/12.png Graphic file (type bmp)
-<note/frequency-domain analysis/figure/12.png>
-File: note/frequency-domain analysis/figure/13.png Graphic file (type bmp)
-<note/frequency-domain analysis/figure/13.png>
- [21]) (./note/linear discrete system/linear discrete system.tex [22]
-Chapter 4.
-File: ./figure/12.jpg Graphic file (type bmp)
-<./figure/12.jpg>
-File: note/linear discrete system/figure/1.png Graphic file (type bmp)
-<note/linear discrete system/figure/1.png>
-[23
-
-] [24]
-File: note/linear discrete system/figure/2.png Graphic file (type bmp)
-<note/linear discrete system/figure/2.png>
- [25] [26]
-File: note/linear discrete system/figure/3.png Graphic file (type bmp)
-<note/linear discrete system/figure/3.png>
-File: note/linear discrete system/figure/4.png Graphic file (type bmp)
-<note/linear discrete system/figure/4.png>
- [27]
-File: note/linear discrete system/figure/5.png Graphic file (type bmp)
-<note/linear discrete system/figure/5.png>
-File: note/linear discrete system/figure/6.png Graphic file (type bmp)
-<note/linear discrete system/figure/6.png>
- [28]
-File: note/linear discrete system/figure/7.png Graphic file (type bmp)
-<note/linear discrete system/figure/7.png>
-File: note/linear discrete system/figure/8.png Graphic file (type bmp)
-<note/linear discrete system/figure/8.png>
-File: note/linear discrete system/figure/9.png Graphic file (type bmp)
-<note/linear discrete system/figure/9.png>
- [29]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 328.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 328.
-
-[30]
-File: note/linear discrete system/figure/10.png Graphic file (type bmp)
-<note/linear discrete system/figure/10.png>
- [31]
-File: note/linear discrete system/figure/11.png Graphic file (type bmp)
-<note/linear discrete system/figure/11.png>
-File: note/linear discrete system/figure/12.png Graphic file (type bmp)
-<note/linear discrete system/figure/12.png>
-File: note/linear discrete system/figure/13.png Graphic file (type bmp)
-<note/linear discrete system/figure/13.png>
- [32]) [33] (e:/latex/texlive/2024/texmf-dist/tex/generic/pgfornament/vectorian/vectorian72.pgf) (e:/latex/texlive/2024/texmf-dist/tex/generic/pgfornament/vectorian/vectorian73.pgf) (e:/latex/texlive/2024/texmf-dist/tex/generic/pgfornament/vectorian/vectorian85.pgf) (./main.ptc)
-File: ./figure/封面.png Graphic file (type bmp)
-<./figure/封面.png>
- [34
-
-] (./note/state space/state space.tex
-Chapter 5.
-File: ./figure/8.jpg Graphic file (type bmp)
-<./figure/8.jpg>
 
 Underfull \hbox (badness 5519) in paragraph at lines 8--9
-[]\TU/KaiTi(0)/b/n/10 完 全 地 表 征 系 统 时 间 域 行 为 的 最 小 个 数 的 内 部 变 量 组 称 为 系 统 的 状 态。|  组 成 这 个 变 量 组 的 变 量
+[]\TU/KaiTi(0)/m/n/10 完 全 地 表 征 系 统 时 间 域 行 为 的 最 小 个 数 的 内 部 变 量 组 称 为 系 统 的 状 态。|  组 成 这 个 变 量 组 的 变 量
  []
 
-[35
+[2
 
 ]
 File: note/state space/figure/1.png Graphic file (type bmp)
 <note/state space/figure/1.png>
 File: note/state space/figure/2.png Graphic file (type bmp)
 <note/state space/figure/2.png>
- [36]
+ [3]
 File: note/state space/figure/3.png Graphic file (type bmp)
 <note/state space/figure/3.png>
- [37] [38]
+ [4] [5]
 File: note/state space/figure/4.png Graphic file (type bmp)
 <note/state space/figure/4.png>
 File: note/state space/figure/5.png Graphic file (type bmp)
@@ -2465,112 +2156,148 @@ File: note/state space/figure/6.png Graphic file (type bmp)
 <note/state space/figure/6.png>
 File: note/state space/figure/7.png Graphic file (type bmp)
 <note/state space/figure/7.png>
- [39]
+ [6]
 File: note/state space/figure/8.png Graphic file (type bmp)
 <note/state space/figure/8.png>
 File: note/state space/figure/9.png Graphic file (type bmp)
 <note/state space/figure/9.png>
- [40] [41] [42]
+ [7] [8] [9]
 File: note/state space/figure/13.png Graphic file (type bmp)
 <note/state space/figure/13.png>
 File: note/state space/figure/14.png Graphic file (type bmp)
 <note/state space/figure/14.png>
- [43]
+ [10]
 File: note/state space/figure/15.png Graphic file (type bmp)
 <note/state space/figure/15.png>
- [44] [45] [46]
+ [11] [12] [13]
 File: note/state space/figure/10.png Graphic file (type bmp)
 <note/state space/figure/10.png>
 File: note/state space/figure/11.png Graphic file (type bmp)
 <note/state space/figure/11.png>
 File: note/state space/figure/12.png Graphic file (type bmp)
 <note/state space/figure/12.png>
- [47] [48] [49]) (./note/system stability/system stability.tex [50]
+ [14] [15] [16]) [17] (e:/latex/texlive/2024/texmf-dist/tex/generic/pgfornament/vectorian/vectorian72.pgf) (e:/latex/texlive/2024/texmf-dist/tex/generic/pgfornament/vectorian/vectorian73.pgf) (e:/latex/texlive/2024/texmf-dist/tex/generic/pgfornament/vectorian/vectorian85.pgf) (./main.ptc)
+File: ./figure/cov18.pdf Graphic file (type pdf)
+<use ./figure/cov18.pdf>
+ [18
+
+] (./note/performance metrics/performance metrics.tex
+Chapter 2.
+File: ./figure/13.jpg Graphic file (type bmp)
+<./figure/13.jpg>
+File: note/performance metrics/figure/1.png Graphic file (type bmp)
+<note/performance metrics/figure/1.png>
+File: note/performance metrics/figure/2.png Graphic file (type bmp)
+<note/performance metrics/figure/2.png>
+[19
+
+]
+File: note/performance metrics/figure/1.png Graphic file (type bmp)
+<note/performance metrics/figure/1.png>
+File: note/performance metrics/figure/3.png Graphic file (type bmp)
+<note/performance metrics/figure/3.png>
+ [20]
+File: note/performance metrics/figure/4.png Graphic file (type bmp)
+<note/performance metrics/figure/4.png>
+ [21]
+File: note/performance metrics/figure/5.png Graphic file (type bmp)
+<note/performance metrics/figure/5.png>
+File: note/performance metrics/figure/6.png Graphic file (type bmp)
+<note/performance metrics/figure/6.png>
+ [22]
+File: note/performance metrics/figure/7.png Graphic file (type bmp)
+<note/performance metrics/figure/7.png>
+File: note/performance metrics/figure/8.png Graphic file (type bmp)
+<note/performance metrics/figure/8.png>
+ [23]
+File: note/performance metrics/figure/9.png Graphic file (type bmp)
+<note/performance metrics/figure/9.png>
+ [24]
+File: note/performance metrics/figure/10.png Graphic file (type bmp)
+<note/performance metrics/figure/10.png>
+File: note/performance metrics/figure/11.png Graphic file (type bmp)
+<note/performance metrics/figure/11.png>
+File: note/performance metrics/figure/12.png Graphic file (type bmp)
+<note/performance metrics/figure/12.png>
+ [25]
+File: note/performance metrics/figure/13.png Graphic file (type bmp)
+<note/performance metrics/figure/13.png>
+File: note/performance metrics/figure/14.png Graphic file (type bmp)
+<note/performance metrics/figure/14.png>
+) (./note/frequency correction/frequency correction.tex [26]
+Chapter 3.
+File: ./figure/14.jpg Graphic file (type bmp)
+<./figure/14.jpg>
+File: note/frequency correction/figure/1.png Graphic file (type bmp)
+<note/frequency correction/figure/1.png>
+[27
+
+] [28]
+File: note/frequency correction/figure/2.png Graphic file (type bmp)
+<note/frequency correction/figure/2.png>
+ [29] [30] [31] [32] [33]
+File: note/frequency correction/figure/3.png Graphic file (type bmp)
+<note/frequency correction/figure/3.png>
+ [34]) (./note/root locus correction/root locus correction.tex [35]
+Chapter 4.
+File: ./figure/15.jpg Graphic file (type bmp)
+<./figure/15.jpg>
+File: note/root locus correction/figure/1.png Graphic file (type bmp)
+<note/root locus correction/figure/1.png>
+[36
+
+]
+File: note/root locus correction/figure/2.png Graphic file (type bmp)
+<note/root locus correction/figure/2.png>
+ [37] [38]) (./note/PID design/PID design.tex [39]
+Chapter 5.
+File: ./figure/16.jpg Graphic file (type bmp)
+<./figure/16.jpg>
+File: note/PID design/figure/1.png Graphic file (type bmp)
+<note/PID design/figure/1.png>
+File: note/PID design/figure/2.png Graphic file (type bmp)
+<note/PID design/figure/2.png>
+[40
+
+]
+File: note/PID design/figure/3.png Graphic file (type bmp)
+<note/PID design/figure/3.png>
+File: note/PID design/figure/4.png Graphic file (type bmp)
+<note/PID design/figure/4.png>
+ [41]
+File: note/PID design/figure/5.png Graphic file (type bmp)
+<note/PID design/figure/5.png>
+File: note/PID design/figure/6.png Graphic file (type bmp)
+<note/PID design/figure/6.png>
+File: note/PID design/figure/7.png Graphic file (type bmp)
+<note/PID design/figure/7.png>
+File: note/PID design/figure/8.png Graphic file (type bmp)
+<note/PID design/figure/8.png>
+File: note/PID design/figure/9.png Graphic file (type bmp)
+<note/PID design/figure/9.png>
+ [42]
+File: note/PID design/figure/10.png Graphic file (type bmp)
+<note/PID design/figure/10.png>
+File: note/PID design/figure/11.png Graphic file (type bmp)
+<note/PID design/figure/11.png>
+) (./note/discrete system correction/discrete system correction.tex [43]
 Chapter 6.
-File: ./figure/sd6.pdf Graphic file (type pdf)
-<use ./figure/sd6.pdf>
-[51
+File: ./figure/17.jpg Graphic file (type bmp)
+<./figure/17.jpg>
+[44
 
-] [52]
-File: note/system stability/figure/1.png Graphic file (type bmp)
-<note/system stability/figure/1.png>
- [53]
-File: note/system stability/figure/2.png Graphic file (type bmp)
-<note/system stability/figure/2.png>
-File: note/system stability/figure/3.png Graphic file (type bmp)
-<note/system stability/figure/3.png>
- [54] [55]
-Overfull \hbox (44.07224pt too wide) detected at line 247
-\OML/ntxmi/m/it/10 e[] \U/ntxmia/m/it/10 = [] \OML/ntxmi/m/it/10 e\LMS/ntxsy/m/n/10 ¹\OML/ntxmi/m/it/10 t\LMS/ntxsy/m/n/10 º \U/ntxmia/m/it/10 = [] \OML/ntxmi/m/it/10 s^^H[]\LMS/ntxsy/m/n/10 ¹\OML/ntxmi/m/it/10 s\LMS/ntxsy/m/n/10 º\OML/ntxmi/m/it/10 R\LMS/ntxsy/m/n/10 ¹\OML/ntxmi/m/it/10 s\LMS/ntxsy/m/n/10 º \U/ntxmia/m/it/10 = [] \OML/ntxmi/m/it/10 s[]R\LMS/ntxsy/m/n/10 ¹\OML/ntxmi/m/it/10 s\LMS/ntxsy/m/n/10 º \U/ntxmia/m/it/10 = [] \OML/ntxmi/m/it/10 s[]R\LMS/ntxsy/m/n/10 ¹\OML/ntxmi/m/it/10 s\LMS/ntxsy/m/n/10 º
- []
-
-[56]
-File: note/system stability/figure/4.png Graphic file (type bmp)
-<note/system stability/figure/4.png>
- [57]
-File: note/system stability/figure/5.png Graphic file (type bmp)
-<note/system stability/figure/5.png>
-File: note/system stability/figure/6.png Graphic file (type bmp)
-<note/system stability/figure/6.png>
- [58]
-File: note/system stability/figure/7.png Graphic file (type bmp)
-<note/system stability/figure/7.png>
- [59]
-File: note/system stability/figure/8.png Graphic file (type bmp)
-<note/system stability/figure/8.png>
- [60] [61]
-File: note/system stability/figure/9.png Graphic file (type bmp)
-<note/system stability/figure/9.png>
-File: note/system stability/figure/10.png Graphic file (type bmp)
-<note/system stability/figure/10.png>
- [62]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 650.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 650.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 650.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 650.
-
-[63]
-File: note/system stability/figure/11.png Graphic file (type bmp)
-<note/system stability/figure/11.png>
-File: note/system stability/figure/12.png Graphic file (type bmp)
-<note/system stability/figure/12.png>
- [64]
-File: note/system stability/figure/13.png Graphic file (type bmp)
-<note/system stability/figure/13.png>
-File: note/system stability/figure/14.png Graphic file (type bmp)
-<note/system stability/figure/14.png>
-File: note/system stability/figure/15.png Graphic file (type bmp)
-<note/system stability/figure/15.png>
- [65]
-File: note/system stability/figure/16.png Graphic file (type bmp)
-<note/system stability/figure/16.png>
- [66]
-File: note/system stability/figure/17.png Graphic file (type bmp)
-<note/system stability/figure/17.png>
- [67] [68] [69] [70]
-File: note/system stability/figure/18.png Graphic file (type bmp)
-<note/system stability/figure/18.png>
-)
+]
+File: note/discrete system correction/figure/1.png Graphic file (type bmp)
+<note/discrete system correction/figure/1.png>
+File: note/discrete system correction/figure/2.png Graphic file (type bmp)
+<note/discrete system correction/figure/2.png>
+File: note/discrete system correction/figure/3.png Graphic file (type bmp)
+<note/discrete system correction/figure/3.png>
+ [45])
 \tf@ptc=\write10
 \openout10 = `main.ptc'.
 
- [71]
-
-LaTeX Warning: Hook 'shipout/lastpage' executed on wrong page (73 not 76).
-               Rerun to correct this.
-
-(./main.aux)
+ [46] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/04/10>
@@ -2583,18 +2310,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 461C20EB7F537C8DB637AD96A36538B3;25617.
+(rerunfilecheck)             Checksum: CC5BA99FB58DCAF35A94FC399DA84CA1;20159.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 55518 strings out of 474773
- 1183909 string characters out of 5758619
- 2272521 words of memory out of 5000000
- 76544 multiletter control sequences out of 15000+600000
- 620362 words of font info for 291 fonts, out of 8000000 for 9000
+ 54648 strings out of 474773
+ 1151667 string characters out of 5758619
+ 2261820 words of memory out of 5000000
+ 75685 multiletter control sequences out of 15000+600000
+ 605812 words of font info for 248 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 103i,30n,136p,832b,1355s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,30n,136p,832b,1343s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (76 pages).
+Output written on main.pdf (50 pages).
