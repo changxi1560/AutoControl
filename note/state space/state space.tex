@@ -885,3 +885,839 @@
 
 \section{能控性与能观性}
 
+在现代控制理论中,能控性和能观测性是两个重要的概念,它们是最优控制和最优估计的理论基础,基本的概念如下:
+\begin{definition}[能控性与能观性的概念]
+    \begin{itemize}
+        \item 能控性是控制作用输入$u(t)$支配系统的状态向量$x(t)$的能力
+        \item 能观测性是系统的输出$y(t)$反映系统的状态向量$x(t)$的能力
+    \end{itemize}
+    
+    前者回答了$u(t)$能否使$x(t)$做任意转移的问题,后者则是回答了能否通过系统的输出量$y(t)$确定系统状态$x(t)$的问题
+\end{definition}
+
+\subsection{连续系统的能控性}
+
+系统的能控性本质是在回答一个问题:已知某系统的当前时刻及其状态,是否存在一个容许控制,使得系统在该控制的作用下于有限时间后达到某个希望的特定状态?
+
+由此,我们可以引出能控状态与系统的能控性的定义:
+\begin{definition}[能控状态]
+    对于线性定常系统,如果存在一个时刻$t_1 > 0$和一个无约束的容许控制$u(t),\quad t \in \left[0,t_1\right]$,使得系统在这个控制的作用下,系统由$x_0$出发经过时间$t_1$后由$x_0$转移到$x(t_1) = 0$,则称此$x_0$是系统的一个能控状态
+\end{definition}
+
+\begin{definition}[系统的能控性]
+    对于线性定常系统,如果状态空间中的所有非零状态都是能控状态,则称该系统是能控的
+\end{definition}
+
+显然:时变系统的能控性和系统初始状态有关,而定常线性系统的能控性与初始时刻无关.
+
+对于以上的定义,有几点需要注意:
+\begin{enumerate}
+    \item 能控性是一种定性性质,不涉及实现所需控制的具体方式
+    \item 对定常系统,能控与否与$t_0$无关,与时间区间$\left[ t_0,t_1 \right]$无关,而对于时变系统,能控性与$t_0$和时间区间均有关
+    \item 能控性只由系统的参数决定,因此是系统的固有属性
+    \item 状态转移的轨迹没加以限制和规定,能控性是表征系统状态运动的一个定性特征
+    \item 对线性定常系统能控性和能达性事等价的,但是对于时变系统和离散系统则是不等价的
+    \item 不特殊说明,系统可控性均指状态能控性,要与输出能控性相区别
+\end{enumerate}
+
+在上面的注意事项中出现了能达性这个概念,我们现在来介绍这个概念:
+\begin{definition}[能达状态]
+    对于线性定常系统,如果存在一个时刻$t_1 > 0$和一个无约束的容许控制$u(t),\quad t \in \left[0,t_1\right]$,使得系统在这个控制的作用下,由零初始状态出发经过时间$t_1$后转移到$x(t_1) = x_f$,则称此$x_f$是系统的一个能达状态
+\end{definition}
+
+\begin{definition}[系统能达]
+    对于线性定常系统,如果状态空间中的所有非零状态都是能达状态,则称此系统是能达的
+\end{definition}
+
+\subsection{系统能控性判据}
+
+我们可以通过以下的几种方式判断下面的线性定常系统的能控性
+\begin{equation*}
+    \dot{x}(t) = A x(t) + B u(t)
+\end{equation*}
+
+上面的系统中$x$为$n$维状态向量;$u$为$r$维输入向量;$A \in \mathbb{R}^{n \times n}$和$B \in \mathbb{R}^{n \times r}$分别为系统矩阵和输入矩阵,均为常矩阵
+
+\begin{theorem}
+    线性定常系统是能控的当且仅当存在时刻$t_1 > 0$,使Gram矩阵
+    \begin{equation*}
+        W_c(t_1) = \int_0^{t_1} e^{-At} B B^T e^{-A^T t} dt 
+    \end{equation*}
+    是非奇异的
+\end{theorem}
+
+\begin{theorem}
+    线性定常系统能控的充分必要条件是
+    \begin{equation*}
+        rank\left[\begin{array}{cccc}
+            B & AB & \cdots & A^{n-1}B
+        \end{array}\right] = n
+    \end{equation*}
+    其中$n = dim A$,我们称上述矩阵为$Q_c$
+\end{theorem}
+
+\begin{theorem}[PBH判据]
+    线性定常系统是能控的当且仅当系统矩阵$A$的所有特征值$\lambda_i$满足:
+    \begin{equation*}
+        rank\left[ \lambda_i I - A \quad B \right] = n \quad \forall i \leq n
+    \end{equation*}
+    或者可以等价表述为:
+    \begin{equation*}
+        rank \left[ sI - A \quad B \right] = n \quad \forall s \in \mathbb{C}
+    \end{equation*}
+\end{theorem}
+
+但是可能有些系统本身比较复杂，我们需要采用非奇异状态变换将这个系统化成一个比较简单的系统，可以通过以下的定理描述对于非奇异线性变换后的系统与原系统能控性之间的联系：
+
+\begin{theorem}
+    给定线性定常系统，通过非奇异状态变换$x = P \bar{x}$后的系统为$\dot{x} = \bar{A} \bar{x} + \bar{B} u$，则有：
+    \begin{equation*}
+        \text{rank}\left[
+            \begin{array}{cccc}
+                \bar{B} & \bar{A}\bar{B} & \cdots & \bar{A}^{n-1} \bar{B}
+            \end{array}
+        \right] = \text{rank} \left[
+            \begin{array}{cccc}
+                B & AB & \cdots & A^{n-1} B
+            \end{array}
+        \right]
+    \end{equation*}
+    其中$n$为系统状态变量的维数
+\end{theorem}
+
+我们还可以通过矩阵的Jordan标准型来判断系统的能控性：
+\begin{theorem}
+    \begin{center}
+        \includegraphics[width = .7\textwidth]{note/state space/figure/16.png}
+    \end{center}
+\end{theorem}
+
+\subsection{连续系统的能观性}
+
+和系统的能控性类似，我们可以给出系统能观性的概念：
+\begin{definition}[能观状态]
+    对于线性定常系统,如果对于初始时刻$t = 0$的一个非零初始状态$x_0$以及时间区间$\left[ 0,t_1 \right]$,使得由区间$[0,t_1]$上的系统输出$y(t)$可以唯一决定系统初始状态$x_0$,则称该状态$x_0$是能观的
+\end{definition}
+
+\begin{definition}[系统能观性]
+    对于线性定常系统,如果状态空间中的所有非零状态都是能观状态,则称该系统是能观的
+\end{definition}
+
+同样的,时变系统的能观性依赖于初始时刻,而定长线性系统的能控性与能观性与初始时刻无关
+
+\subsection{系统能观性判据}
+
+我们可以通过以下的几种方式判断下面的线性定常系统的能观性:
+\begin{equation*}
+    \begin{split}
+            \dot{x} &= A x\\
+            y & = C x
+    \end{split}
+\end{equation*}
+
+上面的系统中$x$为$n$维状态向量;$y$是$m$维输出向量;$A \in \mathbb{R}^{n \times n}$和$C \in \mathbb{R}^{m \times n}$分别为系统输入矩阵和系统输出矩阵,均为常矩阵
+
+\begin{theorem}
+    线性定常连续系统能观的充分必要条件是,存在有限时刻$t_1 > 0$,使Gram矩阵
+    \begin{equation*}
+        W_O(t_1) = \int_0^{t_1} e^{A^T t} C^T C e^{A t} dt
+    \end{equation*}
+    是非奇异的
+\end{theorem}
+
+\begin{theorem}
+    线性定常系统能观的充分必要条件为:
+    \begin{equation*}
+        \text{rank} Q_O = \text{rank} \left[
+            \begin{array}{c}
+                C \\ CA \\ \vdots \\  C A^{n-1}
+            \end{array}
+        \right] = n
+    \end{equation*}
+
+    或者
+    \begin{equation*}
+        \text{rank} \left[
+            \begin{array}{cccc}
+                C^T & A^T C^T & \cdots & (A^T)^{n-1} C^T
+            \end{array}
+        \right] = n
+    \end{equation*}
+\end{theorem}
+
+\begin{theorem}[PBH判据]
+    线性定常系统完全能观的充分必要条件是,对矩阵$A$的所有特征值$\lambda_i,i \leq n$,均有:
+    \begin{equation*}
+        \text{rank}\left[
+            \begin{array}{c}
+                C \\ \lambda_i I - A
+            \end{array}
+        \right] = n
+    \end{equation*}
+
+    或者等价表述为:
+    \begin{equation*}
+        \text{rank} \left[
+            \begin{array}{c}
+                C \\ s I - A 
+            \end{array}
+        \right] = n \quad \forall s \in \mathbb{C}
+    \end{equation*}
+\end{theorem}
+
+同样的，对于非奇异状态变换后的系统能观性与原系统能观性之间的联系，我们有以下的定理：
+\begin{theorem}
+    给定线性定常系统，通过非奇异状态变换$x = P \bar{x}$后的系统为
+    \begin{equation*}
+        \begin{split}
+            \dot{x} &= \bar{A} x \\
+            y &= \bar{C} x
+        \end{split}
+    \end{equation*}
+    则有：
+    \begin{equation*}
+        \text{rank} \left[
+            \begin{array}{c}
+                \bar{C} \\ \bar{C} \bar{A} \\ \vdots \\ \bar{C} \bar{A}^{n-1}
+            \end{array}
+        \right] = \text{rank} \left[
+            \begin{array}{c}
+                C \\ C A \\ \vdots \\ C A^{n-1}
+            \end{array}
+        \right]
+    \end{equation*}
+    其中$n$为系统状态变量的维数
+\end{theorem}
+
+与能控性类似，也可以用系统的Jordan标准型来判断系统能观性：
+\begin{theorem}
+    \begin{center}
+        \includegraphics[width = .7\textwidth]{note/state space/figure/17.png}
+    \end{center}
+\end{theorem}
+
+\subsection{连续系统结构分解}
+
+\subsubsection{对偶性原理}
+从上述能控性和能观性的定理和定义中可以看到，这两个概念是非常相似的，这两个概念在数学上是对称的，存在对偶性，我们可以通过下面的表为例：
+
+\begin{center}
+    \includegraphics[width = .6\textwidth]{note/state space/figure/18.png}
+\end{center}
+
+\begin{definition}[对偶系统]
+    线性定常系统
+    \begin{equation*}
+        \begin{cases}
+            \dot{x} = A x + B u \\
+            y = C x
+        \end{cases}
+    \end{equation*}
+    的对偶系统为：
+    \begin{equation*}
+        \begin{cases}
+            \dot{z} = A^T z + C^T v\\
+            w = B^T z
+        \end{cases}
+    \end{equation*}
+
+    由对偶性可以知道，如果原系统完全能控，则对偶系统完全能观；如果原系统完全能观，则对偶系统完全能控
+\end{definition}
+
+\subsubsection{能控规范型}
+
+以下部分讨论的都是单输入单输出系统：
+\begin{equation*}
+    \begin{cases}
+        \dot{x} = A x + b u \\
+        y = C x
+    \end{cases}
+\end{equation*}
+系统的特征多项式为：$\sum\limits_{i=0}^n \alpha_i s^i$，其中$\alpha_n = 1$，其能控性矩阵为:$Q_c = [
+    \begin{array}{cccc}
+        Ab & A^2 b & \cdots & A^{n-1} b
+    \end{array}
+]$
+
+\begin{theorem}[第一能控性规范型]
+    给定单输入单输出能控性系统，则在状态变换$x = Q_c \bar{x}$下，系统可转换为如下的第一能控规范型：
+    \begin{equation*}
+        \begin{cases}
+            \dot{\bar{x}} = A_c \bar{x} + b_c u \\
+            y = C_c \bar{x}
+        \end{cases}
+    \end{equation*}
+
+    其中：
+    \begin{equation*}
+        \begin{split}
+            A_c =  \begin{bmatrix}
+            0 & \cdots & 0 & -\alpha_0 \\
+            1 & \cdots & 0 & -\alpha_1 \\
+              & \ddots & \vdots & \cdots \\
+              & & 1 & -\alpha_{n-1} \\
+        \end{bmatrix} , b_c = \begin{bmatrix}
+            1 \\ 0 \\ \vdots \\ 0
+        \end{bmatrix}  \\
+        c_c = cQ_c = \begin{bmatrix}
+            \beta_0 & \beta_1 & \cdots & \beta_{n-1} \\
+        \end{bmatrix}\\
+        \end{split}
+    \end{equation*}
+    \begin{equation*}
+        \beta_i = c A^i b \quad \forall i < n
+    \end{equation*}
+\end{theorem}
+
+\begin{theorem}[第二能控性规范型]
+    给定单输入单输出能控性系统，其由特征多项式系数构成的Hankel矩阵$H_A$为：
+    \begin{gather*}
+        H_A = \begin{bmatrix}
+            \alpha_1     & \alpha_2 & \cdots & \alpha_{n-1}  & 1       \\
+            \alpha_2     & \alpha_3 & \cdots & 1             & 0       \\
+            \vdots       & \vdots   & \ddots & \vdots        & \vdots  \\
+            \alpha_{n-1} & 1        & \cdots & 0             & 0       \\
+            1            & 0        & \cdots & 0             & 0       \\
+        \end{bmatrix}
+    \end{gather*}
+    设其能控性矩阵为$Q_C$。令$P = Q_C H_A$，在状态变换$x = P \bar{x}$下，系统可转换为如下的第二能控规范型：
+    \begin{equation*}
+        \begin{cases}
+            \dot{\bar{x}} = A_c \bar{x} + b_c u \\
+            y = C_c \bar{x}
+        \end{cases}
+    \end{equation*}
+    其中：
+    \begin{gather*}
+        A_C = \begin{bmatrix}
+            0 & 1 & \cdots & 0 \\
+            \vdots & \vdots &  & \vdots \\
+            0 & 0 & \cdots & 1 \\
+            -\alpha_0 & -\alpha_1 & \cdots & -\alpha_{n-1}
+        \end{bmatrix} , \,
+        b_c = \begin{bmatrix}
+            0 & 0 & \cdots & 1 \\
+        \end{bmatrix}^T  \\
+        C_c = C P = \begin{bmatrix}
+            \beta_0 & \beta_1 &  \cdots & \beta_{n-1}
+        \end{bmatrix} \text{其中：}
+        \begin{cases}
+            \beta_{n-1} = C b \\
+            \beta_{n-2} = C A b + \alpha_{n-1} C b \\
+            \vdots \\
+            \beta_1 = C A^{n-2} b + \alpha_{n-1} C A^{n-3} b + \cdots + \alpha_2 C b \\
+            \beta_0 = C A^{n-1} b + \alpha_{n-1} C A^{n-2} b + \cdots + \alpha_1 C b \\
+        \end{cases}
+    \end{gather*}
+
+    由第二能控标准型我们可以直接写出系统的闭环传递函数：
+    \begin{gather*}
+        D(s) = \frac{\sum\limits_{i=0}^{n-1} \beta_i s^i}{s^n + \sum\limits_{j=1}^{n-1} \alpha_i s^i}
+    \end{gather*}
+\end{theorem}
+
+\subsubsection{能观规范型}
+
+和能控规范型类似，以下部分讨论的都是单输入单输出系统：
+\begin{equation*}
+    \begin{cases}
+        \dot{x} = A x + b u \\
+        y = C x
+    \end{cases}
+\end{equation*}
+系统的特征多项式为：$\sum\limits_{i=0}^n \alpha_i s^i$，其中$\alpha_n = 1$，其能观性矩阵为：$Q_O = \begin{bmatrix}
+    C^T & A^T C^T & \cdots (A^T)^{n-1} C^T \\
+\end{bmatrix}^T$
+
+\begin{theorem}[第一能观规范型]
+    给定单输入单输出能观性系统，则在状态变换$x = Q_O^{-1} \tilde{x}$下，系统可转换为如下第一能观规范型
+    \begin{gather*}
+        \dot{\tilde{x}} = \begin{bmatrix}
+            0 & 1 & \cdots & 0 \\
+            \vdots & \vdots & & \vdots \\
+            0 & 0 & \cdots & 1 \\
+            -\alpha_0 & -\alpha_1 &  \cdots & -\alpha_{n-1}
+        \end{bmatrix} \tilde{x} + \begin{bmatrix}
+            \beta_0 \\ \beta_1 \\ \vdots \\ \beta_{n-1}
+        \end{bmatrix} u \\
+        y = \begin{bmatrix}
+            1 & 0 & \cdots & 0
+        \end{bmatrix} \tilde{x}
+    \end{gather*}
+
+    其中：
+    \begin{gather*}
+        \beta_i = C A^i b\\
+        b_O = Q_O b = \begin{bmatrix}
+            \beta_0 \\ \beta_1 \\ \vdots \\ \beta_{n-1}
+        \end{bmatrix}
+    \end{gather*}
+\end{theorem}
+
+\begin{theorem}[第二能观规范型]
+    给定单输入单输出能观性系统，其对应的Hankel矩阵为：
+    \begin{gather*}
+        H_A = \begin{bmatrix}
+            \alpha_1     & \alpha_2 & \cdots & \alpha_{n-1}  & 1       \\
+            \alpha_2     & \alpha_3 & \cdots & 1             & 0       \\
+            \vdots       & \vdots   & \ddots & \vdots        & \vdots  \\
+            \alpha_{n-1} & 1        & \cdots & 0             & 0       \\
+            1            & 0        & \cdots & 0             & 0       \\
+        \end{bmatrix}
+    \end{gather*}
+    令$Q = H_A Q_O$则在状态变换$x = Q^{-1} \tilde{x}$下，系统可转换为如下第二能观规范型：
+    \begin{gather*}
+        \dot{\tilde{x}} = \begin{bmatrix}
+            0 & \cdots & 0 & -\alpha_0 \\
+            1 & \cdots & 0 & -\alpha_1 \\
+            \vdots & & \vdots & \vdots \\
+            0 & \cdots & 1 & -\alpha_{n-1} 
+        \end{bmatrix} \tilde{x} + \begin{bmatrix}
+            \beta_0 \\ \beta_1 \\ \vdots \\ \beta_{n-1} \\
+        \end{bmatrix} u  \\
+        y = \begin{bmatrix}
+            0 & \cdots & 0 & 1
+        \end{bmatrix} \tilde{x}
+    \end{gather*}
+    其中：
+    \begin{gather*}
+        \begin{cases}
+            \beta_{n-1} = C b \\
+            \beta_{n-2} = C A b + \alpha_{n-1} C b \\
+            \vdots \\
+            \beta_1 = C A^{n-2} b + \alpha_{n-1} C A^{n-3} b + \cdots + \alpha_2 C b \\
+            \beta_0 = C A^{n-1} b + \alpha_{n-1} C A^{n-2} b + \cdots + \alpha_1 C b 
+        \end{cases}
+    \end{gather*}
+\end{theorem}
+
+\subsubsection{能控性结构分解}
+
+但是对于一个不完全能控的系统，其无法化为能控标准型，我们这时候应当如何提取出其中的能控部分，将能控部分和不能控部分分开呢？我们有以下的方式：
+
+\begin{anymark}[能控性结构分解]
+    给定一个$n$维线性定常系统，其能控性矩阵为$Q_C$，且有$\text{rank} Q_C < n$。$l_1 , l_2 , \cdots ,l_k$是$Q_C$列空间中$k$个线性无关的列向量，$l_{k+1},\cdots,l_n$是与向量组$\{l_1,l_2,\cdots,l_k\}$线性无关的$(n-k)$个线性无关的列向量，并令变换矩阵$P = \begin{bmatrix}
+        l_1 & l_2 & \cdots & l_k & l_{k+1} & \cdots & l_n 
+    \end{bmatrix}$。则状态变换$x = P \hat{x}$可将系统转化为按能控性分解的规范形式：
+    \begin{gather*}
+        \begin{cases}
+            \begin{bmatrix}
+                \dot{\hat{x}}_C \\ \dot{\hat{x}}_{\bar{C}}
+            \end{bmatrix} = \begin{bmatrix}
+                \hat{A}_C & \hat{A}_{12} \\
+                0         & \hat{A}_{\bar{C}}\\
+            \end{bmatrix} \begin{bmatrix}
+                \hat{x}_C \\ \hat{x}_{\bar{C}}
+            \end{bmatrix} + \begin{bmatrix}
+                \hat{B}_C \\ 0
+            \end{bmatrix} u \\
+            y = \begin{bmatrix}
+                \hat{C}_1 & \hat{C}_2
+            \end{bmatrix} \begin{bmatrix}
+                \hat{x}_C  \\  \hat{x}_{\bar{C}}
+            \end{bmatrix}
+        \end{cases}
+    \end{gather*}
+    并且有如下的结论成立：
+    \begin{enumerate}
+        \item $(\hat{A}_C,\hat{B}_C)$是完全能控的
+        \item 子系统$\Sigma(\hat{A}_C,\hat{B}_C,\hat{C}_1)$的传递函数等于整个系统的传递函数，即：
+        \begin{gather*}
+            \hat{C}_1 (sI - \hat{A}_C)^{-1} \hat{B}_C = C (sI - A)^{-1} B
+        \end{gather*}
+        \item 两个子系统$\Sigma_1(\hat{A}_C,\hat{B}_C,\hat{C}_1),\Sigma_2(\hat{A}_{\bar{C}},\hat{B}_{\bar{C}},\hat{C}_2)$的特征多项式的乘积等于原系统的特征多项式\\
+        其中两个子系统为：
+        \begin{equation*}
+            \begin{split}
+                &\Sigma_1:\begin{cases}
+                \dot{\hat{x}}_C = \hat{A}_C \hat{x}_C + \hat{A}_{12} \hat{x}_{\bar{C}} + \hat{B}_C u\\
+                y_1 = \hat{C}_1 \hat{x}_C
+                \end{cases} \\
+                &\Sigma_2:\begin{cases}
+                    \dot{\hat{x}}_{\bar{C}} = \hat{A}_{\bar{C}} \hat{x}_{\bar{C}} \\
+                    y_2 = \hat{C}_2 \hat{x}_{\bar{C}}
+                \end{cases}
+            \end{split}
+        \end{equation*}
+        $\Sigma_1$为$k$维完全能控的子系统，$\Sigma_2$为$n-k$维不能控子系统，$y = y_1 + y_2$
+    \end{enumerate}
+    \begin{marker}
+        对于一个不完全可控的系统，其能控性结构分解是不唯一的，因为不同的人取的$n$个线性无关的列向量不完全一样，导致变换矩阵$P$不相同
+    \end{marker}
+\end{anymark}
+
+\subsubsection{能观性结构分解}
+
+和上面类似，我们可以通过以下的方式将系统中的能观部分和不能观部分分开：
+\begin{anymark}[能观性结构分解]
+    给定$n$维线性定常系统，其能观性矩阵为$Q_o$，且有$\text{rank} Q_o = k < n$。$v_1^T,v_2^T,\cdots,v_k^T$是$Q_o$行空间中$k$个线性无关的行向量，$v_{k+1}^T,\cdots,v_n^T$是与向量组$\{v_1^T,v_2^T,\cdots,v_k^T\}$线性无关的$(n-k)$个线性无关的行向量，并令变换矩阵$P = \begin{bmatrix}
+        v_1^T \\ v_2^T \\ \vdots \\ v_n^T
+    \end{bmatrix}^T$，则线性变换$x = P^{-1} \hat{x}$将上述系统化为按能观性分解的规范型
+    \begin{gather*}
+        \begin{cases}
+            \begin{bmatrix}
+                \dot{\hat{x}}_o \\ \dot{\hat{x}}_o
+            \end{bmatrix} = \begin{bmatrix}
+                \hat{A}_o & 0 \\
+                \hat{A}_{21} & \hat{A}_{\bar{o}}
+            \end{bmatrix} \begin{bmatrix}
+                \hat{x}_o \\ \hat{x}_{\bar{o}}
+            \end{bmatrix} + \begin{bmatrix}
+                \hat{B}_1 \\ \hat{B}_2
+            \end{bmatrix} u\\
+            y = \begin{bmatrix}
+                \hat{C}_o & 0
+            \end{bmatrix} \begin{bmatrix}
+                \hat{x}_o \\ \hat{x}_{\bar{o}}
+            \end{bmatrix}
+        \end{cases}
+    \end{gather*}
+    并且有如下的结论成立：
+    \begin{enumerate}
+        \item $(\hat{A}_o, \hat{C}_o)$完全能观
+        \item 子系统$\Sigma(\hat{A}_o,\hat{B}_1,\hat{C}_o)$的传递函数等于整个系统的传递函数，即：
+        \begin{gather*}
+            \hat{C}_o (sI - \hat{A}_o)^{-1} \hat{B}_1 = C (sI - A)^{-1} B
+        \end{gather*}
+        \item 两个子系统$\Sigma_1(\hat{A}_C,\hat{B}_C,\hat{C}_1),\Sigma_2(\hat{A}_{\bar{C}},\hat{B}_{\bar{C}},\hat{C}_2)$的特征多项式的乘积等于原系统的特征多项式\\
+        其中两个子系统为：
+        \begin{equation*}
+            \begin{split}
+                &\Sigma_1:\begin{cases}
+                \dot{\hat{x}}_o = \hat{A}_o \hat{x}_o + \hat{B}_1 u\\
+                y_1 = \hat{C}_o \hat{x}_o
+                \end{cases} \\
+                &\Sigma_2:\begin{cases}
+                    \dot{\hat{x}}_{\bar{o}} = \hat{A}_{21} \hat{x}_o + \hat{A}_{\bar{o}} \hat{x}_{\bar{o}} + \hat{B}_2 u \\
+                    y_2 = 0
+                \end{cases}
+            \end{split}
+        \end{equation*}
+        $\Sigma_1$为$k$维完全能观的子系统，$\Sigma_2$为$n-k$维不能观子系统，$y = y_1 + y_2$
+    \end{enumerate}
+\end{anymark}
+
+\subsubsection{能控+能观结构分解}
+
+此处考试不做要求，下面仅给出课上的ppt：
+\begin{center}
+    \includegraphics[width = .8\textwidth]{note/state space/figure/19.png} \\
+    \includegraphics[width = .8\textwidth]{note/state space/figure/20.png}
+\end{center}
+
+\subsection{状态空间实现}
+
+\subsubsection{能控能观性与零极点对消}
+
+对于SISO系统，如果要通过秩判据一步一步判别系统的能控能观性，花费的精力会比较大，如果系统既是能控的也是能观的，我们有没有什么比较快的方法呢？
+
+当然有！我们通过以下的定理来判别系统的能控能观性：
+\begin{theorem}
+    对于单输入单输出系统，一个传递函数的实现是能控能观的当且仅当传递函数无零极点对消
+    \begin{marker}
+        传递函数的实现指的是可以化成该传递函数的状态空间模型，注意在化成传递函数的过程中不要轻易约去分子分母的公因式！
+    \end{marker}
+\end{theorem}
+
+\subsubsection{单输入单输出系统的实现}
+
+对于一个单输入单输出系统，已知系统的传递函数，如果系统传递函数没有零极点对消，我们可以：
+\begin{enumerate}
+    \item 建立系统的能控规范型实现
+    \item 建立系统的能观规范型实现
+    \item 通过传递函数的部分分式展开，写出系统的Jordan标准型的实现形式
+\end{enumerate}
+
+\subsubsection{最小实现}
+
+对于给定的传递函数矩阵，其实现并不唯一，其中维数最小的实现被称为最小实现。因此，最小实现是一种结构最简单的不可约实现。关于线性定常系统的最小实现有如下定理：
+\begin{theorem}
+    $G(s)$是一个严格真有理分实矩阵，实现$\Sigma(A,B,C)$是它最小实现的充要条件为：$(A,B)$能控，$(A,C)$能观  
+\end{theorem}
+
+\begin{theorem}
+    $G(s)$任意两个最小实现$\Sigma_1(A_1,B_1,C_1)$和$\Sigma_2(A_2,B_2,C_2)$是代数等价的
+\end{theorem}
+
+那么怎么寻找最小实现呢？我们有以下的方式：
+\begin{enumerate}
+    \item 根据给定的传递函数矩阵$G(s)$，首先找出一种实现，为了使实现具有较低的维数，通常的做法是，当输入维数小于输出维数时，选择能控标准型实现，反之，选择能观标准型实现
+    \item 对这个实现进行结构分解，其中既能控又能观的部分便是最小实现
+\end{enumerate}
+
+
+\begin{theorem}[能控标准型实现]
+    模型
+    \begin{equation*}
+        \begin{cases}
+            \dot{x} = Ax + Bu \\
+            y = Cx
+        \end{cases}
+    \end{equation*}
+    作为给定传递矩阵$ G(s) = \dfrac{\sum\limits_{i=0}^{n-1} P_i s^i}{s^n + \sum\limits_{j=0}^{n-1} \alpha_i s^i}$的一个能控标准型实现为
+    \begin{equation*}
+    \begin{cases}
+        A = \begin{bmatrix}
+        0_r & I_r & 0_r & \cdots & 0_r \\
+        0_r & 0_r & I_r & \cdots & 0_r \\
+        \vdots & \vdots & \vdots & & \vdots \\
+        0_r & 0_r & 0_r & \cdots & I_r \\
+        -\alpha_0 I_r & -\alpha_1 I_r & -\alpha_2 I_r & \cdots & -\alpha_{n-1} I_r
+        \end{bmatrix} \in \mathbb{R}^{rn \times rn}
+        \\[20pt]
+        B = \begin{bmatrix}
+        0_r \\
+        0_r \\
+        \vdots \\
+        0_r \\
+        I_r
+        \end{bmatrix} \in \mathbb{R}^{rn \times r}
+        \\[20pt]
+        C = \begin{bmatrix}
+        P_0 & P_1 & \cdots & P_{n-1}
+        \end{bmatrix} \in \mathbb{R}^{m \times rn}
+        \end{cases}
+    \end{equation*}
+    其中 $0_r$ 及 $I_r$ 分别为 $r \times r$ 零矩阵及 $r \times r$ 单位矩阵。
+\end{theorem}
+
+
+\begin{theorem}[能观标准型实现]
+    模型
+    \begin{equation*}
+        \begin{cases}
+            \dot{x} = Ax + Bu \\
+            y = Cx
+        \end{cases}
+    \end{equation*}
+    作为给定传递矩阵$ G(s) = \dfrac{\sum\limits_{i=0}^{n-1} P_i s^i}{s^n + \sum\limits_{j=0}^{n-1} \alpha_i s^i}$的一个能观标准型实现为
+    \begin{equation*}
+        \begin{cases}
+        A = \begin{bmatrix}
+        0_m & 0_m & \cdots & 0_m & -\alpha_0 I_m \\
+        I_m & 0_m & \cdots & 0_m & -\alpha_1 I_m \\
+        0_m & I_m & \cdots & 0_m & -\alpha_2 I_m \\
+        \vdots & \vdots & & \vdots & \vdots \\
+        0_m & 0_m & \cdots & I_m & -\alpha_{n-1} I_m
+        \end{bmatrix} \in \mathbb{R}^{mn \times mn}
+        \\[20pt]
+        B = \begin{bmatrix}
+        P_0 \\
+        P_1 \\
+        \vdots \\
+        P_{n-1}
+        \end{bmatrix} \in \mathbb{R}^{mn \times r}
+        \\[20pt]
+        C = \begin{bmatrix}
+        0_m & 0_m & \cdots & 0_m & I_m
+        \end{bmatrix} \in \mathbb{R}^{m \times mn}
+        \end{cases}
+    \end{equation*}
+    其中 $0_m$ 及 $I_m$ 分别为 $m \times m$ 零矩阵及 $m \times m$ 单位矩阵。
+\end{theorem}
+
+\subsection{离散系统能控能观性}
+
+\subsubsection{离散系统能控性}
+
+对于离散系统我们考察以下定常线性离散时间系统的能控性：
+\begin{gather*}
+    x(k + 1) = G x(k) + H u(k)
+\end{gather*}
+
+\begin{definition}[能控状态]
+    对于线性定常离散时间系统，如果存在一时刻$k_1 > 0$和一个无约束控制$u(k),k \in \mathbb{I}[0,k_1]$，使得系统在这个控制的作用下，系统由初始状态$x(0) = x_0$出发经过$k_1$步后转移到$x(k_1) = 0$，则称此状态$x_0$是系统的一个能控状态
+\end{definition}
+
+\begin{definition}[系统的能控性]
+    对于线性定常离散时间系统，如果状态空间中的所有非零状态都是能控状态，则称该系统是能控的
+\end{definition}
+
+不过，在线性定常离散时间系统中，系统的能控性和能达性并不等价，我们给出以下的能达性的定义：
+\begin{definition}[能达状态]
+    对于线性定常离散时间系统，如果存在一时刻$k_1 > 0$，和一个无约束控制$u(k)$，使得系统在这个控制的作用下，系统由零初始状态$x(0) = 0$出发后转移到$x(k_1) = x_f$，则称此$x_f$是系统的一个能达状态
+\end{definition}
+
+\begin{definition}[系统能达性]
+    对于线性定常离散时间系统，如果状态空间中的所有非零状态都是能达状态，则称该系统是能达的
+\end{definition}
+
+和连续系统类似，我们也可以给出离散系统中能控性和能达性的判据：
+
+\begin{anymark}[能控性Gram判据]
+    给定输入矩阵$H \in \mathbb{R}^{n \times r }$和非奇异系统矩阵$G \in \mathbb{R}^{n\times n}$，线性定常系统是能控的，当且仅当存在时刻$k_1 > 0$，使得Gram矩阵：
+    \begin{gather*}
+        W_c(k_1) = \sum_{i=0}^{k_1 - 1} G^{-1-i} H H^T (G^{-1-i})^T
+    \end{gather*}
+    是非奇异的
+\end{anymark}
+
+\begin{anymark}[能达性Gram判据]
+    给定输入矩阵$H \in \mathbb{R}^{n \times r }$和非奇异系统矩阵$G \in \mathbb{R}^{n\times n}$，线性定常系统是能达的，当且仅当存在时刻$k_1 > 0$，使得Gram矩阵：
+    \begin{gather*}
+        W_c(k_1) = \sum_{i=0}^{k_1 -1} G^{k_1-1-i} H H^T (G^{k_1-1-i})^T
+    \end{gather*}
+    是非奇异的
+\end{anymark}
+
+\begin{anymark}[能控性和能达性的秩判据]
+    给定输入矩阵$H \in \mathbb{R}^{n \times r }$和系统矩阵$G \in \mathbb{R}^{n\times n}$
+    \begin{enumerate}
+        \item 系统是\textbf{能达}的，当且仅当：
+        \begin{gather*}
+            \text{rank} \begin{bmatrix}
+                H & GH & \cdots & G^{n-1} H
+            \end{bmatrix} = n
+        \end{gather*}
+        \item 系统是\textbf{能控}的，当且仅当：
+        \begin{gather*}
+            \text{rank} \begin{bmatrix}
+                H & GH & \cdots & G^{n-1} H
+            \end{bmatrix} = \text{rank} \begin{bmatrix}
+                H & GH & \cdots & G^{n-1} H & G^n
+            \end{bmatrix}
+        \end{gather*}
+    \end{enumerate}
+    观察以上两个判据，可以发现两个判据等价的充要条件为：\textbf{系统矩阵$G$是非奇异的}
+\end{anymark}
+
+\begin{theorem}[最小拍控制]
+    考虑单输入离散时间线性时不变系统：
+    \begin{equation*}
+        x(k+1) = Gx(k) + hu(k), \quad k = 0, 1, \cdots
+    \end{equation*}
+    其中，$x$ 为 $n$ 维状态，$u$ 为标量输入，$G$ 和 $h$ 为 $n \times n$ 和 $n \times 1$ 常值矩阵，且设 $G$ 非奇异，那么，当系统为完全能控时，可构造如下一组控制输入：
+    \begin{equation*}
+        \begin{bmatrix}
+        u(0) \\ u(1) \\ \cdots \\ u(n-1)
+        \end{bmatrix}
+        = -\bigl[ G^{-1}h,\ G^{-2}h,\ \cdots,\ G^{-n}h \bigr]^{-1} x_0
+    \end{equation*}
+    使系统必可在 $n$ 步内由任意非零初始状态 $x(0) = x_0$ 转移到状态空间原点。通常称这组控制为\textbf{最小拍控制}。
+\end{theorem}
+
+\subsubsection{离散系统能观性}
+
+对于离散系统我们考察以下定常线性离散时间系统的能观性
+\begin{gather*}
+    \begin{cases}
+        x(k+1) = G x(k) \\
+        y(k) = C x(k)
+    \end{cases}
+\end{gather*}
+
+\begin{definition}[能观状态]
+    对于线性定常离散时间系统，如果对于初始时刻$k = 0$的一个非零的初始状态$x_0$，存在一个有限的时刻$k_1 > 0$，使得由区间$\mathbb{I}[0,k_1]$上的系统的输出$y(k)$可以唯一决定系统初始状态$x_0$，则称该状态$x_0$是能观的
+\end{definition}
+
+\begin{definition}[系统的能观性]
+    对于线性定常离散时间系统，如果状态空间中的所有非零状态都是能观状态，则称该系统是能观的
+\end{definition}
+
+同样的，我们也可以给出离散系统中能观性判据：
+\begin{anymark}[离散系统能观性Gram判据与秩判据]
+    给定系统矩阵 $G \in \mathbb{R}^{n \times n}$ 和输出矩阵 $C \in \mathbb{R}^{m \times n}$，线性离散定常系统是能观的，当且仅当
+    \begin{enumerate}
+        \item \textbf{Gram判据}：存在有限时刻 $k_1 > 0$，使得 Gram 矩阵
+        \begin{equation*}
+            W_o(k_1) = \sum_{i=0}^{k_1} (G^{\mathrm{T}})^i C^{\mathrm{T}} C G^i
+        \end{equation*}
+        是非奇异的。
+        \item \textbf{秩判据}：
+        \begin{equation*}
+            \mathrm{rank}\, Q_{od} = \mathrm{rank}
+            \begin{bmatrix}
+            C \\ CG \\ \vdots \\ CG^{n-1}
+            \end{bmatrix} = n
+        \end{equation*}
+        或
+        \begin{equation*}
+            \mathrm{rank}
+            \begin{bmatrix}
+            C^{\mathrm{T}} & G^{\mathrm{T}}C^{\mathrm{T}} & (G^{\mathrm{T}})^2 C^{\mathrm{T}} & \cdots & (G^{\mathrm{T}})^{n-1} C^{\mathrm{T}}
+            \end{bmatrix} = n
+        \end{equation*}
+    \end{enumerate}
+\end{anymark}
+
+\begin{theorem}[最小拍观测]
+    考虑单输出离散时间线性时不变系统：
+    \begin{align*}
+        x(k+1) &= Gx(k), \quad x(0) = x_0, \quad k = 0, 1, 2, \cdots \\
+        y(k) &= cx(k)
+    \end{align*}
+    其中 $x \in \mathbb{R}^n$，$y \in \mathbb{R}$，$G \in \mathbb{R}^{n \times n}$，$c \in \mathbb{R}^{1 \times n}$。那么，若系统完全能观测，则只利用 $n$ 步输出值 $y(0), y(1), \cdots, y(n-1)$ 就可构造相应初始状态 $x_0$：
+    \begin{equation*}
+        x_0 =
+        \begin{bmatrix}
+        c \\ cG \\ \vdots \\ cG^{n-1}
+        \end{bmatrix}^{-1}
+        \begin{bmatrix}
+        y(0) \\ y(1) \\ \vdots \\ y(n-1)
+        \end{bmatrix}
+    \end{equation*}
+\end{theorem}
+
+\subsubsection{离散化系统对能控能观性的保持}
+
+\begin{proposition}
+    如果连续系统是不完全可控（不完全可观），则其离散化系统也是不能控（不能观）的
+    \begin{proof}
+        如果线性定常连续系统不能控，则其能控性矩阵
+        \begin{equation*}
+            Q_c = \begin{bmatrix} B & AB & \cdots & A^{n-1}B \end{bmatrix}
+        \end{equation*}
+        秩为 $\mathrm{rank}\,Q_c = k < n$，设列向量 $l_1, l_2, \ldots, l_k$ 是 $Q_c$ 中线性无关的列。
+
+        对离散化系统，其能控性矩阵为：
+        \begin{equation*}
+            Q_{cd} = \begin{bmatrix} H & GH & \cdots & G^{n-1}H \end{bmatrix}
+        \end{equation*}
+        其中 $G = e^{AT},\ H = \left(\displaystyle\int_0^T e^{A\tau} d\tau\right) B$。
+
+        通过 Cayley-Hamilton 定理：
+        \begin{itemize}
+            \item $\int_0^T e^{A\tau} d\tau$ 可表示为 $\{I, A, \cdots, A^{n-1}\}$ 的线性组合；
+            \item 故 $H$ 可表示为 $\{B, AB, \cdots, A^{n-1}B\}$ 的线性组合；
+            \item 进而 $H$ 的每列均可表示为 $l_1, l_2, \ldots, l_k$ 的线性组合。
+        \end{itemize}
+
+        对于 $GH$：
+        \begin{equation*}
+            GH = e^{AT} \int_0^T e^{At} B \,dt = \int_0^T e^{A(t+T)} B \,dt
+        \end{equation*}
+
+        同样通过 Cayley-Hamilton 可得：
+        \begin{itemize}
+            \item $GH$ 是 $\{B, AB, \cdots, A^{n-1}B\}$ 的线性组合；
+            \item 所以 $GH$ 的每一列也可表示为 $l_1, l_2, \ldots, l_k$ 的线性组合。
+        \end{itemize}
+
+        类似地，所有 $G^{i-1}H$ 的每列也都可表示为这些列向量的线性组合。
+
+        结论：
+        \begin{equation*}
+            \mathrm{rank}\,Q_{cd} \le k < n
+        \end{equation*}
+        即：离散化系统仍然不可控。对能观性也可以得出类似结论。
+
+    \end{proof}
+\end{proposition}
+
+\begin{theorem}
+    设系统
+    \begin{gather*}
+        \Sigma:\begin{cases}
+            \dot{x} = A x + B u \quad x(0) = x_0 \\
+            y = C x + D u \quad t \geq 0
+        \end{cases}
+    \end{gather*}
+    能控或能观，令 $\lambda_1, \lambda_2, \cdots, \lambda_\mu$ 为 $A$ 的全部特征值，且当 $i \neq j$ 时有 $\lambda_i \neq \lambda_j$，则时间离散化系统 $\Sigma_T$ 保持能控或能观测的一个充分条件是，采样周期 $T$ 的数值对一切满足
+    \begin{equation*}
+        \mathrm{Re}|\lambda_i - \lambda_j| = 0 \qquad i, j = 1, 2, \cdots, \mu
+    \end{equation*}
+    的特征值，有
+    \begin{equation*}
+        T \neq \frac{2l\pi}{\mathrm{Im}(\lambda_i - \lambda_j)} \qquad l = \pm 1, \pm 2, \cdots
+    \end{equation*}
+\end{theorem}
