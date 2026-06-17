@@ -1,0 +1,13 @@
+{
+    "latex-workshop.latex.search.rootFiles.include": [
+        "**/main.tex"
+    ],
+    "latex-workshop.latex.rootFile.useSubFile": false,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.view.pdf.tab.editorGroup": "right",
+    "latex-workshop.synctex.afterBuild.enabled": true,
+    "latex-workshop.latex.watch.pdf.delay": 2000,
+    "latex-workshop.view.pdf.scrollMode": 0,
+    "latex-workshop.view.pdf.spreadMode": 0,
+    "latex-workshop.view.pdf.reload.transition": "none"
+}

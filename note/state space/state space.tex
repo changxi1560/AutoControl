@@ -1,3 +1,4 @@
+% !TEX root = ../../main.tex
 \chapter{状态空间模型}
 
 \section{线性系统的状态空间描述}
@@ -1721,3 +1722,1752 @@
         T \neq \frac{2l\pi}{\mathrm{Im}(\lambda_i - \lambda_j)} \qquad l = \pm 1, \pm 2, \cdots
     \end{equation*}
 \end{theorem}
+
+\section{状态空间综合}
+
+\subsection{状态反馈}
+
+我们现在有如下的对象：
+\begin{enumerate}
+    \item 被控对象：$\dot{x} = Ax + Bu$
+    \item 状态反馈：$u = K x + v$
+    \item 闭环系统：$\dot{x} = (A+BK) x + B v$
+\end{enumerate}
+
+状态反馈主要是解决以下的问题：给定矩阵$A \in \mathbb{R}^{n \times n},B\in \mathbb{R}^{n \times r}$，以及一组共轭封闭的复数$s_i,i\in \mathbb{I}[1,n]$，求取矩阵$K\in \mathbb{R}^{r \times n}$，使得矩阵$A+BK$的所有特征值为$s_i,i\in \mathbb{I}[1,n]$
+
+因此，我们有以下的引理：
+\begin{lemma}
+    给定定常线性系统，如果对任意给定的一组共轭封闭的复数$s_i,i \in \mathbb{I}[1,n]$都存在状态反馈增益矩阵$K \in \mathbb{R}^{r \times n}$，使得闭环系统矩阵$A+BK$的所有特征值为$s_i,i\in \mathbb{I}[1,n]$,则该系统是能控的
+    \begin{proof}
+        采用反证法。假设系统不能控，则必可通过结构分解作非奇异状态变换
+        $x=P\bar{x}$ 得到如下系统
+        \begin{equation*}
+            \dot{\bar{x}}=\bar{A}\bar{x}+\bar{B}u
+        \end{equation*}
+        其中
+        \begin{equation*}
+            \bar{A}=P^{-1}AP
+            =
+            \begin{bmatrix}
+                \bar{A}_{c} & \bar{A}_{12}\\
+                0 & \bar{A}_{\bar{c}}
+            \end{bmatrix},
+            \qquad
+            \bar{B}=P^{-1}B
+            =
+            \begin{bmatrix}
+                \bar{B}_{c}\\
+                0
+            \end{bmatrix}
+        \end{equation*}
+
+        对系统的任一次状态反馈增益矩阵 $K$，令
+        \[
+            \bar{K}=KP=
+            \begin{bmatrix}
+                \bar{K}_{1} & \bar{K}_{2}
+            \end{bmatrix}
+        \]
+        且其分块与矩阵 $\bar{A}$ 的分块相容。则有
+        \begin{align*}
+            \det(sI-A-BK)
+            &= \det(sI-\bar{A}-\bar{B}KP)\\
+            &= \det
+            \begin{bmatrix}
+                sI-\bar{A}_{c}-\bar{B}_{c}\bar{K}_{1}
+                & -\bar{A}_{12}-\bar{B}_{c}\bar{K}_{2}\\
+                0
+                & sI-\bar{A}_{\bar{c}}
+            \end{bmatrix}\\
+            &= \det(sI-\bar{A}_{c}-\bar{B}_{c}\bar{K}_{1})
+            \det(sI-\bar{A}_{\bar{c}})
+        \end{align*}
+
+        这表明，状态反馈不能改变系统不能控部分的特征值，也即此种情况不可能任意配置全部极点。
+        这显然是和已知前提相矛盾的，故假设不成立，也就是上述系统一定是能控的。
+    \end{proof}
+\end{lemma}
+
+\subsubsection{单输入系统的极点配置}
+
+考虑以下的单输入系统：
+\begin{align*}
+    \dot{x} = Ax + Bu
+\end{align*}
+
+其中$x \in \mathbb{R}^n$是系统的状态变量，$u\in R$是系统的控制输入，$A\in \mathbb{R}^{n\times n}$和$b\in \mathbb{R}^n$分别为系统矩阵和输入矩阵。在状态反馈
+\begin{align*}
+    u = kx + v
+\end{align*}
+的作用下，闭环系统为
+\begin{align*}
+    \dot{x} = (A + bk) x + bv
+\end{align*}
+
+\begin{theorem}
+    给定单输入线性定常系统，对任意给定的一组共轭封闭的复数$s_i,i\in \mathbb{I}[1,n]$都存在状态反馈增益矩阵$k\in \mathbb{R}^{1 \times n}$，使得闭环系统矩阵$A + bk$的所有特征值为$s_i,i\in \mathbb{I}[1,n]$，当且仅当该系统是能控的
+    \begin{proof}
+    系统在状态变换 $x=P\bar{x}$ 下，可化为能控标准形
+    \[
+    A_c=P^{-1}AP=
+    \begin{bmatrix}
+    0&1&0&\cdots&0\\
+    0&0&1&\cdots&0\\
+    \vdots&\vdots&\vdots&&\vdots\\
+    0&0&0&\cdots&1\\
+    -\alpha_0&-\alpha_1&-\alpha_2&\cdots&-\alpha_{n-1}
+    \end{bmatrix},
+    \qquad
+    b_c=P^{-1}b=
+    \begin{bmatrix}
+    0\\0\\ \vdots\\0\\1
+    \end{bmatrix}.
+    \]
+
+    对状态反馈式
+    \[
+    u=kx+v
+    \]
+    有
+    \[
+    u=kP\bar{x}+v=\bar{k}\bar{x}+v,
+    \]
+    其中
+    \[
+    \bar{k}=kP=
+    \begin{bmatrix}
+    \bar{k}_1&\bar{k}_2&\cdots&\bar{k}_n
+    \end{bmatrix}.
+    \]
+
+    系统引入状态反馈后的闭环系统矩阵为 $A+bk$。
+    在状态变换 $x=P\bar{x}$ 下的系统矩阵为
+    \[
+    \begin{aligned}
+    P^{-1}(A+bk)P
+    &=P^{-1}AP+P^{-1}bkP  \\
+    &=A_c+b_c\bar{k} \\
+    &=
+    \begin{bmatrix}
+    0&1&0&\cdots&0\\
+    0&0&1&\cdots&0\\
+    \vdots&\vdots&\vdots&&\vdots\\
+    0&0&0&\cdots&1\\
+    -\alpha_0+\bar{k}_1&
+    -\alpha_1+\bar{k}_2&
+    -\alpha_2+\bar{k}_3&
+    \cdots&
+    -\alpha_{n-1}+\bar{k}_n
+    \end{bmatrix}.
+    \end{aligned}
+    \]
+
+    对于上述这种特殊形式的矩阵，其闭环特征方程为
+    \[
+    \begin{aligned}
+    \det\left[sI-\left(A_c+b_c\bar{k}\right)\right]
+    &=s^n+\left(\alpha_{n-1}-\bar{k}_n\right)s^{n-1}
+    +\cdots+\left(\alpha_1-\bar{k}_2\right)s
+    +\left(\alpha_0-\bar{k}_1\right)=0.
+    \end{aligned}
+    \]
+
+    显然，该 $n$ 阶特征方程中的 $n$ 个系数，可以通过
+    $\bar{k}_1,\bar{k}_2,\ldots,\bar{k}_n$ 独立设置。
+    也就是说，$A_c+b_c\bar{k}$ 的特征值可以任意选择，
+    即闭环系统的极点可以任意配置。
+    \end{proof}
+\end{theorem}
+
+通过以上的定理，我们可以有以下的方法来进行状态反馈的极点配置：
+\begin{anymark}[基于第二能控规范型的状态反馈极点配置]
+    \begin{enumerate}[label=\textbf{第 \arabic* 步.}, leftmargin=*]
+        \item 计算系统矩阵 $A$ 的特征多项式，即
+        \[
+        \det(sI-A)
+        =s^n+\alpha_{n-1}s^{n-1}+\cdots+\alpha_1s+\alpha_0
+        \]
+
+        \item 根据期望闭环特征值
+        $\{s_1,\ s_2,\ \cdots,\ s_n\}$，确定闭环特征多项式，即
+        \[
+        a^*(s)
+        =(s-s_1)(s-s_2)\cdots(s-s_n)
+        =s^n+\alpha_{n-1}^*s^{n-1}+\cdots+\alpha_1^*s+\alpha_0^*
+        \]
+
+        \item 计算
+        \[
+        \bar{k}
+        =
+        \begin{bmatrix}
+        \alpha_0-\alpha_0^*
+        &
+        \alpha_1-\alpha_1^*
+        &
+        \cdots
+        &
+        \alpha_{n-1}-\alpha_{n-1}^*
+        \end{bmatrix}
+        \]
+
+        \item 计算变换阵
+        \[
+        P
+        =
+        \begin{bmatrix}
+        b & Ab & \cdots & A^{n-1}b
+        \end{bmatrix}
+        \begin{bmatrix}
+        \alpha_1 & \alpha_2 & \cdots & \alpha_{n-1} & 1 \\
+        \alpha_2 & \alpha_3 & \cdots & 1 &  \\
+        \vdots & \vdots & \ddots &  &  \\
+        \alpha_{n-1} & 1 &  &  &  \\
+        1 &  &  &  &
+        \end{bmatrix}
+        \]
+
+        \item 求出增益阵
+        \[
+        k=\bar{k}P^{-1}
+        \]
+    \end{enumerate}
+\end{anymark}
+
+\begin{example}
+    给定单输入线性定常系统：
+        \[
+    \dot{x}=
+    \begin{bmatrix}
+    0 & 0 & 0\\
+    1 & -6 & 0\\
+    0 & 1 & -12
+    \end{bmatrix}x+
+    \begin{bmatrix}
+    1\\
+    0\\
+    0
+    \end{bmatrix}u
+    \]
+
+    再给定期望的一组闭环特征值为
+
+    \[
+    s_1=-2,\qquad s_2=-1+j,\qquad s_3=-1-j
+    \]
+
+    易知系统为完全能控，故满足状态反馈闭环极点可任意配置的条件。开环系统的特征多项式
+
+    \[
+    \det(sI-A)=
+    \det
+    \begin{bmatrix}
+    s & 0 & 0\\
+    -1 & s+6 & 0\\
+    0 & -1 & s+12
+    \end{bmatrix}
+    =s^3+18s^2+72s
+    \]
+
+    再由指定闭环极点可得希望的闭环特征多项式为
+
+    \[
+    a^*(s)=\prod_{i=1}^{3}(s-s_i)
+    =(s+2)(s+1-j)(s+1+j)
+    =s^3+4s^2+6s+4
+    \]
+
+    于是可求得
+
+    \[
+    \bar{k}=
+    \begin{bmatrix}
+    \alpha_0-\alpha_0^* & \alpha_1-\alpha_1^* & \alpha_2-\alpha_2^*
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    -4 & 66 & 14
+    \end{bmatrix}
+    \]
+
+    变换矩阵 $P$ 为
+
+    \[
+    P=
+    \begin{bmatrix}
+    1 & 0 & 0\\
+    0 & 1 & -6\\
+    0 & 0 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+    72 & 18 & 1\\
+    18 & 1 & 0\\
+    1 & 0 & 0
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    72 & 18 & 1\\
+    12 & 1 & 0\\
+    1 & 0 & 0
+    \end{bmatrix}
+    \]
+
+    其逆矩阵为
+
+    \[
+    P^{-1}=
+    \begin{bmatrix}
+    0 & 0 & 1\\
+    0 & 1 & -12\\
+    1 & -18 & 144
+    \end{bmatrix}
+    \]
+
+    从而所要确定的状态反馈增益阵 $k$ 即为
+
+    \[
+    k=\bar{k}P^{-1}
+    =
+    \begin{bmatrix}
+    -4 & 66 & 14
+    \end{bmatrix}
+    \begin{bmatrix}
+    0 & 0 & 1\\
+    0 & 1 & -12\\
+    1 & -18 & 144
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    14 & -186 & 1220
+    \end{bmatrix}
+    \]
+\end{example}
+
+我们还可以采用直接法来配置系统的极点：
+\begin{anymark}[状态反馈极点配置直接法]
+    \begin{enumerate}[label=\textbf{第 \arabic* 步：}, leftmargin=*]
+        \item 由给定的期望闭环极点
+        $s_i,\ i=1,2,\cdots,n$，写出期望的闭环特征多项式：
+        \[
+        \begin{aligned}
+        \alpha^*(s)
+        &=(s-s_1)(s-s_2)\cdots(s-s_n) \\
+        &=s^n+\alpha_{n-1}s^{n-1}+\cdots+\alpha_1s+\alpha_0
+        \end{aligned}
+        \]
+
+        \item 由等式
+        \[
+        \det(sI-A-BK)=\alpha^*(s)
+        \]
+        比较系数，解联立方程即可确定
+        $k_1,\ \cdots,\ k_n$。
+    \end{enumerate}
+\end{anymark}
+
+\begin{example}
+    设某伺服系统的传递函数为：
+        \[
+    G(s)=\frac{1}{s(s+6)(s+12)}
+    \]
+
+    试设计状态反馈，使闭环系统满足如下性能指标：
+
+    \begin{enumerate}
+    \item 输出超调量 $\sigma_p \leq 5\%$；
+    \item 峰值时间 $t_p \leq 0.5\,\mathrm{s}$；
+    \item 稳态位置误差 $e_p=0$。
+    \end{enumerate}
+    \tcblower
+    解：\begin{enumerate}
+            \item 确定期望极点的位置。
+
+            这是一个三阶系统。如果让系统的一个极点远离虚轴，而另外一对复极点相对接近虚轴，则这一对共轭复极点就成为系统的主导极点，系统的瞬态性能主要由主导极点决定，设主导极点为
+
+            \[
+            \lambda_{1,2}=-\xi\omega_n \pm j\sqrt{1-\xi^2}\omega_n
+            \]
+
+            由典型二阶振荡环节的瞬态性能指标公式可知：
+
+            \[
+            \sigma_p=e^{-\xi\pi/\sqrt{1-\xi^2}}\times 100\% < 5\%
+            \]
+
+            \[
+            t_p=\frac{\pi}{\omega_n\sqrt{1-\xi^2}}<0.5
+            \]
+
+            于是，只要 $\xi>0.707,\ \omega_n>9$ 则动态性能得到满足。取 $\xi=0.707,\ \omega_n=10$，则主导极点为
+
+            \[
+            s_{1,2}=-7.07\pm j7.07
+            \]
+
+            取第三个极点为 $s_3=-100$，远离虚轴。于是闭环系统的期望特征多项式为
+
+            \[
+            \alpha^*=(s+100)(s+7.07-j7.07)(s+7.07+j7.07)
+            \]
+
+            \[
+            =s^3+114.1s^2+1510s+10000
+            \]
+
+            \item 确定反馈增益 $K$。
+
+            先将原系统写成状态空间形式。为此，可取
+
+            \[
+            X_3(s)=\frac{1}{s+6}U(s)
+            \]
+
+            \[
+            X_2(s)=\frac{1}{s+12}X_3(s)
+            \]
+
+            \[
+            X_1(s)=Y(s)=\frac{1}{s}X_2(s)
+            \]
+
+            于是得到系统的状态空间模型为
+
+            \[
+            \left\{
+            \begin{aligned}
+            \dot{x}_1 &= x_2\\
+            \dot{x}_2 &= -12x_2+x_3\\
+            \dot{x}_3 &= -6x_3+u\\
+            y &= x_1
+            \end{aligned}
+            \right.
+            \]
+
+            对于该系统，其系统矩阵为
+
+            \[
+            A=
+            \begin{bmatrix}
+            0 & 1 & 0\\
+            0 & -12 & 1\\
+            0 & 0 & -6
+            \end{bmatrix},
+            \quad
+            b=
+            \begin{bmatrix}
+            0\\
+            0\\
+            1
+            \end{bmatrix},
+            \quad
+            c=
+            \begin{bmatrix}
+            1 & 0 & 0
+            \end{bmatrix}
+            \]
+
+            设状态反馈增益为
+
+            \[
+            K=
+            \begin{bmatrix}
+            k_1 & k_2 & k_3
+            \end{bmatrix}
+            \]
+
+            系统在状态反馈控制 $u=Kx+Rv$ 下的闭环形式为：
+
+            \[
+            \dot{x}=(A+bK)x+bRv
+            \]
+
+            \[
+            y=cx
+            \]
+
+            闭环特征方程为：
+
+            \[
+            \det(sI-A-bK)
+            =s^3+(18-k_3)s^2+\left[12(6-k_3)-k_2\right]s-k_1
+            \]
+
+            将其与期望特征方程系数比较，得到以下方程组：
+
+            \[
+            18-k_3=114.1
+            \]
+
+            \[
+            12(6-k_3)-k_2=1510
+            \]
+
+            \[
+            k_1=-10000
+            \]
+
+            解得：
+
+            \[
+            k_1=-10000,\qquad k_2=-284.8,\qquad k_3=-96.1
+            \]
+
+            因此，状态反馈增益矩阵为：
+
+            \[
+            K=
+            \begin{bmatrix}
+            10000 & 284.8 & 96.1
+            \end{bmatrix}
+            \]
+            \item 确定前馈增益 $R$。
+
+            状态反馈后系统的闭环传递函数为
+
+            \[
+            G(s)=\frac{R}{\alpha^*(s)}
+            \]
+
+            按要求稳态位置误差 $e_p=0$，则闭环系统稳态放大倍数应为 $1$，即
+
+            \[
+            \lim_{s\to 0}\frac{R}{\alpha^*(s)}=1
+            \]
+
+            于是可得 $R=10000$。
+            
+            我们可以给出这道题的系统框图示意图如下：
+            \begin{center}
+                \includegraphics[width = .6\textwidth]{note/state space/figure/23.png}
+            \end{center}
+            \begin{marker}
+                闭环系统的稳态放大倍数为1的理由如下：
+
+                由$e_{ss} = \lim\limits_{s\to 0} s E(s) = \lim\limits_{s\to 0} s (1 - G(s)) R(s)$以及求解稳态位置误差时系统的输入$R(s) = \frac{1}{s}$得：
+                \begin{align*}
+                    e_{ss} &= \lim_{s \to 0} s (1 - G(s)) \frac{1}{s} \\
+                    &=  \lim_{s \to 0} (1 - G(s)) = 0
+                \end{align*}
+                故有$\lim\limits_{s \to 0} G(s) = 1$
+            \end{marker}
+        \end{enumerate}
+\end{example}
+
+但是引入状态反馈之后会不会改变系统的能控性呢？我们有以下的定理：
+\begin{theorem}
+    如果系统是能控的，则对任意反馈增益$K$，引入状态反馈之后的闭环系统也是能控的
+\end{theorem}
+
+由此我们引入镇定的概念：设计反馈控制率使得闭环系统是稳定的
+\begin{definition}
+    给定系统$\dot{x} = A x + B u$,如果存在状态反馈增益$K$使得闭环系统
+    \begin{align*}
+        \dot{x} = (A+BK)x
+    \end{align*}
+    是稳定的，则称原系统或者矩阵对$(A,B)$是\textbf{可镇定的}
+\end{definition}
+
+如果系统能控，则无论其原先的极点位置在哪里，都一定可以通过状态反馈将其镇定。
+如果系统不能控，用状态变换可以将它变成如下按能控性分解的形式：
+\[
+\dot{\bar{x}}
+=
+\begin{bmatrix}
+\bar{A}_c & \bar{A}_{12} \\
+0 & \bar{A}_{\bar{c}}
+\end{bmatrix}\bar{x}
++
+\begin{bmatrix}
+\bar{B}_c \\
+0
+\end{bmatrix}u
+\]
+
+令
+\[
+u=\bar{K}\bar{x}
+=
+\begin{bmatrix}
+\bar{K}_1 & \bar{K}_2
+\end{bmatrix}\bar{x},
+\]
+代入上式得
+\[
+\dot{\bar{x}}
+=
+\begin{bmatrix}
+\bar{A}_c-\bar{B}_c\bar{K}_1
+&
+\bar{A}_{12}-\bar{B}_c\bar{K}_2 \\
+0
+&
+\bar{A}_{\bar{c}}
+\end{bmatrix}\bar{x}
+\]
+
+因此，闭环系统的特征多项式为：
+\[
+\alpha(s)
+=
+\det\left(sI-\bar{A}_c+\bar{B}_c\bar{K}_1\right)
+\cdot
+\det\left(sI-\bar{A}_{\bar{c}}\right)
+\]
+
+\textbf{原系统中能控部分的极点可以由状态反馈任意配置，但不能控部分的极点，即$\bar{A}_{\bar{c}}$的特征值，不能被状态反馈所改变}
+
+由此，我们可以得出系统可镇定的充要条件：
+\begin{theorem}
+    线性连续时间定常系统可镇定的充要条件是：其不可控振型\textbf{都在复平面的左半平面}。   
+\end{theorem}
+
+\begin{example}
+    检验系统
+        \[
+    \dot{x}=
+    \begin{bmatrix}
+    1 & 0 & -1\\
+    0 & -2 & 0\\
+    -1 & 0 & 2
+    \end{bmatrix}x+
+    \begin{bmatrix}
+    0\\
+    0\\
+    1
+    \end{bmatrix}u
+    \]
+
+    是否可用状态反馈镇定。若可以，设计状态反馈阵镇定该系统。
+    \tcblower
+    可以构造出状态变换矩阵如下：
+
+    \[
+    P=
+    \begin{bmatrix}
+    0 & 1 & 0\\
+    0 & 0 & 1\\
+    1 & 0 & 0
+    \end{bmatrix}
+    \]
+
+    令 $x=P\hat{x}$，可将系统转化成如下按能控性分解的形式：
+
+    \[
+    \dot{\hat{x}}=
+    \begin{bmatrix}
+    2 & -1 & 0\\
+    -1 & 1 & 0\\
+    0 & 0 & -2
+    \end{bmatrix}\hat{x}
+    +
+    \begin{bmatrix}
+    1\\
+    0\\
+    0
+    \end{bmatrix}u
+    \]
+
+    由上式可以看出，系统不能控子系统的特征值为 $\lambda=-2$，它在左半平面，因此系统是可以用状态反馈镇定的。
+
+    直接对原系统进行设计 $u=kx$
+
+    \[
+    \begin{aligned}
+    \det(sI-A-Bk)
+    &=
+    \begin{vmatrix}
+    s-1 & 0 & 1\\
+    0 & s+2 & 0\\
+    1-k_1 & -k_2 & s-2-k_3
+    \end{vmatrix} \\
+    &=(s+2)\cdot\left[s^2-(k_3+3)s+k_1+k_3+1\right] \\
+    &=(s+2)\cdot(s^2+4s+3)
+    \end{aligned}
+    \]
+
+    得
+
+    \[
+    k_1=9,\qquad k_2=0,\qquad k_3=-7
+    \]
+\end{example}
+
+\subsection{输出反馈}
+
+考虑以下的单输入单输出系统：
+\[
+\left\{
+\begin{aligned}
+\dot{x} &= Ax+bu\\
+y &= cx
+\end{aligned}
+\right.
+\]
+
+其中 $A\in R^{n\times n}$，$b\in R^{n\times 1}$，$c\in R^{1\times n}$。输出反馈具有如下形式：
+
+\[
+u=fy+v
+\]
+
+\[
+\left\{
+\begin{aligned}
+\dot{x} &= (A+bfc)x+bv\\
+y &= cx
+\end{aligned}
+\right.
+\]
+
+该系统的传递函数为
+
+\[
+G_f(s)=c(sI-A-bfc)^{-1}b
+\]
+
+闭环特征多项式为
+
+\[
+\begin{aligned}
+\alpha_f(s)
+&=\det(sI-A-bfc)\\
+&=\det\left[(sI-A)\left(I-(sI-A)^{-1}bfc\right)\right]\\
+&=\det(sI-A)\det\left(I-(sI-A)^{-1}bfc\right)\\
+&=\det(sI-A)\det\left(I-fc(sI-A)^{-1}b\right)
+\end{aligned}
+\]
+
+由于 $I-fc(sI-A)^{-1}b$ 实际上是一个标量函数，因此有
+
+\[
+\det\left(I-fc(sI-A)^{-1}b\right)
+=1-fc(sI-A)^{-1}b
+\]
+
+记开环系统的传递函数为
+
+\[
+G(s)=c(sI-A)^{-1}b \triangleq \frac{\beta(s)}{\alpha(s)}
+\]
+
+其中，$\alpha(s)$ 是开环系统的特征多项式，即
+
+\[
+\det(sI-A)=\alpha(s)
+\]
+
+由上式可得
+
+\[
+\alpha_f(s)=\alpha(s)-f\beta(s)
+\]
+
+即
+
+\[
+1-\frac{f\beta(s)}{\alpha(s)}=0
+\]
+
+将 $-f$ 看成根轨迹常数，则可以得出如下结论：输出反馈只能将闭环系统的极点配置在系统根轨迹上，而不能做到任意配置。
+\begin{marker}
+    闭环特征多项式的化简主要用到了下面这个公式：
+    \begin{align*}
+        \det(I-AB) = \det(I - BA)
+    \end{align*}
+    从而可以将$\det(I - (sI - A)^{-1} b f c)$化简为$\det(I - f c (sI - A)^{-1} b)$
+\end{marker}
+
+\subsection{状态观测器}
+
+\subsubsection{全维状态观测器}
+
+考虑以下系统：
+\begin{align*}
+    \begin{cases}
+        \dot{x} = Ax + Bu , \quad x(0) = x_0,\quad t \geq 0  \\
+        y= C x        
+    \end{cases}
+\end{align*}
+
+其全维状态观测器的示意图如下：
+\begin{center}
+    \includegraphics[width = .6\textwidth]{note/state space/figure/24.png}
+\end{center}
+
+\begin{definition}[可检测系统]
+    已知$A \in \mathbb{R}^{n \times n}, C\in \mathbb{R}^{m \times n}$，矩阵对$(A,C)$或系统成为是可检测的，如果存在实矩阵$L$，使得矩阵$(A + LC)$稳定
+\end{definition}
+
+\begin{proposition}
+    线性定常系统可检测的充要条件是其对偶系统可镇定，即矩阵对$(A,C)$可检测的充要条件是矩阵对$(A^T,C^T)$可镇定
+\end{proposition}
+
+\begin{proposition}
+    线性定常系统或矩阵对$(A,C)$可检测的充要条件是其全部不能观振型是稳定的
+\end{proposition}
+
+由上述定义和命题我们可以给出以下的定理：
+\begin{theorem}
+    存在矩阵$L$使得系统
+    \begin{align*}
+        \dot{\hat{x}} = (A + LC) \hat{x} - LC x + Bu , \hat{x}(0) = \hat{x}_0
+    \end{align*}
+    构成原系统的一个全维观测器的充要条件是矩阵对$(A,C)$可检测，而此时只需选择合适的$L$使得$(A+LC)$稳定即可
+    \begin{proof}
+        考虑到 $y=Cx$，并将其代入$\dot{\hat{x}} = A \hat{x} + Bu + L(C \hat{x} - y)$中，则此种全维状态观测器的动态方程可表示为
+
+        \[
+        \dot{\hat{x}}=(A+LC)\hat{x}-LCx+Bu,\qquad \hat{x}(0)=\hat{x}_0
+        \]
+
+        再令 $\tilde{x}=x-\hat{x}$ 为真实状态和估计状态间的误差，那么利用原系统状态表达式和上式就可导出 $\tilde{x}$ 所应满足的动态方程为
+
+        \[
+        \dot{\tilde{x}}=(A+LC)\tilde{x},\qquad \tilde{x}(0)=\tilde{x}_0=x_0-\hat{x}_0
+        \]
+
+        这表明，不管初始误差为多大，要使得
+
+        \[
+        \lim_{t\to\infty}\hat{x}(t)=\lim_{t\to\infty}x(t)
+        \]
+
+        其充要条件是在矩阵 $L$ 使矩阵 $(A+LC)$ 的特征值 $\lambda_i(A+LC)(i=1,2,\ldots,n)$ 均具有负实部，也即 $(A,C)$ 矩阵对可检测。证毕。
+    \end{proof}
+\end{theorem}
+
+由此可以得到以下的定理：
+\begin{theorem}
+    线性定常系统的全维状态观测器存在且可以任意配置极点，即可通过选择增益阵$L$任意配置$(A+LC)$的全部特征值的充要条件是矩阵对$(A,C)$能观
+    \begin{proof}
+        利用对偶原理，$(A,C)$ 能观测意味着 $(A^{\mathrm{T}},C^{\mathrm{T}})$ 能控。再利用极点配置问题的基本结论可知，对任意给定的 $n$ 个实数或共轭复数特征值 $\{\lambda_1^*,\lambda_2^*,\cdots,\lambda_n^*\}$，必可找到一个实常阵 $K$，使
+
+        \[
+        \lambda_i(A^{\mathrm{T}}+C^{\mathrm{T}}K)=\lambda_i^*,\quad i=1,2,\cdots,n
+        \]
+
+        由于 $(A^{\mathrm{T}}+C^{\mathrm{T}}K)$ 与其转置矩阵 $(A^{\mathrm{T}}+C^{\mathrm{T}}K)^{\mathrm{T}}=(A+K^{\mathrm{T}}C)$ 具有等同的特征值，故当取 $L=K^{\mathrm{T}}$ 时，有
+
+        \[
+        \lambda_i(A+LC)=\lambda_i^*,\quad i=1,2,\cdots,n
+        \]
+
+        也即可任意配置 $(A+LC)$ 的全部特征值。于是充分性得证。逆推上述过程可证得必要性。
+    \end{proof}
+\end{theorem}
+
+由上述定理可以得到全维状态观测器的设计方法如下：
+\begin{anymark}[$(A,C)$可检测条件下的全维状态观测器设计]
+    \begin{enumerate}
+        \item 导出对偶系统 $(A^{\mathrm{T}},C^{\mathrm{T}},B^{\mathrm{T}})$。
+
+        \item 指定所要设计的全维观测器的一组期望极点
+        $\{\lambda_1^*,\lambda_2^*,\cdots,\lambda_n^*\}$，利用极点配置问题的算法，对矩阵 $(A^{\mathrm{T}},C^{\mathrm{T}})$ 来确定使
+
+        \[
+        \lambda_i(A^{\mathrm{T}}+C^{\mathrm{T}}K)=\lambda_i^*,\quad i=1,2,\cdots,n
+        \]
+
+        成立的反馈增益阵 $K$。
+
+        \item 取 $L=K^{\mathrm{T}}$，并计算 $(A+LC)$，则所要设计的全维状态观测器就为
+
+        \[
+        \dot{\hat{x}}=(A+LC)\hat{x}+Bu-Ly
+        \]
+
+        而 $\hat{x}$ 即为 $x$ 的估计状态。
+    \end{enumerate}
+\end{anymark}
+
+\begin{anymark}[直接法设计全维状态观测器]
+    令$\det(s I - A - LC) = \prod\limits_{i = 1}^n (s - \lambda_i^*)$，求出满足这个式子的$L$
+\end{anymark}
+
+\begin{example}
+    已知线性系统
+
+    \[
+    \left\{
+    \begin{aligned}
+    \dot{x}
+    &=
+    \begin{bmatrix}
+    0 & 1\\
+    1 & 0
+    \end{bmatrix}x
+    +
+    \begin{bmatrix}
+    1 & 0\\
+    0 & 1
+    \end{bmatrix}u\\
+    y
+    &=
+    \begin{bmatrix}
+    1 & 0
+    \end{bmatrix}x
+    \end{aligned}
+    \right.
+    \]
+
+    设计其全维状态观测器，使得观测器的极点位于 $-\alpha\pm j\beta$，$\alpha,\beta>0$。
+    \tcbsubtitle{法一}
+
+    由
+
+    \[
+    \begin{bmatrix}
+    c\\
+    cA
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    1 & 0\\
+    0 & 1
+    \end{bmatrix}
+    \]
+
+    可知该系统完全能观，因此我们可以利用第一种方法求解该系统的状态观测器。
+
+    \begin{enumerate}
+
+        \item 导出其对偶系统
+
+        \[
+        (A',b',C')=(A^{\mathrm{T}},c^{\mathrm{T}},B^{\mathrm{T}})
+        =
+        \left(
+        \begin{bmatrix}
+        0 & 1\\
+        1 & 0
+        \end{bmatrix},
+        \begin{bmatrix}
+        1\\
+        0
+        \end{bmatrix},
+        \begin{bmatrix}
+        1 & 0\\
+        0 & 1
+        \end{bmatrix}
+        \right)
+        \]
+
+        \item 利用设计方法9.1.1求解矩阵 $k$，使得矩阵 $A'+b'k$ 以 $-\alpha\pm j\beta$ 为特征值。矩阵的特征多项式为
+
+        \[
+        \det(sI-A')=s^2-1
+        \]
+
+        由指定极点可得观测器的特征多项式为
+
+        \[
+        (s+\alpha-j\beta)(s+\alpha+j\beta)
+        =s^2+2\alpha s+(\alpha^2+\beta^2)
+        \]
+
+        从而
+
+        \[
+        \bar{k}
+        =
+        \begin{bmatrix}
+        \alpha_0-\alpha_0^* & \alpha_1-\alpha_1^*
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+        -1-\alpha^2-\beta^2 & -2\alpha
+        \end{bmatrix}
+        \]
+
+        又
+
+        \[
+        P=
+        \begin{bmatrix}
+        b' & A'b'
+        \end{bmatrix}
+        \begin{bmatrix}
+        a_1 & 1\\
+        1 & 0
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+        0 & 1\\
+        1 & 0
+        \end{bmatrix}
+        \]
+
+        故所求矩阵 $k$ 为
+
+        \[
+        k=\bar{k}P^{-1}
+        =
+        \begin{bmatrix}
+        -2\alpha & -1-\alpha^2-\beta^2
+        \end{bmatrix}
+        \]
+
+        \item 取
+
+        \[
+        L=k^{\mathrm{T}}
+        =
+        \begin{bmatrix}
+        -2\alpha\\
+        -1-\alpha^2-\beta^2
+        \end{bmatrix}
+        \]
+
+        则
+
+        \[
+        A+Lc=
+        \begin{bmatrix}
+        -2\alpha & 1\\
+        -\alpha^2-\beta^2 & 0
+        \end{bmatrix}
+        \]
+
+        从而所求全维状态观测器为
+
+        \[
+        \dot{\hat{x}}
+        =
+        \begin{bmatrix}
+        -2\alpha & 1\\
+        -\alpha^2-\beta^2 & 0
+        \end{bmatrix}\hat{x}
+        +
+        \begin{bmatrix}
+        1 & 0\\
+        0 & 1
+        \end{bmatrix}u
+        +
+        \begin{bmatrix}
+        2\alpha\\
+        1+\alpha^2+\beta^2
+        \end{bmatrix}y
+        \]
+    \end{enumerate}
+    \tcbsubtitle{法二}
+
+        \[
+    \det(sI-A-LC)
+    =
+    \det
+    \left(
+    \begin{bmatrix}
+    s-l_1 & -1\\
+    -1-l_2 & s
+    \end{bmatrix}
+    \right)
+    =s^2-l_1s-l_2-1
+    \]
+
+    期望特征多项式
+
+    \[
+    (s+\alpha-j\beta)(s+\alpha+j\beta)
+    =s^2+2\alpha s+(\alpha^2+\beta^2)
+    \]
+
+    比较得：
+
+    \[
+    l_1=-2\alpha,\qquad l_2=-1-\alpha^2-\beta^2
+    \]
+
+    \[
+    L=
+    \begin{bmatrix}
+    -2\alpha\\
+    -1-\alpha^2-\beta^2
+    \end{bmatrix}
+    \]
+
+    \[
+    \dot{\hat{x}}
+    =
+    \begin{bmatrix}
+    -2\alpha & 1\\
+    -\alpha^2-\beta^2 & 0
+    \end{bmatrix}\hat{x}
+    +
+    \begin{bmatrix}
+    1 & 0\\
+    0 & 1
+    \end{bmatrix}u
+    +
+    \begin{bmatrix}
+    2\alpha\\
+    1+\alpha^2+\beta^2
+    \end{bmatrix}y
+    \]
+\end{example}
+
+\subsubsection{降维状态观测器}
+
+同样的，我们考察的是如下的系统：
+\begin{align*}
+    \begin{cases}
+        \dot{x} = Ax+Bu \\
+        y = Cx
+    \end{cases}
+\end{align*}
+
+在给出降维状态观测器的设计方法之前，我们有以下的引理：
+\begin{lemma}
+    给定上面被估计系统，任取 $(n-m)\times n$ 阶常阵 $R$，使 $n\times n$ 矩阵
+    \[
+    P=
+    \begin{bmatrix}
+    C\\
+    R
+    \end{bmatrix}
+    \]
+    非奇异，则有
+    \[
+    \bar{A}=PAP^{-1}
+    =
+    \begin{bmatrix}
+    \bar{A}_{11} & \bar{A}_{12}\\
+    \bar{A}_{21} & \bar{A}_{22}
+    \end{bmatrix},
+    \qquad
+    \bar{B}=PB
+    =
+    \begin{bmatrix}
+    \bar{B}_1\\
+    \bar{B}_2
+    \end{bmatrix},
+    \qquad
+    \bar{C}=CP^{-1}
+    =
+    \begin{bmatrix}
+    I_m & 0
+    \end{bmatrix}
+    \]
+
+    其中，$\bar{A}_{11}$、$\bar{A}_{12}$、$\bar{A}_{21}$ 和 $\bar{A}_{22}$ 分别为
+    $m\times m$、$m\times(n-m)$、$(n-m)\times m$ 和 $(n-m)\times(n-m)$ 阶矩阵；
+    $\bar{B}_1$ 和 $\bar{B}_2$ 分别为 $m\times r$ 和 $(n-m)\times r$ 阶矩阵，
+    并且 $(\bar{A}_{22},\bar{A}_{12})$ 能观的充分必要条件是 $(A,C)$ 能观测。
+    \begin{proof}
+    令
+    \[
+    Q=P^{-1}
+    =
+    \begin{bmatrix}
+    Q_1 & Q_2
+    \end{bmatrix}
+    \]
+    其中 $Q_1$ 和 $Q_2$ 分别为 $n\times m$ 和 $n\times(n-m)$ 阶矩阵，则有
+    \[
+    I_n
+    =
+    PQ
+    =
+    \begin{bmatrix}
+    C\\
+    R
+    \end{bmatrix}
+    \begin{bmatrix}
+    Q_1 & Q_2
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    CQ_1 & CQ_2\\
+    RQ_1 & RQ_2
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    I_m & 0\\
+    0 & I_{n-m}
+    \end{bmatrix}
+    \]
+    也即下式成立
+    \[
+    CQ_1=I_m,\qquad CQ_2=0
+    \]
+
+    由此可得
+    \[
+    \bar{C}
+    =
+    CP^{-1}
+    =
+    \begin{bmatrix}
+    CQ_1 & CQ_2
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    I_m & 0
+    \end{bmatrix}
+    \]
+
+    代数等价的系统具有相同的能控性和能观性，因而 $(A,C)$ 能观的充分必要条件是
+    $(\bar{A},\bar{C})$ 能观测。由 PBH 判据知，$(\bar{A},\bar{C})$ 能观测等价于
+    \[
+    \begin{aligned}
+    n
+    &=
+    \operatorname{rank}
+    \begin{bmatrix}
+    sI-\bar{A}\\
+    \bar{C}
+    \end{bmatrix} \\
+    &=
+    \operatorname{rank}
+    \begin{bmatrix}
+    sI-\bar{A}_{11} & -\bar{A}_{12}\\
+    -\bar{A}_{21} & sI-\bar{A}_{22}\\
+    I_m & 0
+    \end{bmatrix} \\
+    &=
+    m+
+    \operatorname{rank}
+    \begin{bmatrix}
+    sI-\bar{A}_{22}\\
+    \bar{A}_{12}
+    \end{bmatrix}.
+    \end{aligned}
+    \]
+    也即
+    \[
+    \operatorname{rank}
+    \begin{bmatrix}
+    sI-\bar{A}_{22}\\
+    \bar{A}_{12}
+    \end{bmatrix}
+    =
+    n-m
+    \]
+
+    再由 PBH 判据知，上式等价于 $(\bar{A}_{22},\bar{A}_{12})$ 能观。这样结论成立。
+    \end{proof}
+\end{lemma}
+
+\begin{lemma}
+    设$(\bar{A}_{22},\bar{A}_{12})$能观，$\bar{L}$为使矩阵$(\bar{A}_{22} + \bar{L}\bar{A}_{12})$稳定的任意矩阵，则下述系统
+    \[
+    \left\{
+    \begin{aligned}
+    \dot{z}
+    &=
+    (\bar{A}_{22}+\bar{L}\bar{A}_{12})z
+    +
+    \left[
+    (\bar{A}_{21}+\bar{L}\bar{A}_{11})
+    -
+    (\bar{A}_{22}+\bar{L}\bar{A}_{12})\bar{L}
+    \right]y
+    +
+    (\bar{B}_2+\bar{L}\bar{B}_1)u
+    \\
+    \hat{\bar{x}}_2
+    &=
+    z-\bar{L}y
+    \end{aligned}
+    \right.
+    \]
+
+    构成下面系统：
+    \[
+    \left\{
+    \begin{aligned}
+    \begin{bmatrix}
+    \dot{\bar{x}}_1\\
+    \dot{\bar{x}}_2
+    \end{bmatrix}
+    &=
+    \begin{bmatrix}
+    \bar{A}_{11} & \bar{A}_{12}\\
+    \bar{A}_{21} & \bar{A}_{22}
+    \end{bmatrix}
+    \begin{bmatrix}
+    \bar{x}_1\\
+    \bar{x}_2
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+    \bar{B}_1\\
+    \bar{B}_2
+    \end{bmatrix}u
+    \\
+    y
+    &=
+    \begin{bmatrix}
+    I_m & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+    \bar{x}_1\\
+    \bar{x}_2
+    \end{bmatrix}
+    =
+    \bar{x}_1
+    \end{aligned}
+    \right.
+    \]
+    的状态分量 $\bar{x}_2$ 的一个观测器，即对于任何的
+    $\bar{x}_0,z(0)$ 和 $u(t)$，均有
+    \[
+    \lim_{t\to\infty}\left[\bar{x}_2(t)-\hat{\bar{x}}_2(t)\right]=0
+    \]
+\end{lemma}
+
+由这两个引理我们可以给出以下的定理：
+\begin{theorem}
+    设 $(A,C)$ 能观测，矩阵 $\bar{A}_{ij}$、$\bar{B}_i$、$Q_i$，
+    $i=1,2,\ j=1,2$，由引理5.6.2所定义，其中$Q_1,Q_2$在证明中定义
+    $\bar{L}$ 为使得矩阵 $(\bar{A}_{22}+\bar{L}\bar{A}_{12})$
+    稳定的任一矩阵，则下述系统
+    \label{theorem5.6.6}
+    \[
+    \left\{
+    \begin{aligned}
+    \dot{z}
+    &=
+    (\bar{A}_{22}+\bar{L}\bar{A}_{12})z
+    +
+    \left[
+    (\bar{A}_{21}+\bar{L}\bar{A}_{11})
+    -
+    (\bar{A}_{22}+\bar{L}\bar{A}_{12})\bar{L}
+    \right]y
+    +
+    (\bar{B}_2+\bar{L}\bar{B}_1)u
+    \\
+    \hat{x}
+    &=
+    Q_1y+Q_2(z-\bar{L}y)
+    =
+    Q_2z+(Q_1-Q_2\bar{L})y
+    \end{aligned}
+    \right.
+    \]
+
+    构成原系统的一个 $n-m$ 维状态观测器，即对于任何的 $x(0)$、$z(0)$ 和
+    $u(t)$，由原系统式和上述观测器式构成的复合系统均满足下述关系
+    \[
+    \lim_{t\to\infty}\left[x(t)-\hat{x}(t)\right]=0
+    \]
+\end{theorem}
+
+由这个定理我们可以给出降维状态观测器的设计方法：
+\begin{anymark}[线性系统的降维状态观测器设计]
+    \begin{enumerate}[label=\textbf{第 \arabic* 步.}, leftmargin=*]
+        \item 选取 $(n-m)\times n$ 阶常阵 $R$，使得 $n\times n$ 阶矩阵
+        \[
+        P=
+        \begin{bmatrix}
+        C\\
+        R
+        \end{bmatrix}
+        \]
+        非奇异。
+
+        \item 计算
+        \[
+        Q=P^{-1}=
+        \begin{bmatrix}
+        Q_1 & Q_2
+        \end{bmatrix}
+        \]
+        其中 $Q_1$ 和 $Q_2$ 分别为 $n\times m$ 和 $n\times(n-m)$ 阶矩阵。
+
+        \item 计算
+        \[
+        \bar{A}=PAP^{-1}
+        =
+        \begin{bmatrix}
+        \bar{A}_{11} & \bar{A}_{12}\\
+        \bar{A}_{21} & \bar{A}_{22}
+        \end{bmatrix},
+        \qquad
+        \bar{B}=PB
+        =
+        \begin{bmatrix}
+        \bar{B}_1\\
+        \bar{B}_2
+        \end{bmatrix}
+        \]
+        其中，$\bar{A}_{11}$、$\bar{A}_{12}$、$\bar{A}_{21}$、$\bar{A}_{22}$ 分别为
+        $m\times m$、$m\times(n-m)$、$(n-m)\times m$ 和 $(n-m)\times(n-m)$ 阶矩阵；
+        $\bar{B}_1$ 和 $\bar{B}_2$ 分别为 $m\times r$ 和 $(n-m)\times r$ 阶矩阵。
+
+        \item 选取 $\bar{L}$ 使得矩阵
+        $(\bar{A}_{22}+\bar{L}\bar{A}_{12})$ 稳定或具有希望的稳定特征值。
+
+        \item 按照\hyperref[theorem5.6.6]{定理5.6.6}中的式子构成系统的降维状态观测器。
+    \end{enumerate}
+\end{anymark}
+
+\begin{example}
+    给定受控系统$(A,B,C)$为：
+    \[
+    A=
+    \begin{bmatrix}
+    4 & 4 & 4\\
+    -11 & -12 & -12\\
+    13 & 14 & 13
+    \end{bmatrix},
+    \qquad
+    B=
+    \begin{bmatrix}
+    1\\
+    -1\\
+    0
+    \end{bmatrix},
+    \qquad
+    C=
+    \begin{bmatrix}
+    1 & 1 & 1
+    \end{bmatrix}
+    \]
+    确定它的降维状态观测器。
+    \tcblower
+    对于该系统，有 $n=3,\ m=r=1$。由于可观测性矩阵
+    \[
+    Q_o=
+    \begin{bmatrix}
+    C\\
+    CA\\
+    CA^2
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    1 & 1 & 1\\
+    6 & 6 & 5\\
+    23 & 22 & 17
+    \end{bmatrix}
+    \]
+    的秩为 $3$。从而系统是完全能观测的，从而可以构造 $2$ 维降维观测器。
+    \begin{enumerate}[label=\textbf{第 \arabic* 步.}, leftmargin=*]
+        \item 选取
+        \[
+        R=
+        \begin{bmatrix}
+        0 & 1 & 0\\
+        0 & 0 & 1
+        \end{bmatrix}
+        \]
+        则有
+        \[
+        P=
+        \begin{bmatrix}
+        1 & 1 & 1\\
+        0 & 1 & 0\\
+        0 & 0 & 1
+        \end{bmatrix}
+        \]
+
+        \item 经计算有
+        \[
+        Q=P^{-1}=
+        \begin{bmatrix}
+        1 & -1 & -1\\
+        0 & 1 & 0\\
+        0 & 0 & 1
+        \end{bmatrix}
+        \]
+        从而
+        \[
+        Q_1=
+        \begin{bmatrix}
+        1\\0\\0
+        \end{bmatrix},
+        \qquad
+        Q_2=
+        \begin{bmatrix}
+        -1 & -1\\
+        1 & 0\\
+        0 & 1
+        \end{bmatrix}
+        \]
+
+        \item 计算得
+        \[
+        \bar{A}=PAP^{-1}
+        =
+        \begin{bmatrix}
+        6 & 0 & -1\\
+        -11 & -1 & -1\\
+        13 & 1 & 0
+        \end{bmatrix},
+        \qquad
+        \bar{B}=PB=
+        \begin{bmatrix}
+        0\\-1\\0
+        \end{bmatrix}
+        \]
+
+        \item 选择观测器的极点为 $-3$ 和 $-4$，则
+        \[
+        \psi^*(s)=(s+3)(s+4)=s^2+7s+12
+        \]
+
+        \item 降维观测器为
+        \[
+        \left\{
+        \begin{aligned}
+        \dot{z}
+        &=
+        \begin{bmatrix}
+        -1 & -6\\
+        1 & -6
+        \end{bmatrix}z
+        +
+        \begin{bmatrix}
+        -1\\0
+        \end{bmatrix}u
+        +
+        \begin{bmatrix}
+        60\\80
+        \end{bmatrix}y
+        \\
+        \hat{x}
+        &=
+        \begin{bmatrix}
+        -1 & -1\\
+        1 & 0\\
+        0 & 1
+        \end{bmatrix}z
+        +
+        \begin{bmatrix}
+        12\\-5\\-6
+        \end{bmatrix}y
+        \end{aligned}
+        \right.
+        \]
+    \end{enumerate}
+\end{example}
+
+\subsubsection{基于观测器的状态反馈}
+
+我们研究以下的系统：
+\begin{center}
+    \includegraphics[width = .6\textwidth]{note/state space/figure/25.png}
+\end{center}
+
+由上图我们可以写出系统状态空间表达式、状态反馈表达式以及状态观测器表达式：
+\begin{align*}
+    \begin{cases}
+        \dot{x} = A x + B u \\
+        y = C x   \\
+        u = K \hat{x} + v\\
+        \dot{\hat{x}} = A \hat{x} + B u + L (C \hat{x} - y)
+    \end{cases}
+\end{align*}
+化简以后有：
+\begin{align*}
+    \begin{cases}
+        \dot{x} = A x + B K \hat{x} + B v \\
+        \dot{\hat{x}} = -LC x + (A + BK + LC) \hat{x} + Bv \\
+        y = C x
+    \end{cases}
+\end{align*}
+若令$z = \begin{bmatrix}
+    x \\ \hat{x}
+\end{bmatrix}$，我们可以得到一个闭环系统的状态空间表达式：
+\begin{align*}
+    \begin{cases}
+        \dot{z} = \begin{bmatrix}
+            A & BK \\
+            -LC & A+BK+LC
+        \end{bmatrix} z + \begin{bmatrix}
+            B \\ B
+        \end{bmatrix} v \\
+        y = \begin{bmatrix}
+            C & 0
+        \end{bmatrix} z
+    \end{cases}
+\end{align*}
+再令$z = P \bar{z}$，其中$ P = \begin{bmatrix}
+    I & 0 \\
+    I & -I 
+\end{bmatrix}$，则有$\bar{z} = \begin{bmatrix}
+    x \\ x - \hat{x}
+\end{bmatrix}$，带入上述闭环系统状态空间表达式可得到：
+\begin{align*}
+    \begin{cases}
+        \dot{z} = \begin{bmatrix}
+            A+BK & -BK \\
+            0 & A+LC
+        \end{bmatrix} z + \begin{bmatrix}
+            B \\ 0
+        \end{bmatrix} v \\
+        y = \begin{bmatrix}
+            C & 0
+        \end{bmatrix} z
+    \end{cases}
+\end{align*}
+计算此系统的传递函数阵有：
+\begin{align*}
+    \bar{G}(s) = \begin{bmatrix} C & 0 \end{bmatrix}
+    \left(
+    sI -
+    \begin{bmatrix}
+    A + BK & -BK \\
+    0 & A + LC
+    \end{bmatrix}
+    \right)^{-1}
+    \begin{bmatrix}
+    B \\
+    0
+    \end{bmatrix}
+    =
+    C(sI - A - BK)^{-1} B
+\end{align*}
+观察此系统我们可以发现：\textbf{复合系统与状态反馈子系统具有相同的传递函数阵，与状态观测器无关}
+
+计算此系统的特征值有：
+\[
+\left|
+\begin{array}{cc}
+sI - A - BK & BK \\
+0 & sI - A - LC
+\end{array}
+\right|
+=
+\left| sI - A - BK \right|
+\cdot
+\left| sI - A - LC \right|
+\]
+
+即复合系统特征值由状态反馈子系统和全维状态观测器的特征值组合而成，
+两部分特征值相互独立，彼此不受影响。
+因此状态反馈矩阵 $K$ 和输出反馈矩阵 $L$ 可根据各自的要求来独立进行设计。
+
+由此我们可以给出分离定理的内容：
+\begin{theorem}
+    若被控系统$(A,B,C)$可控可观测，基于状态观测器设计状态反馈时，其系统的极点配置和观测器设计可以分别独立进行，即$K$和$L$的设计可以分别独立进行
+\end{theorem}
+
+\begin{example}
+    设系统的状态空间表达式为：
+    \[
+    \begin{aligned}
+    \dot{x}
+    &=
+    \begin{bmatrix}
+    0 & 1 & 0 \\
+    0 & 0 & 1 \\
+    0 & -6 & -5
+    \end{bmatrix}x
+    +
+    \begin{bmatrix}
+    0 \\
+    0 \\
+    1
+    \end{bmatrix}u, \\[4pt]
+    y
+    &=
+    \begin{bmatrix}
+    1 & 0 & 0
+    \end{bmatrix}x
+    \end{aligned}
+    \]
+
+    \begin{enumerate}
+        \item 该系统能通过状态反馈 $u=Kx$ 任意配置闭环系统的极点吗？
+        若能，设计状态反馈矩阵 $K$，使得闭环系统的极点为
+        $-1 \pm j,\,-1$。
+
+        \item 设计一个基于三维观测器的状态反馈控制律，使得闭环系统的极点为
+        $-1 \pm j,\,-1,\,-10,\,-10,\,-20$，
+        并画出闭环系统的结构图。
+    \end{enumerate}
+    \tcblower
+    \begin{enumerate}
+        \item 设计状态反馈（直接法）
+
+        能控性矩阵为
+        \[
+        Q_c =
+        \begin{bmatrix}
+        0 & 0 & 1 \\
+        0 & 1 & -5 \\
+        1 & -5 & 19
+        \end{bmatrix},
+        \qquad
+        \operatorname{rank}(Q_c)=3
+        \]
+
+        系统可通过状态反馈任意配置极点。令 $u=kx$，
+        \[
+        \det(sI-A-bk)
+        =
+        \det
+        \begin{bmatrix}
+        s & -1 & 0 \\
+        0 & s & -1 \\
+        -k_1 & 6-k_2 & s+5-k_3
+        \end{bmatrix}
+        =
+        s^3+(5-k_3)s^2+(6-k_2)s-k_1
+        \]
+
+        期望特征多项式为（期望闭环极点 $-1\pm j,-1$）：
+        \[
+        \alpha^*(s)=s^3+3s^2+4s+2
+        \]
+
+        比较可得：
+        \[
+        k_1=-2,\qquad k_2=2,\qquad k_3=2
+        \]
+        因此
+        \[
+        u=
+        \begin{bmatrix}
+        -2 & 2 & 2
+        \end{bmatrix}x
+        \]
+
+        \item 设计全维状态观测器（直接法）
+
+        能观性矩阵为
+        \[
+        Q_o =
+        \begin{bmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1
+        \end{bmatrix},
+        \qquad
+        \operatorname{rank}(Q_o)=3
+        \]
+
+        系统可设计全维状态观测器并任意配置极点。令
+        \[
+        L=
+        \begin{bmatrix}
+        l_1 & l_2 & l_3
+        \end{bmatrix}^{T}
+        \]
+        则
+        \[
+        \det(sI-A-Lc)
+        =
+        \det
+        \begin{bmatrix}
+        s-l_1 & -1 & 0 \\
+        -l_2 & s & -1 \\
+        -l_3 & 6 & s+5
+        \end{bmatrix}
+        =
+        s^3+(5-l_1)s^2+(6-5l_1-l_2)s-6l_1-5l_2-l_3
+        \]
+
+        期望特征多项式为（期望观测器极点 $-10,-10,-20$）：
+        \[
+        \beta^*(s)=s^3+40s^2+500s+2000
+        \]
+
+        比较可得：
+        \[
+        l_1=-35,\qquad l_2=-319,\qquad l_3=-195
+        \]
+    \end{enumerate}
+\end{example}
