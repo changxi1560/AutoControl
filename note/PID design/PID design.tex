@@ -97,7 +97,7 @@ PID控制器的一般形式如下：
 
 具体步骤如下：
 \begin{enumerate}
-    \item 令$I_i = \infty , T_d = 0$，将控制器设置为比例控制，将$K_p$从0增大，首次出现等幅振荡时，记下此时的增益$K_{ps}$和振荡周期$T_s$
+    \item 令$T_i = \infty , T_d = 0$，将控制器设置为比例控制，将$K_p$从0增大，首次出现等幅振荡时，记下此时的增益$K_{ps}$和振荡周期$T_s$
     \item 根据Ziegler-Nichols给出的调整法则表，确定PID参数，具体如下：
     \begin{center}
         \includegraphics[width = .3\textwidth]{note/PID design/figure/8.png}
