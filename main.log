@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.29)  26 JUN 2026 16:58
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.29)  27 JUN 2026 15:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3249,7 +3249,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8AC290C9A1FC8F19F21AB4712E01F775;49725.
+(rerunfilecheck)             Checksum: C1FC2A28E94C654EFC389A4A9C5E7835;49674.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
@@ -3257,7 +3257,7 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Here is how much of TeX's memory you used:
  56788 strings out of 474773
  1232738 string characters out of 5758619
- 2300518 words of memory out of 5000000
+ 2300473 words of memory out of 5000000
  77742 multiletter control sequences out of 15000+600000
  620378 words of font info for 293 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

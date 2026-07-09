@@ -42,7 +42,7 @@
 
 从图上可以看出添加一个极点可以使根轨迹向右移动
 
-\subsection{超前环节}
+\section{超前环节}
 超前环节的传递函数为
 \begin{equation*}
     G_c(s) = K_c \frac{s-z_c}{s-p_c}  \quad  p_c < z_c < 0
@@ -57,7 +57,7 @@ $\varphi_c$不宜太大，否则难以实现
 
 同时，引入超前环节相当于引入了一对开环偶极子，在加入偶极子之后，系统的开环增益发生了变化，适当选取偶极子可以增加系统的静态性能
 
-\section{超前校正环节设计}
+\subsection{超前校正环节设计}
 
 我们通过以下步骤，基于根轨迹进行超前校正的设计
 \begin{enumerate}
@@ -110,9 +110,11 @@ $\varphi_c$不宜太大，否则难以实现
             \left\lvert p_c \right\rvert &= \omega_n \frac{\sin (\theta + \eta)}{\sin (\delta - \varphi)} \\
         \end{split}
     \end{equation*}
+    其中$\delta = 180^\circ - \theta - \eta,\theta = \arccos \xi$
 \end{enumerate}
 
-\subsection{迟后校正环节设计}
+
+\section{迟后校正环节设计}
 
 我们可以通过以下步骤，设计基于根轨迹的迟后校正：
 \begin{enumerate}
@@ -131,7 +133,7 @@ $\varphi_c$不宜太大，否则难以实现
     \item 绘制出校正后的根轨迹图，检验系统的动态性能指标和静态稳态性能指标
 \end{enumerate}
 
-\subsection{迟后-超前校正环节的设计}
+\section{迟后-超前校正环节的设计}
 
 我们可以通过以下步骤，设计基于根轨迹的迟后-超前校正环节：
 \begin{enumerate}
@@ -142,7 +144,7 @@ $\varphi_c$不宜太大，否则难以实现
     \item 迟后校正后，原主导极点位置可能发生变化。此时，应绘制迟后超前校正后系统根轨迹，判断系统动、静态性能是否满足要求。
 \end{enumerate}
 
-\subsection{反馈校正的设计}
+\section{反馈校正的设计}
 
 我们可以通过以下步骤，设计基于根轨迹的局部反馈校正：
 \begin{enumerate}
